@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ONE+Mobile+OTF:wght@400;700&display=swap" />
+    <title>로그인</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img class="logo" alt="로고" src="/icon/BN핫도그흰색.png">
+            <nav class="nav" aria-label="Main Navigation">
+                <a href="#" class="nav-item" onclick="handleHomeButtonClick()">HOME</a>
+                <a href="#" class="nav-item" onclick="handleMyButtonClick()">MY</a>
+                <a href="#" class="nav-item" onclick="handleLoginButtonClick()">LOGIN</a>
+            </nav>
+        </header>
+        <main class="main">
+            <h1>로그인</h1>
+            <form class="login-form" action="/login" method="post">
+                <div class="form-group">
+                    <label for="email">이메일 주소</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="forgot-password">
+                    <a href="/reset-password">아이디 찾기 / 비밀번호 재설정</a>
+                </div>
+                <button type="submit" class="login-button">로그인</button>
+                <div class="signup-link">
+                    <span>아직 계정이 없으신가요?</span>
+                    <a href="/signup">회원가입하기</a>
+                </div>
+            </form>
+        </main>
+    </div>
+    <script>
+        function handleMainButtonClick() {
+            alert("MAIN 버튼 클릭됨");
+        }
+
+        function handleHomeButtonClick() {
+            alert("HOME 버튼 클릭됨");
+        }
+
+        function handleMyButtonClick() {
+            alert("MY 버튼 클릭됨");
+        }
+
+        function handleLoginButtonClick() {
+            alert("LOGIN 버튼 클릭됨");
+        }
+    </script>
+</body>
+</html>

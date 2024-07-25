@@ -1,0 +1,179 @@
+:root {
+    --color-gainsboro: #dcdcdc;
+    --color-darkorange: #ff8c00;
+    --color-dimgray-100: #696969;
+    --color-black: #000000;
+    --color-silver: #c0c0c0;
+    --color-white: #ffffff;
+    --padding-3xs: 4px;
+    --padding-xs: 8px;
+    --padding-s: 16px;
+    --padding-m: 24px;
+    --br-3xs: 4px;
+    --gap-xs: 8px;
+    --font-size-mini: 12px;
+    --font-size-s: 16px;
+    --font-size-m: 18px;
+    --font-size-l: 24px;
+    --font-one-mobile-otf: 'ONE Mobile OTF', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-inter);
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 45px; /* 상단바 높이만큼 여백 추가 */
+    box-sizing: border-box;
+}
+
+.header {
+    width: 100%;
+    height: 45px;
+    background-color: var(--color-darkorange);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--padding-s);
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* 헤더가 다른 요소들 위에 있도록 설정 */
+}
+
+.logo {
+    height: 45px;
+    object-fit: cover;
+}
+
+.nav {
+    display: flex;
+    gap: var(--gap-xs);
+}
+
+.nav-item {
+    width: 100px;
+    height: 45px;
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-darkorange);
+    border-radius: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-item:hover {
+    background-color: #ff7f00;
+    color: var(--color-white);
+}
+
+.main {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-m);
+}
+
+h1 {
+    font-size: var(--font-size-l);
+    color: #595959;
+    margin-bottom: var(--gap-xs);
+    font-family: var(--font-one-mobile-otf);
+    padding-bottom: 30px;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+    padding: var(--padding-m);
+    border: 1px solid var(--color-gainsboro);
+    border-radius: var(--br-3xs);
+    background-color: var(--color-white);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+}
+
+label {
+    font-size: var(--font-size-s);
+    color: var(--color-dimgray-100);
+}
+
+input {
+    height: 40px;
+    padding: 0 var(--padding-xs);
+    border: 1px solid var(--color-gainsboro);
+    border-radius: var(--br-3xs);
+    font-size: var(--font-size-s);
+    box-sizing: border-box;
+}
+
+.login-button {
+    height: 50px;
+    border: none;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: var(--font-size-s);
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: var(--gap-xs);
+}
+
+.forgot-password {
+    text-align: right;
+    font-size: var(--font-size-mini);
+    color: var(--color-dimgray-100);
+    margin: var(--gap-xs) 0;
+}
+
+.forgot-password a {
+    color: var(--color-darkorange);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-xs);
+    font-size: var(--font-size-mini);
+    color: var(--color-dimgray-100);
+    margin-top: var(--gap-xs);
+}
+
+.signup-link a {
+    color: var(--color-darkorange);
+    text-decoration: none;
+    font-weight: bold;
+}

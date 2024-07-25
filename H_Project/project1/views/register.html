@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ONE+Mobile+OTF:wght@400;700&display=swap" />
+    <title>회원가입</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img class="logo" alt="로고" src="/icon/BN핫도그흰색.png">
+            <nav class="nav">
+                <a href="#" class="nav-item" onclick="handleHomeButtonClick()">HOME</a>
+                <a href="#" class="nav-item" onclick="handleMyButtonClick()">MY</a>
+                <a href="#" class="nav-item" onclick="handleLoginButtonClick()">LOGIN</a>
+            </nav>
+        </header>
+        <main class="main">
+            <h1>회원가입</h1>
+            <form class="signup-form" action="/signup" method="post">
+                <div class="form-group">
+                    <label for="name">성함</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="nickname">닉네임</label>
+                    <input type="text" id="nickname" name="nickname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">이메일 주소</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" name="password" required>
+                    <small>비밀번호는 6자리 이상이어야 하며, 영문과 숫자를 반드시 포함해야 합니다.</small>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">비밀번호 확인</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+                <button type="submit" class="signup-button">가입하기</button>
+                <div class="login-link">
+                    <span>이미 아이디가 있으신가요?</span>
+                    <a href="/login">로그인하기</a>
+                </div>
+            </form>
+        </main>
+    </div>
+    <script>
+        function handleMainButtonClick() {
+            alert("MAIN 버튼 클릭됨");
+        }
+
+        function handleHomeButtonClick() {
+            alert("HOME 버튼 클릭됨");
+        }
+
+        function handleMyButtonClick() {
+            alert("MY 버튼 클릭됨");
+        }
+
+        function handleLoginButtonClick() {
+            alert("LOGIN 버튼 클릭됨");
+        }
+    </script>
+</body>
+</html>

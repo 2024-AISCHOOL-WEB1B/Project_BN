@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    line-height: normal;
+    font-family: var(--font-inter);
+    background-color: var(--color-white);
+}
+
+:root {
+    /* fonts */
+    --font-one-mobile-otf: 'ONE Mobile OTF', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    
+    /* font sizes */
+    --font-size-mini: 12px; /* Combined with index.css's value */
+    --font-size-s: 16px;
+    --font-size-m: 18px;
+    --font-size-l: 24px;
+    --font-size-xl: 20px;
+    
+    /* Colors */
+    --color-white: #ffffff; /* Combined with index.css's value */
+    --color-black: #000000; /* Combined with index.css's value */
+    --color-dimgray-100: #696969; /* Combined with index.css's value */
+    --color-darkorange: #ff8c00; /* Combined with index.css's value */
+    --color-gainsboro: #dcdcdc; /* Combined with index.css's value */
+    --color-silver: #c0c0c0; /* Combined with index.css's value */
+    
+    /* Gaps */
+    --gap-3xs: 10px;
+    --gap-xs: 8px;
+    
+    /* Paddings */
+    --padding-3xs: 4px; /* Combined with index.css's value */
+    --padding-xs: 8px;
+    --padding-s: 16px;
+    --padding-m: 24px;
+    --padding-xl: 20px;
+    
+    /* Border radiuses */
+    --br-3xs: 4px; /* Combined with index.css's value */
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header {
+    width: 100%;
+    height: 45px;
+    background-color: var(--color-darkorange);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--padding-s);
+    box-sizing: border-box;
+}
+
+.logo {
+    height: 45px;
+    object-fit: cover;
+}
+
+.nav {
+    display: flex;
+    gap: var(--gap-xs);
+}
+
+.nav-item {
+    width: 100px;
+    height: 45px;
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-darkorange);
+    border-radius: 30px; /* 모서리 둥글게 */
+    transition: background-color 0.3s ease, color 0.3s ease; /* 수정된 부분 */
+}
+
+.nav-item:hover {
+    background-color: #ff7f00; /* 수정된 부분 */
+    color: var(--color-white); /* 수정된 부분 */
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--padding-m);
+}
+
+h1 {
+    font-size: var(--font-size-l);
+    color: #595959;
+    margin-bottom: var(--gap-xs);
+    font-family: var(--font-one-mobile-otf);
+    padding-bottom: 30px;
+}
+
+.signup-form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+    padding: var(--padding-m);
+    border: 1px solid var(--color-gainsboro);
+    border-radius: var(--br-3xs);
+    background-color: var(--color-white);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+}
+
+label {
+    font-size: var(--font-size-s);
+    color: var(--color-dimgray-100);
+}
+
+input {
+    height: 40px;
+    padding: 0 var(--padding-xs);
+    border: 1px solid var(--color-gainsboro);
+    border-radius: var(--br-3xs);
+    font-size: var(--font-size-s);
+    box-sizing: border-box;
+}
+
+small {
+    font-size: var(--font-size-mini);
+    color: var(--color-dimgray-100);
+}
+
+.signup-button {
+    height: 50px;
+    border: none;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: var(--font-size-s);
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: var(--gap-xs);
+}
+
+.login-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-xs);
+    font-size: var(--font-size-mini);
+    color: var(--color-dimgray-100);
+    margin-top: var(--gap-xs);
+}
+
+.login-link a {
+    color: var(--color-darkorange);
+    text-decoration: none;
+    font-weight: bold;
+}
