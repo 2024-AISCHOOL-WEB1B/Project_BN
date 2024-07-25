@@ -31,11 +31,11 @@ router.post("/login",(req,res)=>{
     })
 })
 
-// 3.회원수정 로직
+// 3.회원수정 로직 - 수정 
 router.post("/updateRegister",(req,res)=>{
     let {id,pw,nick} = req.body;
-    let sql = "updateRogister member set nick =? where id =? and pw=?"
-    conn.query(sql,[nickmid,pw],(err,rows)=>{
+    let sql = "updateRogister member set nick =? and pw=?"
+    conn.query(sql,[nick,pw],(err,rows)=>{
         if(rows.affectedRows > 0){
             console.log("변경성공");
             res.redirect("/")
