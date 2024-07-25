@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const conn = require("../config/db")
 
-// 1. 회원가입 로직 
-router.post("/signup",(req,res)=>{
+// 1. 회원가입 로직  
+router.post("/register",(req,res)=>{
     let {id,pw,nick} = req.body;
     let sql = "insert into member values (?,?,?)"
     conn.query(spl,[id,pw,nick],(err,rows)=>{
@@ -32,3 +32,23 @@ router.post("/login",(req,res)=>{
 })
 
 // 3.회원수정 로직
+router.post("/updateRegister",(req,res)=>{
+    let {id,pw,nick} = req.body;
+    let sql = "updateRogister member set nick =? where id =? and pw=?"
+    conn.query(sql,[nickmid,pw],(err,rows)=>{
+        if(rows.affectedRows > 0){
+            console.log("변경성공");
+            res.redirect("/")
+        }else{
+            console.log("변경 실패");
+        }
+    })
+})
+
+// 4. 로그아웃
+router.get("/logout",(req,res)=>{
+    req.session.destroy();
+    res.redirect("/")
+})
+
+module.exports = router;
