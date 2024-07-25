@@ -16,7 +16,7 @@ router.post("/join",(req,res)=>{
     })
 })
 
-// 2. 로그인로직
+// 2. 로그인 로직
 router.post("/login",(req,res)=>{
     let {id,pw} = req.body;
     let sql = "select * from member where id = ? and pw = ?"
@@ -30,3 +30,5 @@ router.post("/login",(req,res)=>{
         }
     })
 })
+
+// 3.회원수정 로직
