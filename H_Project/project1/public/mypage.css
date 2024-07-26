@@ -23,6 +23,7 @@
     --font-size-m: 18px;
     --font-size-l: 24px;
     --font-size-xl: 32px;
+    --font-family: "카페24 써라운드" , bold;
     --font-one-mobile-otf: '카페24 써라운드', sans-serif;
     --font-inter: 'Inter', sans-serif;
 }
@@ -34,22 +35,28 @@ html, body {
 }
 
 body {
-    font-family: var(--font-inter);
+    font-family: "카페24 써라운드" , bold;
     background-color: var(--color-white);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .container {
     width: 100%;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    position: relative; /* 컨테이너 내 위치 설정을 위해 상대 위치 지정 */
+    padding-top: var(--padding-xl); /* 상단에 여백 추가 */
+
+    box-sizing: border-box;
+    min-height: 100vh; /* 전체 화면 높이를 채우도록 설정 */
+    /* position:fixed;  */
 }
 
 .header {
@@ -162,14 +169,24 @@ body {
     font-weight: bold;
 }
 
+h1 {
+    font-size: 50px;
+    color: #000000;
+    margin-bottom: var(--gap-xs);
+    font-family: var(--font-one-mobile-otf);
+    padding-bottom: 20px;
+}
+
 .main {
-    width: 100%;
-    max-width: 400px;
+    flex: 1; /* 남은 공간을 채우도록 설정 */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding-top: 260px;
+    background-color: #fffdf4;
+    border-radius: var(--br-xl);
+    box-sizing: border-box;
+    width: 50%;
+    padding-top:200px;
 }
 
 .image-container img {
@@ -288,6 +305,7 @@ body {
     gap: var(--gap-xs);
 }
 
+
 .action-button-outline {
     background-color: var(--color-white);
     color: #00995e;
@@ -299,22 +317,14 @@ body {
     color: var(--color-white);
 }
 
+
 .background-container {
     position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
 }
-/* 
-.background-image {
-    position: absolute;
-    bottom: 0;
-    right: -400px;
-    width: 800px;
-    height: auto;
-    opacity: 0.5;
-    z-index: 0;
-} */
+
 
 p {
     display: block;
@@ -326,11 +336,19 @@ p {
     font-family: 카페24 써라운드;
 }
 
-.footer {
+/* .footer {
     display:block;
     text-align: center;
     background-color: #00995e;
     color: white;
-    margin-top: 20px;
     width: 100%;
+} */
+
+.footer {
+    text-align: center;
+    background-color: #00995e;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto; /* 남은 공간을 밀어 올리도록 설정 */
 }

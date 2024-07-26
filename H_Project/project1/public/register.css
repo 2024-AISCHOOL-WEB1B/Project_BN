@@ -3,10 +3,12 @@ body {
     line-height: normal;
     font-family: var(--font-inter);
     background-color: var(--color-white);
+    font-family: "카페24 써라운드" , bold;
 }
 
 :root {
     /* 폰트 설정 */
+    --
     --font-one-mobile-otf: '카페24 써라운드', sans-serif;
     --font-inter: 'Inter', sans-serif;
     
@@ -149,14 +151,20 @@ body {
     align-items: center;
     justify-content: center; /* 수직 및 수평 중앙 정렬 */
     padding: var(--padding-m);
+    color: #595959;
+    /* 배경 크림색 */
+    background-color: #fffdf4; /* 배경색 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    width: 50%; /* 전체 너비 확장 */
+    box-sizing: border-box; /* 패딩 포함한 너비 계산 */
 }
 
 h1 {
-    font-size: var(--font-size-l);
-    color: #595959;
+    font-size: 50px;
+    color: #000000;
     margin-bottom: var(--gap-xs);
     font-family: var(--font-one-mobile-otf);
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 .signup-container {
@@ -208,6 +216,7 @@ small {
 }
 
 .signup-button {
+    font-family: "카페24 써라운드" , bold;
     height: 50px;
     width: 200px; /* 버튼 너비 고정 */
     border: none;
@@ -254,20 +263,20 @@ p {
     text-align: center;
     background-color: #00995e;
     color: white;
-    margin-top: 20px;
     width: 100%;
 }
 
 /* 추가된 탭 메뉴 및 탭 컨텐츠 스타일링 */
 .tab-menu {
-    
     display: flex; /* 탭 버튼들을 가로로 나열 */
     justify-content: center; /* 탭 메뉴 중앙 정렬 */
     margin-bottom: 20px; /* 탭 메뉴와 아래 콘텐츠 사이의 간격 */
 }
 
 .tab-button {
-    
+    font-family: "카페24 써라운드" , bold;
+    color: #595959;
+    width: 180px;
     padding: 10px 20px; /* 버튼 안의 텍스트와 버튼 테두리 사이의 여백 */
     border: none; /* 기본 버튼 테두리 제거 */
     background-color: var(--color-gainsboro); /* 기본 배경색 설정 */
