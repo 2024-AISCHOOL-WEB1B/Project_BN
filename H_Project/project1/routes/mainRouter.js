@@ -10,7 +10,7 @@ router.get("/", (req,res)=> {
 })
 
 // 사용자가 회원가입을 요청했을 때
-router.get("/join", (req,res)=>{
+router.get("/register", (req,res)=>{
     res.render("login")
 })
 
