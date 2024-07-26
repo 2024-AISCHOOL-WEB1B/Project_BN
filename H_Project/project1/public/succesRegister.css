@@ -81,17 +81,22 @@ body {
     padding-bottom: 50px;
     z-index: 1001;
     border-radius: 100px;
+}
 
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .nav-item {
     display: flex;
     width: 100px;
     height: 45px;
-    color: #FFC567;
+    color: #ffffff;
     font-family: var(--font-one-mobile-otf);
     font-size: 28px;
-    -webkit-text-stroke: 2px green;
+    -webkit-text-stroke: 2px #696969;
     text-decoration: none;
     font-weight: bold;
     background-color: transparent;
@@ -99,23 +104,41 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 100px;
     padding: 10px 10px;
+    margin-bottom: 30px; /*버튼 사이 간격 조절*/
 }
 
-.nav-image {
+.nav-item:last-child {
+    margin-bottom: 0; /* 마지막 아이템은 간격 제거 */
+}
+
+.nav-images {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 390px; /* 네비게이션 바 아래로 이미지 배치, 가랜더 위치조절 */
+    left: 0;
+    right: 0;
+    padding: 0 var(--padding-m);
+    padding-top: 100px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.nav-image-left, .nav-image-right {
     width: 280px;
     height: auto;
-    margin-top: 50px;
 }
 
 .nav-item:hover {
-    background-color: #058cd7;
+    background-color: #FFC567;
     color: var(--color-white);
 }
 
 .user-info {
     position: fixed;
-    top: 120px;
-    right: var(--padding-s);
+    top: 150px; /* 위에서 약간 떨어지도록 조정 */
+    right: 30px; /* 오른쪽에서 약간 떨어지도록 조정 */
     width: 250px;
     height: 70px;
     display: flex;
@@ -132,7 +155,7 @@ body {
     display: flex;
     flex-direction: column;
     font-size: var(--font-size-s);
-    #696969;
+
     font-weight: bold;
     margin-bottom: 4px;
 }
@@ -178,7 +201,6 @@ body {
     width: 600px;
 }
 
-
 .top-image {
     width: 100%; /* 컨테이너 너비에 맞춤 */
     height: auto;
@@ -190,8 +212,8 @@ h1 {
     color: black;
     margin-bottom: var(--gap-xs);
     font-family: var(--font-one-mobile-otf);
-    text-align: center; /* Centers the text horizontally */
-    margin: 0 auto; /* Centers the element block */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    margin: 0 auto; /* 요소 중앙 정렬 */
 }
 
 p {
