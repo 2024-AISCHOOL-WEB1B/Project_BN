@@ -43,7 +43,7 @@ const restaurants = [
     { id: 1, name: '규슈', cuisine: '일식', review: 3528 },
     { id: 2, name: '목하식당', cuisine: '일식', review: 2688 },
     { id: 3, name: '캬베츠', cuisine: '일식', review: 1971 },
-    { id: 4, name: '동백카츠', cuisine: '일식', review: 1051 },
+    { id: 4, name: '동백카츠', cuisine: '일식', review: 1051 }, 
     { id: 5, name: '구미구미', cuisine: '일식', review: 721 },
     { id: 6, name: '돈부리바쇼 유메노덴', cuisine: '일식', review: 811 },
     { id: 7, name: '연어쁘다', cuisine: '일식', review: 3749 },
@@ -55,11 +55,11 @@ const restaurants = [
     { id: 13, name: '윤끼', cuisine: '일식', review:475 },
     { id: 14, name: '소보쿠', cuisine: '일식', review: 419 },
     { id: 15, name: '천지라멘', cuisine: '일식', review: 566 },
-    { id: 16, name: '소바 쿄다이', cuisine: '일식', review: 796 },
+    { id: 16, name: '전부' ,cuisine: '일식', review: 796 },
     { id: 17, name: '미노라멘', cuisine: '일식', review: 571 },
     { id: 18, name: '멘지', cuisine: '일식', review: 650 },
-    { id: 19, name: '송경솥밥', cuisine: '일식', review: 430 },
-    { id: 20, name: '아라타', cuisine: '일식', review: 401 }
+    { id: 19, name: '츠바메', cuisine: '일식', review: 430 },
+    { id: 20, name: '토메이스시', cuisine: '일식', review: 401 }
 ];
 
 // 사용자 선호도 예시 (cuisine: 음식 종류)
