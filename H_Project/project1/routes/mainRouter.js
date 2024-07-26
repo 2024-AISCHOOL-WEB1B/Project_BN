@@ -29,4 +29,14 @@ router.get("delet_user", (req,res)=>{
     res.render("delet_user")
 })
 
+// 가게 누르면 상세 페이지로(비동기)
+router.get("/sangse", (req,res)=>{
+    res.render("sangse")
+})
+
+// 검색을 누르면 추천 페이지(비동기) - 서버 연결
+
+
+
+
 module.exports = router;

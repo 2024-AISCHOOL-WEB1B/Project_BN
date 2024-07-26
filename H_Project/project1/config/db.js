@@ -11,5 +11,6 @@ const conn = mysql.createConnection({
 
 //연결 진행
 conn.connect();
+console.log("DB 연결 완료")
 
 module.exports = conn;
