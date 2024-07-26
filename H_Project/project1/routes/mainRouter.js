@@ -19,15 +19,24 @@ router.get("/login", (req,res)=>{
     res.render("login")
 })
 
+// 마이페이지 이동
+router.get("/mypage", (req,res)=>{
+    res.render("mypage")
+    console.log("정보수정페이지 이동")
+})
+
+
 // 사용자가 정보수정을 요청했을 때
 router.get("/updateRegister", (req,res)=>{
+    console.log("정보수정페이지 이동")
     res.render("updateRegister")
 })
 
 // 사용자가 회원탈퇴를 요청했을 때
-router.get("delet_user", (req,res)=>{
-    res.render("delet_user")
+router.get("delete_user", (req,res)=>{
+    res.render("delete_user")
 })
+
 
 // 가게 누르면 상세 페이지로(비동기)
 router.get("/sangse", (req,res)=>{

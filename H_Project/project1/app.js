@@ -30,22 +30,33 @@ nunjucks.configure("views", {
     watch : true
 })
 
+
+// 샘플 음식점 데이터
+const restaurants = [
+    { id: 1, name: '이탈리안 레스토랑', cuisine: '이탈리안', rating: 4.5 },
+    { id: 2, name: '중국 음식점', cuisine: '중국', rating: 4.0 },
+    { id: 3, name: '일본 스시', cuisine: '일본', rating: 5.0 },
+    { id: 4, name: '한국 BBQ', cuisine: '한국', rating: 4.8 },
+    { id: 5, name: '멕시코 타코', cuisine: '멕시코', rating: 4.2 }
+];
+
+// 사용자 선호도 예시 (cuisine: 음식 종류)
+const userPreferences = {
+    cuisine: '일본', // 사용자가 선호하는 음식 종류
+};
+
+// 추천 알고리즘
+function recommendRestaurants(preferences) {
+    return restaurants.filter(restaurant => restaurant.cuisine === preferences.cuisine);
+}
+
+// API 엔드포인트
+app.get('/recommend', (req, res) => {
+    const recommendations = recommendRestaurants(userPreferences);
+    res.json(recommendations);
+});
+
+
 app.listen(3000);
 
 
-// const express = require('express');
-// const path = require('path');
-// const app = express();
-
-// // 정적 파일을 제공할 폴더 설정
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// // HTML 파일 제공
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'views', 'login.html'));
-// });
-
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//     console.log(`Server is running on port ${PORT}`);
-// });
