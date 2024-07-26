@@ -12,6 +12,7 @@
     <div class="container">
         <header class="header">
             <img class="logo" alt="로고" src="/icon/BNlogo.png">
+            <img class="header-image" alt="상단 배너" src="/icon/상단가랜더.png">
         </header>
         
         <!-- 네비게이션 바 -->
@@ -19,7 +20,6 @@
             <a href="/" class="nav-item" onclick="handleHomeButtonClick()">HOME</a>
             <a href="mypage" class="nav-item" onclick="handleMyButtonClick()">MY</a>
             <a href="login" class="nav-item" onclick="handleLoginButtonClick()">LOGIN</a>
-            <img src="/icon/화면분할가랜더.png" alt="Login Image" class="nav-image">
         </nav>
         
         <!-- 유저 정보 영역 -->
@@ -30,10 +30,16 @@
                 <span id="userEmail"></span>
             </div>
         </div>
-        
+
+         <!-- 네비게이션 이미지 좌우가랜더-->
+         <div class="nav-images">
+            <img src="/icon/화면분할가랜더.png" alt="Left Image" class="nav-image-left">
+            <img src="/icon/화면분할가랜더.png" alt="Right Image" class="nav-image-right">
+        </div>
+
         <main class="main">
             <div class="image-container">
-                <img src="/icon/너굴맨2blue.png" alt="프로필 사진" class="top-image">
+                <img src="/icon/너굴맨2.png" alt="프로필 사진" class="top-image">
             </div>
             <form class="login-form" action="/login" method="post">
                 <div class="form-group">

@@ -48,23 +48,33 @@ body {
 .header {
     width: 100%;
     height: 100px;
-    background-image: url('/H_Project/project1/public/icon/상단가랜더.png');
-    background-size: cover;
-    background-position: center;
+    background-size: cover; /* 배경 이미지가 헤더를 덮도록 설정 */
+    background-position: center; /* 이미지의 위치를 중앙으로 설정 */
+    position: relative; /* 자식 요소의 위치를 기준으로 설정 */
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 var(--padding-s);
     box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 1000; /* 헤더가 다른 요소들 위에 있도록 설정 */
 }
 
 .logo {
+    position: absolute; /* 절대 위치로 설정하여 상단가랜더 이미지 위에 위치하도록 설정 */
+    top: 10px; /* 화면 위에서부터 10px 아래에 위치 */
+    left: 25px; /* 화면 왼쪽에서부터 10px 오른쪽에 위치 */
     padding: 5px;
     height: 55px;
+    object-fit: cover;
+    z-index: 1001; /* 다른 요소보다 위에 표시되도록 설정 */
+}
+
+.header-image {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -90,6 +100,8 @@ body {
 }
 
 .nav-item {
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
     display: flex;
     width: 100px;
     height: 45px;
@@ -105,6 +117,7 @@ body {
     border-radius: 100px;
     padding: 10px 10px;
     margin-bottom: 30px; /*버튼 사이 간격 조절*/
+    text-align: center; /* 텍스트 가운데 정렬 */
 }
 
 .nav-item:last-child {
@@ -125,9 +138,16 @@ body {
     z-index: 1000;
 }
 
-.nav-image-left, .nav-image-right {
+.nav-image-left {
     width: 280px;
     height: auto;
+    padding-left: 30px;
+}
+
+.nav-image-right {
+    width: 280px;
+    height: auto;
+    padding-right: 30px;
 }
 
 .nav-item:hover {
@@ -138,7 +158,7 @@ body {
 .user-info {
     position: fixed;
     top: 150px; /* 위에서 약간 떨어지도록 조정 */
-    right: 30px; /* 오른쪽에서 약간 떨어지도록 조정 */
+    right: 60px; /* 오른쪽에서 약간 떨어지도록 조정 */
     width: 250px;
     height: 70px;
     display: flex;

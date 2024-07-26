@@ -50,13 +50,12 @@ body {
 .header {
     width: 100%;
     height: 100px;
-    /* background-color: ffffff; */
-    background-image: url('/H_Project/project1/public/icon/상단가랜더.png'); /* 배경 이미지 경로 */
     background-size: cover; /* 배경 이미지가 헤더를 덮도록 설정 */
     background-position: center; /* 이미지의 위치를 중앙으로 설정 */
+    position: relative; /* 자식 요소의 위치를 기준으로 설정 */
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 var(--padding-s);
     box-sizing: border-box;
     position: fixed;
@@ -65,9 +64,20 @@ body {
     z-index: 1000; /* 헤더가 다른 요소들 위에 있도록 설정 */
 }
 
+
 .logo {
+    position: absolute; /* 절대 위치로 설정하여 상단가랜더 이미지 위에 위치하도록 설정 */
+    top: 10px; /* 화면 위에서부터 10px 아래에 위치 */
+    left: 25px; /* 화면 왼쪽에서부터 10px 오른쪽에 위치 */
     padding: 5px;
     height: 55px;
+    object-fit: cover;
+    z-index: 1001; /* 다른 요소보다 위에 표시되도록 설정 */
+}
+
+.header-image {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -76,68 +86,102 @@ body {
     top: 0;
     left: 0;
     display: flex;
-    flex-direction: column; /* 수직 정렬 */
-    align-items: flex-start; /* 왼쪽 정렬 */
-    gap: var(--gap-xs);
-    padding-top : 180px;
+    flex-direction: column;
+    align-items: flex-start;
+    /* gap: 30px; */
+    padding-top: 180px;
     padding-left: 50px;
-    z-index: 1001; /* 다른 요소보다 위에 표시되도록 */
-    /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 그림자 추가 */
-    border-radius: 100px; /* 아래 모서리 둥글게 */
+    padding-bottom: 50px;
+    z-index: 1001;
+    border-radius: 100px;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .nav-item {
-    display: block;
-    padding: 20px;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
     display: flex;
     width: 100px;
     height: 45px;
-    color: #FFC567;
-    font-family: "카페24 써라운드";
+    color: #ffffff;
+    font-family: var(--font-one-mobile-otf);
     font-size: 28px;
-    -webkit-text-stroke: 2px green;
+    -webkit-text-stroke: 2px #696969;
     text-decoration: none;
     font-weight: bold;
-    background-color: transparent; /* 배경색 제거 */
-    text-align: left; /* 텍스트 왼쪽 정렬 */
+    background-color: transparent;
+    text-align: left;
     transition: background-color 0.3s ease, color 0.3s ease;
-    border-radius: 100px; /* 아래 모서리 둥글게 */
+    border-radius: 100px;
+    padding: 10px 10px;
+    margin-bottom: 30px; /*버튼 사이 간격 조절*/
+    text-align: center; /* 텍스트 가운데 정렬 */
 }
 
-.nav-image {
+.nav-item:last-child {
+    margin-bottom: 0; /* 마지막 아이템은 간격 제거 */
+}
+
+.nav-images {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 390px; /* 네비게이션 바 아래로 이미지 배치, 가랜더 위치조절 */
+    left: 0;
+    right: 0;
+    padding: 0 var(--padding-m);
+    padding-top: 100px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.nav-image-left {
     width: 280px;
     height: auto;
-    margin-top: 50px;
-
+    padding-left: 30px;
 }
 
+.nav-image-right {
+    width: 280px;
+    height: auto;
+    padding-right: 30px;
+}
 .nav-item:hover {
-    background-color: #058cd7;
+    background-color: #FFC567;
     color: var(--color-white);
 }
 
-/* user-info 영역 스타일 */
+
 .user-info {
-    position: fixed; /* 화면에 고정 위치시키기 */
-    top: 120px; /* 헤더 아래에 위치시키기 */
-    right: var(--padding-s); /* 화면 오른쪽에 고정 */
+    position: fixed;
+    top: 150px; /* 위에서 약간 떨어지도록 조정 */
+    right: 60px; /* 오른쪽에서 약간 떨어지도록 조정 */
     width: 250px;
-    height:70px;
+    height: 70px;
     display: flex;
     align-items: center;
     gap: var(--gap-xs);
-    background-color: #058cd7; /* 반투명 배경색 */
+    background-color: white;
     padding: 5px;
     border-radius: 30px;
-    color: var(--color-white);
-    z-index: 1000; /* 헤더 위에 표시되도록 설정 */
-}
-.user-details span {
-    margin-bottom: 4px; /* 닉네임과 이메일 사이의 간격 */
+    z-index: 1000;
+    border: 2px solid #FFC567;
 }
 .user-details {
-    font-size: var(--font-size-s); /* 글자 크기 조정 */
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size-s);
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #000000;
 }
+
 
 .profileUser {
     width: 50px;
@@ -158,24 +202,29 @@ body {
     object-fit: cover;
 }
 
-.user-details {
-    display: flex;
-    flex-direction: column;
-    font-size: var(--font-size-s);
-    color: var(--color-white);
-    font-weight: bold;
-}
 
 .main {
-    width: 100%;
-    max-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     padding-top: 100px;
-    
+    flex-grow: 1;
+    background-color: #fffdf4; /* 배경색 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    width: 50%; /* 전체 너비 확장 */
+    height: 100%;
 }
+
+.top-image {
+    max-width: 100%; /* 부모 컨테이너의 너비를 넘지 않도록 설정 */
+    height: auto;    /* 이미지 비율을 유지하면서 높이를 자동으로 조정 */
+    width: 300px;    /* 원하는 너비로 설정 (예: 300px) */
+    margin: 0 auto;  이미지를 가운데 정렬
+    display: block;  /* 이미지가 블록 요소처럼 동작하도록 설정 */
+    padding-bottom: 20px;
+}
+
 
 h1 {
     font-size: var(--font-size-l);
@@ -186,7 +235,7 @@ h1 {
 }
 
 .login-form {
-    width: 100%;
+    width: 350px;
     display: flex;
     flex-direction: column;
     gap: var(--gap-xs);
@@ -221,12 +270,18 @@ input {
     height: 50px;
     border: none;
     border-radius: var(--br-3xs);
-    background-color: #058cd7;
+    background-color: #FFC567;
     color: var(--color-white);
     font-size: var(--font-size-s);
     font-weight: bold;
     cursor: pointer;
     margin-top: var(--gap-xs);
+}
+
+.login-button:hover{
+    background-color: #ff8c00;
+    color: white;cursor: pointer;
+    transition: background-color 0.5s ease;
 }
 
 .forgot-password {
@@ -237,7 +292,7 @@ input {
 }
 
 .forgot-password a {
-    color: #058cd7;
+    color: #ff8c00;
     text-decoration: none;
     font-weight: bold;
 }
@@ -253,26 +308,26 @@ input {
 }
 
 .signup-link a {
-    color: #058cd7;
+    color: #ff8c00;
     text-decoration: none;
     font-weight: bold;
 }
 
 p {
-    display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;
-    font-family: 카페24 써라운드;
+    font-family: var(--font-one-mobile-otf);
 }
 
 .footer {
-    display:block;
     text-align: center;
-    background-color: #00995e;
+    background-color: #FFC567;
     color: white;
-    margin-top: 20px;
     width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+    padding: 0; /* 패딩 제거 */
 }
