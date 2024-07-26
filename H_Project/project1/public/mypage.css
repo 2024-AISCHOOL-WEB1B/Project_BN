@@ -23,16 +23,23 @@
     --font-size-m: 18px;
     --font-size-l: 24px;
     --font-size-xl: 32px;
-    --font-one-mobile-otf: 'ONE Mobile OTF', sans-serif;
+    --font-one-mobile-otf: '카페24 써라운드', sans-serif;
     --font-inter: 'Inter', sans-serif;
 }
 
-body {
+html, body {
     margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
     font-family: var(--font-inter);
     background-color: var(--color-white);
-    position: relative; /* 배경 이미지가 body를 기준으로 위치하도록 설정 */
-    overflow: hidden; /* 배경 이미지가 레이아웃에 영향을 주지 않도록 설정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
@@ -47,56 +54,136 @@ body {
 
 .header {
     width: 100%;
-    height: 45px;
-    background-color: var(--color-darkorange);
+    height: 100px;
+    /* background-color: ffffff; */
+    background-image: url('/H_Project/project1/public/icon/상단가랜더.png'); /* 배경 이미지 경로 */
+    background-size: cover; /* 배경 이미지가 헤더를 덮도록 설정 */
+    background-position: center; /* 이미지의 위치를 중앙으로 설정 */
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 var(--padding-s);
     box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* 헤더가 다른 요소들 위에 있도록 설정 */
 }
 
 .logo {
-    height: 35px;
+    padding: 5px;
+    height: 55px;
     object-fit: cover;
 }
 
 .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
+    flex-direction: column; /* 수직 정렬 */
+    align-items: flex-start; /* 왼쪽 정렬 */
     gap: var(--gap-xs);
+    padding-top : 180px;
+    padding-left: 50px;
+    z-index: 1001; /* 다른 요소보다 위에 표시되도록 */
+    /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 그림자 추가 */
+    border-radius: 100px; /* 아래 모서리 둥글게 */
 }
+
 .nav-item {
+    display: block;
+    padding: 20px;
+    display: flex;
     width: 100px;
     height: 45px;
-    color: var(--color-white);
+    color: #FFC567;
+    font-family: "카페24 써라운드";
+    font-size: 28px;
+    -webkit-text-stroke: 2px green;
     text-decoration: none;
     font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-darkorange);
-    border-radius: 30px;
+    background-color: transparent; /* 배경색 제거 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
     transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 100px; /* 아래 모서리 둥글게 */
+}
+
+.nav-image {
+    width: 250px; /* 이미지 너비 */
+    height: auto; /* 높이 자동 조정 */
+    margin-top: 10px; /* 텍스트와 이미지 사이 간격 */
+    padding-left: 20px; /* 왼쪽 여백 */
 }
 
 .nav-item:hover {
-    background-color: #ff7f00;
+    background-color: #058cd7;
     color: var(--color-white);
 }
 
+.user-info {
+    position: fixed; /* 화면에 고정 위치시키기 */
+    top: 120px; /* 헤더 아래에 위치시키기 */
+    right: var(--padding-s); /* 화면 오른쪽에 고정 */
+    width: 250px;
+    height:70px;
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+    background-color: #058cd7; /* 반투명 배경색 */
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 30px;
+    color: var(--color-white);
+    z-index: 1000; /* 헤더 위에 표시되도록 설정 */
+}
+.user-details span {
+    margin-bottom: 4px; /* 닉네임과 이메일 사이의 간격 */
+}
+.user-details {
+    font-size: var(--font-size-s); /* 글자 크기 조정 */
+}
+
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    max-width: 100%; /* 부모 요소를 벗어나지 않도록 최대 너비 설정 */
+    max-height: 100%; /* 부모 요소를 벗어나지 않도록 최대 높이 설정 */
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size-s);
+    color: var(--color-white);
+    font-weight: bold;
+}
+
 .main {
-    flex: 1;
+    width: 100%;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: var(--padding-m);
-    position: relative; /* 올바른 레이어링을 위해 상대 위치 지정 */
-
+    justify-content: center;
+    padding-top: 260px;
 }
 
+.image-container img {
+    width: 100px; /* 원하는 너비로 설정 */
+    height: auto; /* 높이는 자동으로 맞춰지게 설정 */
+    max-width: 100%; /* 부모 요소의 너비를 넘지 않도록 설정 */
+    height: auto; /* 이미지의 비율이 깨지지 않도록 자동으로 높이 설정 */
+} /* 유저정보창 위에 이미지 css */
+
+
 .profile-card {
+    overflow: hidden;
     width: 100%;
-    max-width: 500px; /* 카드의 최대 너비 조정 */
+    max-width: 500px;
     padding: var(--padding-l);
     border: 1px solid var(--color-gainsboro);
     border-radius: var(--br-xl);
@@ -106,21 +193,33 @@ body {
     flex-direction: column;
     align-items: center;
     gap: var(--gap-l);
-    z-index: 1; /* 프로필 카드가 배경 이미지 위에 오도록 설정 */
-    position: relative; /* 배경 이미지 위에 프로필 카드가 위치하도록 상대 위치 지정 */
+    z-index: 1;
+    position: relative;
+    
 }
 
 .profile-section {
     display: flex;
-    width: 90%; /* 섹션 전체 너비 사용 */
+    width: 100%;
     align-items: center;
-    /* justify-content: space-between; 요소들을 양쪽 끝으로 배치 */
-    gap: var(--gap-m); /* 프로필 이미지와 정보 간의 간격 조정 */
+    gap: var(--gap-m);
+
+}
+
+.profileUser {
+    width: 30px;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
+    padding-left: 5px;
+    padding-right: 5px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -128,12 +227,13 @@ body {
 .profile-info {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* 텍스트 왼쪽 정렬 */
+    align-items: flex-start;
     text-align: left;
-    flex: 1; /* 남은 공간을 차지 */
+    flex: 1;
 }
 
 .profile-name {
+    font-family: "카페24 써라운드";
     font-size: var(--font-size-l);
     color: var(--color-black);
 }
@@ -147,7 +247,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: right;
+    text-align: center;
 }
 
 .favorite-icon {
@@ -157,6 +257,7 @@ body {
 }
 
 .stats-title {
+    width: 100px;
     font-size: var(--font-size-s);
     color: var(--color-darkorange);
     margin-bottom: var(--gap-xs);
@@ -171,24 +272,26 @@ body {
     display: flex;
     justify-content:center;
     gap: 50px;
-    width:100%; /* 버튼 섹션 전체 너비 사용 */
+    width:100%;
 }
 
 .action-button {
     padding: var(--padding-xs) var(--padding-l);
-    width: 150px;
+    width: 250px;
+    height: 50px;
     border: none;
     border-radius: var(--br-xl);
-    font-size: var(--font-size-s);
+    font-family: '카페24 써라운드', bold;;
+    font-size: 18px;
     cursor: pointer;
-    align-items: center; /* 아이콘과 텍스트를 세로로 중앙 정렬하기 위해 추가 */
-    gap: var(--gap-xs); /* 아이콘과 텍스트 간격 */
+    align-items: center;
+    gap: var(--gap-xs);
 }
 
 .action-button-outline {
     background-color: var(--color-white);
-    color: var(--color-darkorange);
-    border: 1.5px solid var(--color-darkorange);
+    color: #00995e;
+    border: 1.5px solid #00995e;
 }
 
 .action-button-black {
@@ -196,19 +299,38 @@ body {
     color: var(--color-white);
 }
 
-
 .background-container {
     position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
 }
+/* 
 .background-image {
     position: absolute;
     bottom: 0;
     right: -400px;
-    width: 800px; /* 적절한 크기로 설정 */
+    width: 800px;
     height: auto;
-    opacity: 0.5; /* 투명도 70% */
-    z-index: 0; /* 배경 이미지가 다른 요소들 뒤에 배치되도록 설정 */
+    opacity: 0.5;
+    z-index: 0;
+} */
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+    font-family: 카페24 써라운드;
+}
+
+.footer {
+    display:block;
+    text-align: center;
+    background-color: #00995e;
+    color: white;
+    margin-top: 20px;
+    width: 100%;
 }

@@ -64,8 +64,8 @@ body {
 }
 
 .logo {
-    padding: 10px;
-    height: 60px;
+    padding: 5px;
+    height: 55px;
     object-fit: cover;
 }
 
@@ -119,8 +119,8 @@ body {
     position: fixed; /* 화면에 고정 위치시키기 */
     top: 120px; /* 헤더 아래에 위치시키기 */
     right: var(--padding-s); /* 화면 오른쪽에 고정 */
-    width: 200px;
-    height: 70px;
+    width: 250px;
+    height:70px;
     display: flex;
     align-items: center;
     gap: var(--gap-xs);
@@ -130,6 +130,22 @@ body {
     color: var(--color-white);
     z-index: 1000; /* 헤더 위에 표시되도록 설정 */
 }
+.user-details span {
+    margin-bottom: 4px; /* 닉네임과 이메일 사이의 간격 */
+}
+.user-details {
+    font-size: var(--font-size-s); /* 글자 크기 조정 */
+}
+
+.profileUser {
+    width: 50px;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 
 .profile-pic {
     width: 40px;

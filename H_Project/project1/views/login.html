@@ -24,9 +24,10 @@
         
         <!-- 유저 정보 영역 -->
         <div class="user-info" id="userInfo">
-            <img class="profile-pic" src="/H_Project/project1/public/icon/유저사진핑크.png" alt="프로필 사진" id="profilePic">
+            <img class="profileUser" src="/H_Project/project1/public/icon/유저사진핑크.png" alt="프로필 사진" id="profilePic">
             <div class="user-details">
                 <span id="userId">비회원 님</span>
+                <span id="userEmail"></span>
             </div>
         </div>
         
@@ -83,13 +84,14 @@
         // 로그인한 유저 정보 표시
         function displayUserInfo(userId, userNickname) {
             document.getElementById('userId').innerText = userNickname + " 님";
+            document.getElementById('userEmail').innerText = userId;
             document.getElementById('profilePic').src = "/H_Project/project1/public/icon/유저사진핑크.png"; // 프로필 사진 경로
         }
 
         // 비회원 정보 표시
         function displayGuestInfo() {
             document.getElementById('userId').innerText = "비회원 님";
-            document.getElementById('userEmail').innerText = "none@gamil.com";
+            document.getElementById('userEmail').innerText = "이메일@mail.com";
             document.getElementById('profilePic').src = "/H_Project/project1/public/icon/유저사진핑크.png"; // 비회원 기본 사진 경로
         }
 
