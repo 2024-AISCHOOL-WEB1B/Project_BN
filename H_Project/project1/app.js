@@ -28,7 +28,7 @@ app.set("view engine", "html")
 nunjucks.configure("views", {
     express : app,
     watch : true
-})
+});
 
 
 // 일식 음식점 데이터
@@ -50,9 +50,9 @@ const restaurants = [
     { id: 15, name: '천지라멘', cuisine: '일식', review: 566 },
     { id: 16, name: '소바 쿄다이', cuisine: '일식', review: 796 },
     { id: 17, name: '미노라멘', cuisine: '일식', review: 571 },
-    { id: 18, name: '멘지', cuisine: '일식', review: 405 },
-    { id: 19, name: '송경솥밥', cuisine: '일식', review: 101 },
-    { id: 20, name: '아라타', cuisine: '일식', review: 288 }
+    { id: 18, name: '멘지', cuisine: '일식', review: 650 },
+    { id: 19, name: '송경솥밥', cuisine: '일식', review: 430 },
+    { id: 20, name: '아라타', cuisine: '일식', review: 401 }
 ];
 
 // 사용자 선호도 예시 (cuisine: 음식 종류)
