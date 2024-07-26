@@ -6,38 +6,38 @@ body {
 }
 
 :root {
-    /* fonts */
-    --font-one-mobile-otf: 'ONE Mobile OTF', sans-serif;
+    /* 폰트 설정 */
+    --font-one-mobile-otf: '카페24 써라운드', sans-serif;
     --font-inter: 'Inter', sans-serif;
     
-    /* font sizes */
-    --font-size-mini: 12px; /* Combined with index.css's value */
+    /* 폰트 크기 */
+    --font-size-mini: 12px; /* index.css의 값과 결합 */
     --font-size-s: 16px;
     --font-size-m: 18px;
     --font-size-l: 24px;
     --font-size-xl: 20px;
     
-    /* Colors */
-    --color-white: #ffffff; /* Combined with index.css's value */
-    --color-black: #000000; /* Combined with index.css's value */
-    --color-dimgray-100: #696969; /* Combined with index.css's value */
-    --color-darkorange: #ff8c00; /* Combined with index.css's value */
-    --color-gainsboro: #dcdcdc; /* Combined with index.css's value */
-    --color-silver: #c0c0c0; /* Combined with index.css's value */
+    /* 색상 설정 */
+    --color-white: #ffffff; /* index.css의 값과 결합 */
+    --color-black: #000000; /* index.css의 값과 결합 */
+    --color-dimgray-100: #696969; /* index.css의 값과 결합 */
+    --color-darkorange: #ff8c00; /* index.css의 값과 결합 */
+    --color-gainsboro: #dcdcdc; /* index.css의 값과 결합 */
+    --color-silver: #c0c0c0; /* index.css의 값과 결합 */
     
-    /* Gaps */
+    /* 간격 설정 */
     --gap-3xs: 10px;
     --gap-xs: 8px;
     
-    /* Paddings */
-    --padding-3xs: 4px; /* Combined with index.css's value */
+    /* 패딩 설정 */
+    --padding-3xs: 4px; /* index.css의 값과 결합 */
     --padding-xs: 8px;
     --padding-s: 16px;
     --padding-m: 24px;
     --padding-xl: 20px;
     
-    /* Border radiuses */
-    --br-3xs: 4px; /* Combined with index.css's value */
+    /* 테두리 반경 */
+    --br-3xs: 4px; /* index.css의 값과 결합 */
 }
 
 .container {
@@ -47,46 +47,99 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    position: relative; /* 컨테이너 내부의 요소를 상대 위치로 설정 */
 }
 
 .header {
     width: 100%;
-    height: 45px;
-    background-color: var(--color-darkorange);
+    height: 100px;
+    background-image: url('/H_Project/project1/public/icon/상단가랜더.png'); /* 배경 이미지 설정 */
+    background-size: cover; /* 배경 이미지가 전체를 덮도록 설정 */
+    background-position: center; /* 이미지 중앙 정렬 */
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 var(--padding-s);
     box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* 헤더가 다른 요소들 위에 위치하도록 설정 */
 }
 
 .logo {
-    height: 45px;
+    padding: 5px;
+    height: 55px;
     object-fit: cover;
 }
 
 .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
+    flex-direction: column; /* 수직 정렬 */
+    align-items: flex-start; /* 왼쪽 정렬 */
     gap: var(--gap-xs);
+    padding-top: 180px;
+    padding-left: 50px;
+    z-index: 1001; /* 다른 요소들 위에 표시되도록 설정 */
+    border-radius: 100px; /* 둥근 모서리 설정 */
 }
 
 .nav-item {
+    display: block;
+    padding: 20px;
     width: 100px;
     height: 45px;
-    color: var(--color-white);
+    color: #FFC567;
+    font-family: "카페24 써라운드";
+    font-size: 28px;
+    -webkit-text-stroke: 2px green;
     text-decoration: none;
     font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-darkorange);
-    border-radius: 30px; /* 모서리 둥글게 */
-    transition: background-color 0.3s ease, color 0.3s ease; /* 수정된 부분 */
+    background-color: transparent; /* 배경색 제거 */
+    text-align: left;
+    transition: background-color 0.3s ease, color 0.3s ease; /* 배경색과 글자색 전환에 애니메이션 적용 */
+    border-radius: 100px; /* 둥근 모서리 설정 */
+}
+
+.nav-image {
+    width: 250px; /* 이미지 너비 설정 */
+    height: auto; /* 이미지 높이 자동 설정 */
+    margin-top: 10px; /* 텍스트와 이미지 사이의 간격 */
+    padding-left: 20px; /* 이미지 왼쪽 여백 */
 }
 
 .nav-item:hover {
-    background-color: #ff7f00; /* 수정된 부분 */
-    color: var(--color-white); /* 수정된 부분 */
+    background-color: #058cd7;
+    color: var(--color-white);
+}
+
+.user-info {
+    
+    position: fixed; /* 화면에 고정 위치 설정 */
+    top: 120px; /* 헤더 아래에 위치 설정 */
+    right: var(--padding-s); /* 화면 오른쪽에 고정 */
+    width: 250px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+    background-color: #058cd7; /* 반투명 배경색 */
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 30px;
+    color: var(--color-white);
+    z-index: 1000; /* 헤더 위에 위치 설정 */
+}
+
+.user-details span {
+    margin-bottom: 4px; /* 닉네임과 이메일 사이의 간격 */
+}
+
+.user-details {
+    font-size: var(--font-size-s); /* 글자 크기 설정 */
 }
 
 .main {
@@ -94,6 +147,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* 수직 및 수평 중앙 정렬 */
     padding: var(--padding-m);
 }
 
@@ -105,9 +159,17 @@ h1 {
     padding-bottom: 30px;
 }
 
+.signup-container {
+    width: 100%;
+    max-width: 500px; /* 폼 컨테이너의 최대 너비 설정 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 수평 중앙 정렬 */
+}
+
 .signup-form {
     width: 100%;
-    max-width: 400px;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
     gap: var(--gap-xs);
@@ -116,6 +178,7 @@ h1 {
     border-radius: var(--br-3xs);
     background-color: var(--color-white);
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: center; /* 전체 form의 요소들을 가운데 정렬 */
 }
 
 .form-group {
@@ -130,6 +193,7 @@ label {
 }
 
 input {
+    
     height: 40px;
     padding: 0 var(--padding-xs);
     border: 1px solid var(--color-gainsboro);
@@ -145,14 +209,18 @@ small {
 
 .signup-button {
     height: 50px;
+    width: 200px; /* 버튼 너비 고정 */
     border: none;
     border-radius: var(--br-3xs);
-    background-color: var(--color-black);
+    background-color: #058cd7;
     color: var(--color-white);
     font-size: var(--font-size-s);
     font-weight: bold;
     cursor: pointer;
     margin-top: var(--gap-xs);
+    display: block; /* 버튼을 블록 요소로 설정하여 전체 너비 사용 */
+    margin-left: auto; /* 좌측 여백 자동 설정 */
+    margin-right: auto; /* 우측 여백 자동 설정 */
 }
 
 .login-link {
@@ -169,4 +237,47 @@ small {
     color: var(--color-darkorange);
     text-decoration: none;
     font-weight: bold;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+    font-family: "카페24 써라운드";
+}
+
+.footer {
+    display: block;
+    text-align: center;
+    background-color: #00995e;
+    color: white;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* 추가된 탭 메뉴 및 탭 컨텐츠 스타일링 */
+.tab-menu {
+    
+    display: flex; /* 탭 버튼들을 가로로 나열 */
+    justify-content: center; /* 탭 메뉴 중앙 정렬 */
+    margin-bottom: 20px; /* 탭 메뉴와 아래 콘텐츠 사이의 간격 */
+}
+
+.tab-button {
+    
+    padding: 10px 20px; /* 버튼 안의 텍스트와 버튼 테두리 사이의 여백 */
+    border: none; /* 기본 버튼 테두리 제거 */
+    background-color: var(--color-gainsboro); /* 기본 배경색 설정 */
+    cursor: pointer; /* 마우스를 올리면 커서가 손가락 모양으로 변경 */
+    font-size: var(--font-size-m); /* 버튼 텍스트 크기 */
+    margin: 0 10px; /* 버튼 사이의 간격 */
+    border-radius: var(--br-3xs); /* 둥근 모서리 */
+    transition: background-color 0.3s ease; /* 배경색 변경에 부드러운 전환 효과 */
+}
+
+.tab-button.active {
+    background-color: #00995e;
 }
