@@ -2,8 +2,8 @@ const express = require("express");
 const app = express();
 const nunjucks = require("nunjucks");
 const bp = require("body-parser");
-const mainRouter = require("./routes/mainRouters");
-const userRouter = require("./routes/userRouters");
+const mainRouter = require("./routes/mainRouter");
+const userRouter = require("./routes/userRouter");
 const session = require("express-session");
 const fileStore = require('session-file-store')(session);
 
