@@ -57,13 +57,24 @@ const restaurants = [
 
 // 사용자 선호도 예시 (cuisine: 음식 종류)
 const userPreferences = {
-    cuisine: '일식', // 사용자가 선호하는 음식 종류
+    cuisine: '일식',// 사용자가 선호하는 음식 종류
+    minReview: 400 // 사용자가 원하는 최소 리뷰 수
 };
 
 // 추천 알고리즘
 function recommendRestaurants(preferences) {
-    return restaurants.filter(restaurant => restaurant.cuisine < preferences.review);
+    return restaurants
+        .filter(restaurant => 
+            restaurant.cuisine === preferences.cuisine &&
+            restaurant.review >= preferences.minReview
+        )
+        .sort((a, b) => b.review - a.review); // 리뷰 수 기준으로 내림차순 정렬
 }
+
+
+// 추천 결과
+const recommended = recommendRestaurants(userPreferences);
+console.log(recommended);
 
 // API 엔드포인트
 //app.get('/recommend', (req, res) => {
