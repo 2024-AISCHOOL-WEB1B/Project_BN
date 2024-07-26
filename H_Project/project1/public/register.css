@@ -107,12 +107,11 @@ body {
 }
 
 .nav-image {
-    width: 250px; /* 이미지 너비 설정 */
-    height: auto; /* 이미지 높이 자동 설정 */
-    margin-top: 10px; /* 텍스트와 이미지 사이의 간격 */
-    padding-left: 20px; /* 이미지 왼쪽 여백 */
-}
+    width: 280px;
+    height: auto;
+    margin-top: 50px;
 
+}
 .nav-item:hover {
     background-color: #058cd7;
     color: var(--color-white);

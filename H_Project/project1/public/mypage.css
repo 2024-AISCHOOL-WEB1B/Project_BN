@@ -115,12 +115,10 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 100px; /* 아래 모서리 둥글게 */
 }
-
 .nav-image {
-    width: 250px; /* 이미지 너비 */
-    height: auto; /* 높이 자동 조정 */
-    margin-top: 10px; /* 텍스트와 이미지 사이 간격 */
-    padding-left: 20px; /* 왼쪽 여백 */
+    width: 280px;
+    height: auto;
+    margin-top: 50px;
 }
 
 .nav-item:hover {
