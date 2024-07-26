@@ -11,7 +11,7 @@ router.get("/", (req,res)=> {
 
 // 사용자가 회원가입을 요청했을 때
 router.get("/register", (req,res)=>{
-    res.render("login")
+    res.render("register")
 })
 
 // 사용자가 로그인을 요청했을 때
