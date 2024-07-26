@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width">
-    <link rel="stylesheet" href="/login.css" />
+    <link rel="stylesheet" href="/H_Project/project1/public/login.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ONE+Mobile+OTF:wght@400;700&display=swap" />
     <title>로그인</title>
@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <header class="header">
-            <img class="logo" alt="로고" src="/icon/BNlogo.png">
+            <img class="logo" alt="로고" src="/H_Project/project1/public/icon/BNlogo.png">
         </header>
         
         <!-- 네비게이션 바 -->
@@ -19,12 +19,12 @@
             <a href="#" class="nav-item" onclick="handleHomeButtonClick()">HOME</a>
             <a href="#" class="nav-item" onclick="handleMyButtonClick()">MY</a>
             <a href="#" class="nav-item" onclick="handleLoginButtonClick()">LOGIN</a>
-            <img src="/icon/화면분할가랜더.png" alt="Login Image" class="nav-image">
+            <img src="/H_Project/project1/public/icon/화면분할가랜더.png" alt="Login Image" class="nav-image">
         </nav>
         
         <!-- 유저 정보 영역 -->
         <div class="user-info" id="userInfo">
-            <img class="profileUser" src="/icon/유저사진핑크.png" alt="프로필 사진" id="profilePic">
+            <img class="profileUser" src="/H_Project/project1/public/icon/유저사진핑크.png" alt="프로필 사진" id="profilePic">
             <div class="user-details">
                 <span id="userId">비회원 님</span>
                 <span id="userEmail"></span>
@@ -33,7 +33,7 @@
         
         <main class="main">
             <div class="image-container">
-                <img src="/icon/너굴맨2blue.png" alt="프로필 사진" class="top-image">
+                <img src="/H_Project/project1/public/icon/너굴맨2blue.png" alt="프로필 사진" class="top-image">
             </div>
             <form class="login-form" action="/login" method="post">
                 <div class="form-group">
@@ -85,14 +85,14 @@
         function displayUserInfo(userId, userNickname) {
             document.getElementById('userId').innerText = userNickname + " 님";
             document.getElementById('userEmail').innerText = userId;
-            document.getElementById('profilePic').src = "/icon/유저사진핑크.png"; // 프로필 사진 경로
+            document.getElementById('profilePic').src = "/H_Project/project1/public/icon/유저사진핑크.png"; // 프로필 사진 경로
         }
 
         // 비회원 정보 표시
         function displayGuestInfo() {
             document.getElementById('userId').innerText = "비회원 님";
             document.getElementById('userEmail').innerText = "이메일@mail.com";
-            document.getElementById('profilePic').src = "/icon/유저사진핑크.png"; // 비회원 기본 사진 경로
+            document.getElementById('profilePic').src = "/H_Project/project1/public/icon/유저사진핑크.png"; // 비회원 기본 사진 경로
         }
 
         // 페이지 로드 시 로그인 상태 확인
