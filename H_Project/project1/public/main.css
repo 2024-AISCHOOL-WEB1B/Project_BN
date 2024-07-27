@@ -23,37 +23,52 @@
     --font-size-m: 18px;
     --font-size-l: 24px;
     --font-size-xl: 32px;
-    --font-one-mobile-otf: 'ONE Mobile OTF', sans-serif;
+    --font-family: 'Cafe24Ssurround', sans-serif; /* 수정: 웹 폰트로 변경 */
+    --font-cafe24-Ssurround-otf: 'Cafe24Ssurround', sans-serif; /* 수정: 변수명 변경 */
     --font-inter: 'Inter', sans-serif;
+}
+
+/* 웹 폰트 정의 */
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter); /* 수정: 웹 폰트로 변경 */
     height: 100vh;
     overflow: hidden;
 }
 
 .header {
     width: 100%;
-    height: 45px;
-    background-color: var(--color-darkorange);
+    height: 100px;
+    background-size: cover; /* 배경 이미지가 헤더를 덮도록 설정 */
+    background-position: center; /* 이미지의 위치를 중앙으로 설정 */
+    position: relative; /* 자식 요소의 위치를 기준으로 설정 */
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 var(--padding-s);
     box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
-    /* 헤더가 다른 요소보다 위에 오도록 설정 */
-    z-index: 1000;
+    z-index: 1000; /* 헤더가 다른 요소들 위에 있도록 설정 */
 }
 
 .logo {
-    height: 35px;
+    position: absolute; /* 절대 위치로 설정하여 상단가랜더 이미지 위에 위치하도록 설정 */
+    top: 10px; /* 화면 위에서부터 10px 아래에 위치 */
+    left: 25px; /* 화면 왼쪽에서부터 10px 오른쪽에 위치 */
+    padding: 5px;
+    height: 55px;
     object-fit: cover;
+    z-index: 1001; /* 다른 요소보다 위에 표시되도록 설정 */
 }
 
 .nav {
@@ -67,6 +82,7 @@ body {
     color: var(--color-white);
     text-decoration: none;
     font-weight: bold;
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 폰트 적용 */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,7 +104,6 @@ body {
     padding: var(--padding-m);
     position: relative;
     /* 올바른 레이어링을 위해 상대 위치 지정 */
-
 }
 
 /* 지도와 필터 컨테이너 스타일 */
@@ -291,7 +306,6 @@ body {
     right: -40px;
 }
 
-/* 상세 보기 박스 스타일 */
 /* 상세 보기 박스 스타일 */
 .detail-view {
     display: none;

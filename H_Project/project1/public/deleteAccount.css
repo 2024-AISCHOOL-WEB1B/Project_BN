@@ -17,81 +17,102 @@
     --font-size-s: 16px;
     --font-size-m: 18px;
     --font-size-l: 24px;
-    --font-family: 'Inter', sans-serif;
-    --font-one-mobile-otf: '카페24 써라운드', bold;
+    --font-family: 'Cafe24Ssurround', sans-serif; /* 수정: 웹 폰트로 변경 */
+    --font-cafe24-Ssurround-otf: 'Cafe24Ssurround', sans-serif; /* 수정: 변수명 변경 */
+    --font-inter: 'Inter', sans-serif;
+}
+
+/* 웹 폰트 정의 */
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 body {
+    font-family: var(--font-inter);
+    background-color: var(--color-white);
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
+    align-items: center;
+    font-family: var(--font-family); /* 수정: 웹 폰트로 변경 */
 }
 
 .container {
     width: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    flex : 1;
     align-items: center;
+    padding-top: 45px; /* 상단바 높이만큼 여백 추가 */
     box-sizing: border-box;
 }
 
 .header {
     width: 100%;
     height: 100px;
-    background-image: url('/H_Project/project1/public/icon/상단가랜더.png');
-    background-size: cover;
-    background-position: center;
+    background-size: cover; /* 배경 이미지가 헤더를 덮도록 설정 */
+    background-position: center; /* 이미지의 위치를 중앙으로 설정 */
+    position: relative; /* 자식 요소의 위치를 기준으로 설정 */
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 var(--padding-s);
     box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 1000; /* 헤더가 다른 요소들 위에 있도록 설정 */
 }
 
 .logo {
+    position: absolute; /* 절대 위치로 설정하여 상단가랜더 이미지 위에 위치하도록 설정 */
+    top: 10px; /* 화면 위에서부터 10px 아래에 위치 */
+    left: 25px; /* 화면 왼쪽에서부터 10px 오른쪽에 위치 */
     padding: 5px;
     height: 55px;
     object-fit: cover;
+    z-index: 1001; /* 다른 요소보다 위에 표시되도록 설정 */
 }
 
-.nav {
+nav {
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 30px;
+    /* gap: 30px; */
     padding-top: 180px;
     padding-left: 50px;
     padding-bottom: 50px;
     z-index: 1001;
     border-radius: 100px;
+}
 
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .nav-item {
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
     display: flex;
     width: 100px;
     height: 45px;
-    color: #FFC567;
-    font-family: var(--font-one-mobile-otf);
+    color: #ffffff;
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
     font-size: 28px;
-    -webkit-text-stroke: 2px green;
+    -webkit-text-stroke: 2px #696969;
     text-decoration: none;
     font-weight: bold;
     background-color: transparent;
@@ -99,23 +120,49 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 100px;
     padding: 10px 10px;
+    margin-bottom: 30px; /*버튼 사이 간격 조절*/
+    text-align: center; /* 텍스트 가운데 정렬 */
 }
 
-.nav-image {
+.nav-item:last-child {
+    margin-bottom: 0; /* 마지막 아이템은 간격 제거 */
+}
+
+.nav-images {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 390px; /* 네비게이션 바 아래로 이미지 배치, 가랜더 위치조절 */
+    left: 0;
+    right: 0;
+    padding: 0 var(--padding-m);
+    padding-top: 100px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.nav-image-left {
     width: 280px;
     height: auto;
-    margin-top: 50px;
+    padding-left: 30px;
+}
+
+.nav-image-right {
+    width: 280px;
+    height: auto;
+    padding-right: 30px;
 }
 
 .nav-item:hover {
-    background-color: #058cd7;
+    background-color: #FFC567;
     color: var(--color-white);
 }
 
 .user-info {
     position: fixed;
-    top: 120px;
-    right: var(--padding-s);
+    top: 150px; /* 위에서 약간 떨어지도록 조정 */
+    right: 60px; /* 오른쪽에서 약간 떨어지도록 조정 */
     width: 250px;
     height: 70px;
     display: flex;
@@ -146,6 +193,7 @@ body {
     object-fit: cover;
 }
 
+
 .main {
     display: flex;
     flex-direction: column;
@@ -169,6 +217,7 @@ body {
     flex-direction: column;
     justify-content: center;
 }
+
 .text-box {
     margin-top: 20px; /* 이미지와 텍스트 사이의 간격 */
     text-align: center; /* 텍스트 가운데 정렬 */
@@ -178,19 +227,17 @@ body {
     width: 600px;
 }
 
-
 .top-image {
     width: 100%; /* 컨테이너 너비에 맞춤 */
     height: auto;
     padding-bottom: 50px;
 }
 
-h1 {
-    font-size: var(--font-size-l);
-    color: #595959;
+h2 {
+    /* font-size: var(--font-size-l); */
+    color: #000000;
     margin-bottom: var(--gap-xs);
-    font-family: var(--font-one-mobile-otf);
-    padding-bottom: 30px;
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 웹 폰트로 변경 */
     text-align: center; /* Centers the text horizontally */
     margin: 0 auto; /* Centers the element block */
 }
@@ -201,7 +248,7 @@ p {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;
-    font-family: var(--font-one-mobile-otf);
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 웹 폰트로 변경 */
 }
 
 .footer {
