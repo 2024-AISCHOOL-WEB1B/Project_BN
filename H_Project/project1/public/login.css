@@ -17,9 +17,17 @@
     --font-size-s: 16px;
     --font-size-m: 18px;
     --font-size-l: 24px;
-    --font-family: "카페24 써라운드" , bold;
-    --font-one-mobile-otf: '카페24 써라운드', bold;
+    --font-family: 'Cafe24Ssurround', sans-serif; /* 수정: 웹 폰트로 변경 */
+    --font-cafe24-Ssurround-otf: 'Cafe24Ssurround', sans-serif; /* 수정: 변수명 변경 */
     --font-inter: 'Inter', sans-serif;
+}
+
+/* 웹 폰트 정의 */
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 html, body {
@@ -34,7 +42,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: "카페24 써라운드" , bold;
+    font-family: var(--font-family); /* 수정: 웹 폰트로 변경 */
 }
 
 .container {
@@ -64,7 +72,6 @@ body {
     z-index: 1000; /* 헤더가 다른 요소들 위에 있도록 설정 */
 }
 
-
 .logo {
     position: absolute; /* 절대 위치로 설정하여 상단가랜더 이미지 위에 위치하도록 설정 */
     top: 10px; /* 화면 위에서부터 10px 아래에 위치 */
@@ -75,11 +82,11 @@ body {
     z-index: 1001; /* 다른 요소보다 위에 표시되도록 설정 */
 }
 
-.header-image {
+/* .header-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+} */
 
 .nav {
     position: fixed;
@@ -109,7 +116,7 @@ body {
     width: 100px;
     height: 45px;
     color: #ffffff;
-    font-family: var(--font-one-mobile-otf);
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
     font-size: 28px;
     -webkit-text-stroke: 2px #696969;
     text-decoration: none;
@@ -152,11 +159,11 @@ body {
     height: auto;
     padding-right: 30px;
 }
+
 .nav-item:hover {
     background-color: #FFC567;
     color: var(--color-white);
 }
-
 
 .user-info {
     position: fixed;
@@ -173,6 +180,7 @@ body {
     z-index: 1000;
     border: 2px solid #FFC567;
 }
+
 .user-details {
     display: flex;
     flex-direction: column;
@@ -181,7 +189,6 @@ body {
     margin-bottom: 4px;
     color: #000000;
 }
-
 
 .profileUser {
     width: 50px;
@@ -192,7 +199,6 @@ body {
     object-fit: cover;
 }
 
-
 .profile-pic {
     width: 40px;
     height: 40px;
@@ -201,7 +207,6 @@ body {
     border-radius: 50%;
     object-fit: cover;
 }
-
 
 .main {
     display: flex;
@@ -220,17 +225,16 @@ body {
     max-width: 100%; /* 부모 컨테이너의 너비를 넘지 않도록 설정 */
     height: auto;    /* 이미지 비율을 유지하면서 높이를 자동으로 조정 */
     width: 300px;    /* 원하는 너비로 설정 (예: 300px) */
-    margin: 0 auto;  이미지를 가운데 정렬
+    margin: 0 auto;  
     display: block;  /* 이미지가 블록 요소처럼 동작하도록 설정 */
     padding-bottom: 20px;
 }
-
 
 h1 {
     font-size: var(--font-size-l);
     color: #595959;
     margin-bottom: var(--gap-xs);
-    font-family: var(--font-one-mobile-otf);
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
     padding-bottom: 30px;
 }
 
@@ -278,9 +282,10 @@ input {
     margin-top: var(--gap-xs);
 }
 
-.login-button:hover{
+.login-button:hover {
     background-color: #ff8c00;
-    color: white;cursor: pointer;
+    color: white;
+    cursor: pointer;
     transition: background-color 0.5s ease;
 }
 
@@ -319,7 +324,7 @@ p {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;
-    font-family: var(--font-one-mobile-otf);
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
 }
 
 .footer {

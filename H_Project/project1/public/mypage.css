@@ -23,9 +23,17 @@
     --font-size-m: 18px;
     --font-size-l: 24px;
     --font-size-xl: 32px;
-    --font-family: "카페24 써라운드" , bold;
-    --font-one-mobile-otf: '카페24 써라운드', sans-serif;
+    --font-family: 'Cafe24Ssurround', sans-serif; /* 수정: 웹 폰트로 변경 */
+    --font-cafe24-Ssurround-otf: 'Cafe24Ssurround', sans-serif; /* 수정: 변수명 변경 */
     --font-inter: 'Inter', sans-serif;
+}
+
+/* 웹 폰트 정의 */
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 html, body {
@@ -35,28 +43,22 @@ html, body {
 }
 
 body {
-    font-family: "카페24 써라운드" , bold;
+    font-family: var(--font-family); /* 수정: 웹 폰트로 변경 */
     background-color: var(--color-white);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 
 .container {
     width: 100%;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     padding-top: var(--padding-xl); /* 상단에 여백 추가 */
-
     box-sizing: border-box;
     min-height: 100vh; /* 전체 화면 높이를 채우도록 설정 */
-    /* position:fixed;  */
 }
 
 .header {
@@ -76,7 +78,6 @@ body {
     z-index: 1000; /* 헤더가 다른 요소들 위에 있도록 설정 */
 }
 
-
 .logo {
     position: absolute; /* 절대 위치로 설정하여 상단가랜더 이미지 위에 위치하도록 설정 */
     top: 10px; /* 화면 위에서부터 10px 아래에 위치 */
@@ -87,11 +88,11 @@ body {
     z-index: 1001; /* 다른 요소보다 위에 표시되도록 설정 */
 }
 
-.header-image {
+/* .header-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+} */
 
 .nav {
     position: fixed;
@@ -121,7 +122,7 @@ body {
     width: 100px;
     height: 45px;
     color: #ffffff;
-    font-family: var(--font-one-mobile-otf);
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
     font-size: 28px;
     -webkit-text-stroke: 2px #696969;
     text-decoration: none;
@@ -164,11 +165,11 @@ body {
     height: auto;
     padding-right: 30px;
 }
+
 .nav-item:hover {
     background-color: #FFC567;
     color: var(--color-white);
 }
-
 
 .user-info {
     position: fixed;
@@ -185,6 +186,7 @@ body {
     z-index: 1000;
     border: 2px solid #FFC567;
 }
+
 .user-details {
     display: flex;
     flex-direction: column;
@@ -193,7 +195,6 @@ body {
     margin-bottom: 4px;
     color: #000000;
 }
-
 
 .profileUser {
     width: 40px;
@@ -204,7 +205,6 @@ body {
     object-fit: cover;
 }
 
-
 .profile-pic {
     width: 40px;
     height: 40px;
@@ -213,8 +213,6 @@ body {
     border-radius: 50%;
     object-fit: cover;
 }
-
-
 
 .main {
     flex: 1; /* 남은 공간을 채우도록 설정 */
@@ -235,7 +233,6 @@ body {
     height: auto; /* 이미지의 비율이 깨지지 않도록 자동으로 높이 설정 */
 } /* 유저정보창 위에 이미지 css */
 
-
 .profile-card {
     overflow: hidden;
     width: 100%;
@@ -251,7 +248,6 @@ body {
     gap: var(--gap-l);
     z-index: 1;
     position: relative;
-    
 }
 
 .profile-section {
@@ -259,9 +255,7 @@ body {
     width: 100%;
     align-items: center;
     gap: var(--gap-m);
-
 }
-
 
 .profile-pic {
     width: 80px;
@@ -281,7 +275,7 @@ body {
 }
 
 .profile-name {
-    font-family: "카페24 써라운드";
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
     font-size: var(--font-size-l);
     color: var(--color-black);
 }
@@ -329,13 +323,12 @@ body {
     height: 50px;
     border: none;
     border-radius: var(--br-xl);
-    font-family: '카페24 써라운드', bold;;
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
     font-size: 18px;
     cursor: pointer;
     align-items: center;
     gap: var(--gap-xs);
 }
-
 
 .action-button-outline {
     background-color: var(--color-white);
@@ -348,14 +341,12 @@ body {
     color: var(--color-white);
 }
 
-
 .background-container {
     position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
 }
-
 
 p {
     display: block;
@@ -364,16 +355,8 @@ p {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;
-    font-family: 카페24 써라운드;
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
 }
-
-/* .footer {
-    display:block;
-    text-align: center;
-    background-color: #00995e;
-    color: white;
-    width: 100%;
-} */
 
 .footer {
     text-align: center;

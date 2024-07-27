@@ -12,24 +12,28 @@
     <div class="container">
         <header class="header">
             <img class="logo" alt="로고" src="/icon/BNlogo.png">
-
-            <!-- 네비게이션 바 -->
-            <nav class="nav" aria-label="Main Navigation">
-                <a href="/" class="nav-item" onclick="handleHomeButtonClick()">HOME</a>
-                <a href="mypage" class="nav-item" onclick="handleMyButtonClick()">MY</a>
-                <a href="login" class="nav-item" onclick="handleLoginButtonClick()">LOGIN</a>
-                <img src="/icon/화면분할가랜더.png" alt="Login Image" class="nav-image">
-            </nav>
-            <!-- 유저 정보 영역 -->
-            <div class="user-info" id="userInfo">
-                <img class="profileuser" src="/icon/유저사진핑크.png" alt="프로필 사진" id="profileuser">
-                <div class="user-details">
-                    <span id="userId">비회원 님</span>
-                    <br>
-                    <span id="userEmail">이메일@email.com</span>
-                </div>
-            </div>
+            <img class="header-image" alt="상단 배너" src="/icon/상단가랜더.png">
         </header>
+        <!-- 네비게이션 바 -->
+        <nav class="nav" aria-label="Main Navigation">
+            <a href="/" class="nav-item" onclick="handleHomeButtonClick()">HOME</a>
+            <a href="mypage" class="nav-item" onclick="handleMyButtonClick()">MY</a>
+            <a href="login" class="nav-item" onclick="handleLoginButtonClick()">LOGIN</a>
+        </nav>
+        <!-- 유저 정보 영역 -->
+        <div class="user-info" id="userInfo">
+            <img class="profileUser" src="/icon/유저사진핑크.png" alt="프로필 사진" id="profilePic">
+            <div class="user-details">
+                <span id="userId">비회원 님</span>
+                <span id="userEmail"></span>
+            </div>
+        </div>
+        <!-- 네비게이션 이미지 좌우가랜더 -->
+        <div class="nav-images">
+            <img src="/icon/화면분할가랜더.png" alt="Left Image" class="nav-image-left">
+            <img src="/icon/화면분할가랜더.png" alt="Right Image" class="nav-image-right">
+        </div>
+
         <main class="main">
             <h1>회원정보 수정</h1>
             <div class="profile-card">
@@ -55,17 +59,46 @@
                     <button class="action-button action-button-black" onclick="confirmDelete()">회원탈퇴</button>
                 </div>
             </div>
-            
         </main>
     </div>
     <script>
+        // 우측상단 로그인 여부를 확인하여 user-info 표시 내용을 결정
+        function checkLoginStatus() {
+            var isLoggedIn = false; // 이 값은 실제 로그인 상태에 따라 변경되어야 합니다.
+
+            if (isLoggedIn) {
+                displayUserInfo("user@example.com", "닉네임");
+            } else {
+                displayGuestInfo();
+            }
+        }
+
+        // 우측상단 로그인한 유저 정보 표시 
+        function displayUserInfo(userId, userNickname) {
+            document.getElementById('userId').innerText = userNickname + " 님";
+            document.getElementById('userEmail').innerText = userId;
+            document.getElementById('profilePic').src = "/icon/유저사진핑크.png"; // 프로필 사진 경로
+        }
+
+        // 비회원 정보 표시
+        function displayGuestInfo() {
+            document.getElementById('userId').innerText = "비회원 님";
+            document.getElementById('userEmail').innerText = "이메일@mail.com";
+            document.getElementById('profilePic').src = "/icon/유저사진핑크.png"; // 비회원 기본 사진 경로
+        }
+
+        // 페이지 로드 시 로그인 상태 확인
+        window.onload = checkLoginStatus;
+
         function updateInfo() {
             alert("정보가 수정되었습니다.");
         }
 
+        // 회원탈퇴 버튼 클릭 시 호출되는 함수 수정
         function confirmDelete() {
             if (confirm("정말 회원탈퇴 하시겠습니까?")) {
                 alert("회원탈퇴가 완료되었습니다.");
+                window.location.href = "/failRegister.html"; // 회원탈퇴 후 이동할 페이지로 리다이렉트
             } else {
                 alert("회원탈퇴가 취소되었습니다.");
             }

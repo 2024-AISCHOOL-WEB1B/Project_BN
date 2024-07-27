@@ -17,8 +17,16 @@
     --font-size-s: 16px;
     --font-size-m: 18px;
     --font-size-l: 24px;
-    --font-family: '카페24 써라운드', bold;
-    --font-one-mobile-otf: '카페24 써라운드', bold;
+    --font-family: 'Cafe24Ssurround', sans-serif; /* 수정: 웹 폰트로 변경 */
+    --font-cafe24-Ssurround-otf: 'Cafe24Ssurround', sans-serif; /* 수정: 변수명 변경 */
+}
+
+/* 웹 폰트 정의 */
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 html, body {
@@ -40,7 +48,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    flex : 1;
+    flex: 1;
     align-items: center;
     box-sizing: border-box;
 }
@@ -72,11 +80,11 @@ body {
     z-index: 1001; /* 다른 요소보다 위에 표시되도록 설정 */
 }
 
-.header-image {
+/* .header-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+} */
 
 .nav {
     position: fixed;
@@ -106,7 +114,7 @@ body {
     width: 100px;
     height: 45px;
     color: #ffffff;
-    font-family: var(--font-one-mobile-otf);
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
     font-size: 28px;
     -webkit-text-stroke: 2px #696969;
     text-decoration: none;
@@ -175,7 +183,7 @@ body {
     display: flex;
     flex-direction: column;
     font-size: var(--font-size-s);
-    font-family: '카페24 써라운드', bold;
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
     font-weight: bold;
     margin-bottom: 4px;
 }
@@ -212,6 +220,7 @@ body {
     flex-direction: column;
     justify-content: center;
 }
+
 .text-box {
     margin-top: 20px; /* 이미지와 텍스트 사이의 간격 */
     text-align: center; /* 텍스트 가운데 정렬 */
@@ -231,7 +240,7 @@ h1 {
     font-size: var(--font-size-l);
     color: black;
     margin-bottom: var(--gap-xs);
-    font-family: var(--font-one-mobile-otf);
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
     text-align: center; /* 텍스트 중앙 정렬 */
     margin: 0 auto; /* 요소 중앙 정렬 */
 }
@@ -242,7 +251,7 @@ p {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;
-    font-family: var(--font-one-mobile-otf);
+    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
 }
 
 .footer {
