@@ -36,20 +36,37 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: var(--font-inter); /* 수정: 웹 폰트로 변경 */
-    height: 100vh;
-    overflow: hidden;
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-family);
+}
+
+.container {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 45px; /* 상단바 높이만큼 여백 추가 */
+    box-sizing: border-box;
 }
 
 .header {
     width: 100%;
     height: 100px;
-    background-size: cover; /* 배경 이미지가 헤더를 덮도록 설정 */
-    background-position: center; /* 이미지의 위치를 중앙으로 설정 */
-    position: relative; /* 자식 요소의 위치를 기준으로 설정 */
+    background-size: cover;
+    background-position: center;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,21 +76,17 @@ body {
     top: 0;
     left: 0;
     z-index: 1000; /* 헤더가 다른 요소들 위에 있도록 설정 */
-}
-
-.logo {
-    position: absolute; /* 절대 위치로 설정하여 상단가랜더 이미지 위에 위치하도록 설정 */
-    top: 10px; /* 화면 위에서부터 10px 아래에 위치 */
-    left: 25px; /* 화면 왼쪽에서부터 10px 오른쪽에 위치 */
-    padding: 5px;
-    height: 55px;
-    object-fit: cover;
-    z-index: 1001; /* 다른 요소보다 위에 표시되도록 설정 */
+  
+    background-repeat: no-repeat;
 }
 
 .nav {
     display: flex;
     gap: var(--gap-xs);
+    position: absolute; /* 절대 위치로 설정 */
+    top: 10px; /* 상단에서의 간격 설정 */
+    right: 25px; /* 오른쪽에서의 간격 설정 */
+    z-index: 1001; /* 헤더 이미지 위에 보이도록 설정 */
 }
 
 .nav-item {
@@ -82,13 +95,23 @@ body {
     color: var(--color-white);
     text-decoration: none;
     font-weight: bold;
-    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 폰트 적용 */
+    font-family: var(--font-cafe24-Ssurround-otf);
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--color-darkorange);
     border-radius: 30px;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    z-index: 1002; /* 로고도 네비게이션 위에 표시되도록 설정 */
+    padding: 5px;
+    height: 55px;
+    object-fit: cover;
 }
 
 .nav-item:hover {
