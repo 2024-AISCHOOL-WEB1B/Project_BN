@@ -22,43 +22,93 @@
             <a href="login" class="nav-item">LOGIN</a>
         </nav>
 
-         <!-- 유저 정보 영역 -->
-         <div class="user-info" id="userInfo">
+        <!-- 유저 정보 영역 -->
+        <div class="user-info" id="userInfo">
             <img class="profileUser" src="/H_Project/project1/public/icon/유저사진핑크.png" alt="프로필 사진" id="profilePic">
             <div class="user-details">
                 <span id="userId">비회원 님</span>
-                <span id="userEmail"></span>
+                <span id="userEmail">이메일@mail.com</span>
             </div>
         </div>
 
-        <!-- 네비게이션 이미지 좌우가랜더-->
-         <div class="nav-images">
+        <!-- 네비게이션 이미지 좌우가랜더 -->
+        <div class="nav-images">
             <img src="/H_Project/project1/public/icon/화면분할가랜더.png" alt="Left Image" class="nav-image-left">
             <img src="/H_Project/project1/public/icon/화면분할가랜더.png" alt="Right Image" class="nav-image-right">
         </div>
-
-        <div class="wishlist-header">
-            <img class="wishlist-icon" src="/H_Project/project1/public/icon/nyang.png" alt="찜 아이콘">
-            <h1>찜 목록</h1>
-        </div>
-   
+        
         <main class="main">
-            <div class="wishlist">
-                <div class="store-item" onclick="showStoreDetails('store1')">
-                    <img src="/H_Project/project1/public/icon/store_image_placeholder.png" alt="가게 사진">
-                    <div>
-                        <h2>일식음식점</h2>
-                        <p>돈코츠라멘</p>
-                    </div>
-                    <button class="remove-button">X</button>
-                    <button class="heart-button">❤️</button>
-                </div>
-                <!-- 추가적인 가게 리스트 아이템들 -->
+            <!-- 찜목록 h1, 냥발 아이콘 -->
+            <div class="wishlist-header">
+                <img class="wishlist-icon" src="/H_Project/project1/public/icon/nyang.png" alt="찜 아이콘">
+                <h1>찜 목록</h1>
             </div>
-            <div class="store-details" id="store-details">
-                <img id="store-image" src="" alt="가게 대표 사진">
-                <h2 id="store-name"></h2>
-                <p id="store-menu"></p>
+
+            <div class="content">
+                <div class="wishlist">
+                    <!-- 가게1 -->
+                    <div class="store-item" onclick="showStoreDetails('store1')">
+                        <img src="/H_Project/project1/public/icon/foodtest.jpg" alt="가게 사진">
+                        <div>
+                            <h2>일식음식점</h2>
+                            <p>돈코츠라멘</p>
+                        </div>
+                        <div class="button-container">
+                            <button class="remove-button">
+                                <img src="/H_Project/project1/public/icon/removeX.png" alt="삭제">
+                            </button>
+                            <button class="heart-button" onclick="toggleFavorite(this)">
+                                <img src="/H_Project/project1/public/icon/favorite.png" alt="찜">
+                            </button>
+                        </div>
+                    </div>
+                    <!-- 가게2 -->
+                    <div class="store-item" onclick="showStoreDetails('store2')">
+                        <img src="/H_Project/project1/public/icon/foodtest.jpg" alt="가게 사진">
+                        <div>
+                            <h2>일식음식점</h2>
+                            <p>돈코츠라멘</p>
+                        </div>
+                        <div class="button-container">
+                            <button class="remove-button">
+                                <img src="/H_Project/project1/public/icon/removeX.png" alt="삭제">
+                            </button>
+                            <button class="heart-button" onclick="toggleFavorite(this)">
+                                <img src="/H_Project/project1/public/icon/favorite.png" alt="찜">
+                            </button>
+                        </div>
+                    </div>
+                    <!-- 가게3 -->
+                    <div class="store-item" onclick="showStoreDetails('store3')">
+                        <img src="/H_Project/project1/public/icon/foodtest.jpg" alt="가게 사진">
+                        <div>
+                            <h2>일식음식점</h2>
+                            <p>돈코츠라멘</p>
+                        </div>
+                        <div class="button-container">
+                            <button class="remove-button">
+                                <img src="/H_Project/project1/public/icon/removeX.png" alt="삭제">
+                            </button>
+                            <button class="heart-button" onclick="toggleFavorite(this)">
+                                <img src="/H_Project/project1/public/icon/favorite.png" alt="찜">
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 가게 상세 정보 섹션 -->
+                <div class="store-details" id="store-details">
+                    <img id="store-image" src="/H_Project/project1/public/icon/너굴맨4.png" alt="찜한가게">
+                    <h2 id="store-name"></h2>
+                    <p id="store-menu">등심카츠<br>13,900원</p> <!-- 스타일 문제가 있는 부분 -->
+                    <div id="review-section">
+                        <img id="smile-review" src="/H_Project/project1/public/icon/smile.png" alt="긍정적인 리뷰">
+                        <span id="smile-percentage"></span>
+                        <img id="angry-review" src="/H_Project/project1/public/icon/angry.png" alt="부정적인 리뷰">
+                        <span id="angry-percentage"></span>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
@@ -68,50 +118,125 @@
     </footer>
 
     <script>
-         // 로그인 여부를 확인하여 user-info 표시 내용을 결정
-         function checkLoginStatus() {
-            // 실제 로그인 구현에서는 서버에서 로그인 여부를 확인하는 API를 호출하거나,
-                // 로컬 스토리지/쿠키 등을 검사하여 로그인 상태를 확인합니다.
-                var isLoggedIn = false; // 이 값은 실제 로그인 상태에 따라 변경되어야 합니다.
-        
-                if (isLoggedIn) {
-                    displayUserInfo("user@example.com", "닉네임");
-                } else {
-                    displayGuestInfo();
-                }
+        // 로그인 여부를 확인하여 user-info 표시 내용을 결정
+        function checkLoginStatus() {
+            var isLoggedIn = false; // 이 값은 실제 로그인 상태에 따라 변경되어야 합니다.
+    
+            if (isLoggedIn) {
+                displayUserInfo("user@example.com", "닉네임");
+            } else {
+                displayGuestInfo();
             }
-        
-            // 로그인한 유저 정보 표시
-            function displayUserInfo(userId, userNickname) {
-                document.getElementById('userId').innerText = userNickname + " 님";
-                document.getElementById('userEmail').innerText = userId;
-                document.getElementById('profilePic').src = "/H_Project/project1/public/icon/유저사진핑크.png"; // 프로필 사진 경로
-            }
-        
-            // 비회원 정보 표시
-            function displayGuestInfo() {
-                document.getElementById('userId').innerText = "비회원 님";
-                document.getElementById('userEmail').innerText = "이메일@mail.com";
-                document.getElementById('profilePic').src = "/H_Project/project1/public/icon/유저사진핑크.png"; // 비회원 기본 사진 경로
-            }
-        
-            // 페이지 로드 시 로그인 상태 확인
-            window.onload = checkLoginStatus;
-
-        function showStoreDetails(storeId) {
-            // 실제 데이터에서는 storeId를 기반으로 가게 정보를 가져와서 표시합니다.
-            var storeImage = document.getElementById('store-image');
-            var storeName = document.getElementById('store-name');
-            var storeMenu = document.getElementById('store-menu');
-
-            if (storeId === 'store1') {
-                storeImage.src = "/H_Project/project1/public/icon/sample_store1.png";
-                storeName.innerText = "동백카츠 동명점";
-                storeMenu.innerText = "돈카츠대표메뉴\n10,000원";
-            }
-            // 추가적인 가게 정보 설정
-            
         }
+    
+        // 로그인한 유저 정보 표시
+        function displayUserInfo(userId, userNickname) {
+            document.getElementById('userId').innerText = userNickname + " 님";
+            document.getElementById('userEmail').innerText = userId;
+            document.getElementById('profilePic').src = "/H_Project/project1/public/icon/유저사진핑크.png"; // 프로필 사진 경로
+        }
+    
+        // 비회원 정보 표시
+        function displayGuestInfo() {
+            document.getElementById('userId').innerText = "비회원 님";
+            document.getElementById('userEmail').innerText = "이메일@mail.com";
+            document.getElementById('profilePic').src = "/H_Project/project1/public/icon/유저사진핑크.png"; // 비회원 기본 사진 경로
+        }
+    
+        // 페이지 로드 시 로그인 상태 확인
+        window.onload = checkLoginStatus;
+    
+        // 즐겨찾기 토글
+        function toggleFavorite(button) {
+            var img = button.querySelector('img');
+            var isFavorited = img.getAttribute('data-favorited') === 'true';
+    
+            if (isFavorited) {
+                img.src = '/H_Project/project1/public/icon/favorite.png'; // 비활성화된 찜 아이콘
+                img.setAttribute('data-favorited', 'false');
+            } else {
+                img.src = '/H_Project/project1/public/icon/favorite.png'; // 활성화된 찜 아이콘
+                img.setAttribute('data-favorited', 'true');
+            }
+        }
+    
+        // 각 가게의 정보를 저장하는 객체
+        var storeInfo = {
+            store1: {
+                imageSrc: "/H_Project/project1/public/icon/foodtest.jpg",
+                name: "동백카츠 동명점",
+                menu: "등심카츠\n13,900원",
+                smilePercentage: "80%",
+                angryPercentage: "20%"
+            },
+            store2: {
+                imageSrc: "/H_Project/project1/public/icon/sample_store2.png",
+                name: "일식집",
+                menu: "우동\n8,000원",
+                smilePercentage: "70%",
+                angryPercentage: "30%"
+            },
+            store3: {
+                imageSrc: "/H_Project/project1/public/icon/foodtest.png",
+                name: "스시야",
+                menu: "스시세트\n15,000원",
+                smilePercentage: "90%",
+                angryPercentage: "10%"
+            }
+        };
+    
+        // 기본 상태 설정: 기본 이미지 및 텍스트
+        var defaultImageSrc = "/H_Project/project1/public/icon/너굴맨4.png";
+        var defaultName = "가게를 선택해주세요";
+        var defaultMenu = "";
+    
+        // store-details 초기화 함수
+        function resetStoreDetails() {
+            document.getElementById('store-image').src = defaultImageSrc;
+            document.getElementById('store-name').innerText = defaultName;
+            document.getElementById('store-menu').innerText = defaultMenu;
+            document.getElementById('smile-percentage').innerText = "";
+            document.getElementById('angry-percentage').innerText = "";
+            document.getElementById('review-section').style.display = 'none'; // 리뷰 섹션 숨기기
+        }
+    
+        // store-details 업데이트 함수
+        function updateStoreDetails(storeId) {
+            var store = storeInfo[storeId];
+            if (store) {
+                document.getElementById('store-image').src = store.imageSrc;
+                document.getElementById('store-name').innerText = store.name;
+                document.getElementById('store-menu').innerText = store.menu; // 메뉴 정보 업데이트
+                document.getElementById('smile-percentage').innerText = store.smilePercentage;
+                document.getElementById('angry-percentage').innerText = store.angryPercentage;
+                document.getElementById('review-section').style.display = 'flex'; // 리뷰 섹션 보이기
+            }
+        }
+    
+        // heart-button 클릭 시 store-details 업데이트
+        var heartButtons = document.querySelectorAll('.heart-button');
+        heartButtons.forEach(function (button, index) {
+            button.addEventListener('click', function (event) {
+                event.stopPropagation(); // 부모 요소의 클릭 이벤트 방지
+                var storeId = 'store' + (index + 1);
+                updateStoreDetails(storeId); // 해당 가게 정보 업데이트
+            });
+        });
+    
+        // store-item 클릭 시 store-details 초기화
+        function showStoreDetails(storeId) {
+            var store = storeInfo[storeId];
+            if (store) {
+                updateStoreDetails(storeId); // 선택된 가게 정보 업데이트
+            } else {
+                resetStoreDetails(); // 초기화된 상태로 설정
+            }
+        }
+    
+        // 페이지 로드 시 기본 이미지와 텍스트 설정
+        resetStoreDetails(); // 초기 상태 설정
     </script>
+    
+    
 </body>
 </html>
