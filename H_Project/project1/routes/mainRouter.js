@@ -27,15 +27,29 @@ router.get("/logout",(req,res)=>{
 
 // 마이페이지 이동
 router.get("/mypage", (req,res)=>{
-    res.render("mypage")
-    console.log("정보수정페이지 이동")
+    if(req.session.nick){
+        res.render("mypage", { 
+            nick: req.session.nick,
+            email: req.session.email
+         });
+    } else {
+        res.render("mypage")
+    } 
+    console.log("마이페이지 이동")
 })
 
 
 // 사용자가 정보수정을 요청했을 때
 router.get("/updateRegister", (req,res)=>{
+    if(req.session.nick){
+        res.render("updateRegister", { 
+            nick: req.session.nick,
+            email: req.session.email
+         });
+    } else {
+        res.render("updateRegister")
+    } 
     console.log("정보수정페이지 이동")
-    res.render("updateRegister")
 })
 
 // 사용자가 회원탈퇴를 요청했을 때
@@ -44,14 +58,17 @@ router.get("/deleteAccount", (req,res)=>{
 })
 
 
-// 가게 누르면 상세 페이지로(비동기)
+// 찜 목록 이동
 router.get("/wishList", (req,res)=>{
-    res.render("wishList")
+    if(req.session.nick){
+        res.render("wishList", { 
+            nick: req.session.nick,
+            email: req.session.email
+         });
+    } else {
+        res.render("wishList")
+    } 
 })
-
-// 검색을 누르면 추천 페이지(비동기) - 서버 연결
-
-
 
 
 

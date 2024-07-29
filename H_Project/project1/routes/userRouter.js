@@ -33,6 +33,7 @@ router.post("/login", (req, res) => {
         if (rows.length > 0) {
             console.log("로그인성공");
             req.session.nick = rows[0].nick;
+            req.session.email = rows[0].email;
             res.redirect("/")
         } else {
             console.log("로그인 실패");
