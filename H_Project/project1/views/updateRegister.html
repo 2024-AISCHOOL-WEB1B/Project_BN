@@ -12,7 +12,7 @@
     <div class="container">
         <header class="header">
             <img class="logo" alt="로고" src="/icon/BNlogo.png">
-            <img class="header-image" alt="상단 배너" src="/icon/상단가랜더.png">
+            <img class="header-image" alt="상단 배너" src="icon/topgarender.png">
         </header>
         <!-- 네비게이션 바 -->
         <nav class="nav" aria-label="Main Navigation">
@@ -22,7 +22,7 @@
         </nav>
         <!-- 유저 정보 영역 -->
         <div class="user-info" id="userInfo">
-            <img class="profileUser" src="/icon/유저사진핑크.png" alt="프로필 사진" id="profilePic">
+            <img class="profileUser" src="/icon/userpink.png" alt="프로필 사진" id="profilePic">
             <div class="user-details">
                 <span id="userId">비회원 님</span>
                 <span id="userEmail"></span>
@@ -30,15 +30,15 @@
         </div>
         <!-- 네비게이션 이미지 좌우가랜더 -->
         <div class="nav-images">
-            <img src="/icon/화면분할가랜더.png" alt="Left Image" class="nav-image-left">
-            <img src="/icon/화면분할가랜더.png" alt="Right Image" class="nav-image-right">
+            <img src="/icon/dividergrender.png" alt="Left Image" class="nav-image-left">
+            <img src="/icon/dividergrender.png" alt="Right Image" class="nav-image-right">
         </div>
 
         <main class="main">
             <h1>회원정보 수정</h1>
             <div class="profile-card">
                 <div class="profile-section">
-                    <img class="profile-pic" src="/icon/회원사진.png" alt="Profile">
+                    <img class="profile-pic" src="/icon/usergray.png" alt="Profile">
                     <div class="profile-info">
                         <b class="profile-name">소크라테스</b>
                         <b class="profile-email">sokra1234@gmail.com</b>
@@ -77,14 +77,14 @@
         function displayUserInfo(userId, userNickname) {
             document.getElementById('userId').innerText = userNickname + " 님";
             document.getElementById('userEmail').innerText = userId;
-            document.getElementById('profilePic').src = "/icon/유저사진핑크.png"; // 프로필 사진 경로
+            document.getElementById('profilePic').src = "/icon/userpink.png"; // 프로필 사진 경로
         }
 
         // 비회원 정보 표시
         function displayGuestInfo() {
             document.getElementById('userId').innerText = "비회원 님";
-            document.getElementById('userEmail').innerText = "이메일@mail.com";
-            document.getElementById('profilePic').src = "/icon/유저사진핑크.png"; // 비회원 기본 사진 경로
+            document.getElementById('userEmail').innerText = "";
+            document.getElementById('profilePic').src = "/icon/userpink.png"; // 비회원 기본 사진 경로
         }
 
         // 페이지 로드 시 로그인 상태 확인

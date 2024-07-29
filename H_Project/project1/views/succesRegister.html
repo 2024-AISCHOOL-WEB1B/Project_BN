@@ -11,8 +11,8 @@
 <body>
     <div class="container">
         <header class="header">
-            <img class="logo" alt="로고" src="/H_Project/project1/public/icon/BNlogo.png">
-            <img class="header-image" alt="상단 배너" src="/H_Project/project1/public/icon/상단가랜더.png">
+            <img class="logo" alt="로고" src="/icon/BNlogo.png">
+            <img class="header-image" alt="상단 배너" src="/icon/topgarender.png">
         </header>
         
         <!-- 네비게이션 바 -->
@@ -26,7 +26,7 @@
         
         <!-- 유저 정보 영역 -->
         <div class="user-info" id="userInfo">
-            <img class="profileUser" src="/H_Project/project1/public/icon/유저사진핑크.png" alt="프로필 사진" id="profilePic">
+            <img class="profileUser" src="/icon/userpink.png" alt="프로필 사진" id="profilePic">
             <div class="user-details">
                 <span id="userId">비회원 님</span>
                 <span id="userEmail">이메일@mail.com</span>
@@ -35,13 +35,13 @@
         
         <!-- 네비게이션 이미지 좌우가랜더 -->
         <div class="nav-images">
-            <img src="/H_Project/project1/public/icon/화면분할가랜더.png" alt="왼쪽 이미지" class="nav-image-left">
-            <img src="/H_Project/project1/public/icon/화면분할가랜더.png" alt="오른쪽 이미지" class="nav-image-right">
+            <img src="/icon/dividergrender.png" alt="왼쪽 이미지" class="nav-image-left">
+            <img src="/icon/dividergrender.png" alt="오른쪽 이미지" class="nav-image-right">
         </div>
         
         <main class="main">
             <div class="image-container">
-                <img src="/H_Project/project1/public/icon/BN핫도그.png" alt="프로필 사진" class="top-image">
+                <img src="/icon/nugul1.png" alt="프로필 사진" class="top-image">
                 <div class="text-box">
                     <h1>회원가입 성공 !</h1>
                     <p>블랙너구리가 된 것을 환영합니다 !</p>
@@ -72,7 +72,7 @@
             // 특정 페이지로 리다이렉트하는 함수
             function redirectToMain() {
                 // 원하는 URL로 변경하세요. 예: /newMainPage.html
-                window.location.href = "/H_Project/project1/public/Main.html"; 
+                window.location.href = "/Main.html"; 
             }
 
             // 로그인 여부를 확인하여 user-info 표시 내용을 결정
@@ -90,14 +90,14 @@
             function displayUserInfo(userId, userNickname) {
                 document.getElementById('userId').innerText = userNickname + " 님";
                 document.getElementById('userEmail').innerText = userId;
-                document.getElementById('profilePic').src = "/H_Project/project1/public/icon/유저사진핑크.png"; // 프로필 사진 경로
+                document.getElementById('profilePic').src = "/icon/userpink.png"; // 프로필 사진 경로
             }
 
             // 비회원 정보 표시
             function displayGuestInfo() {
                 document.getElementById('userId').innerText = "비회원 님";
-                document.getElementById('userEmail').innerText = "이메일@mail.com";
-                document.getElementById('profilePic').src = "/H_Project/project1/public/icon/유저사진핑크.png"; // 비회원 기본 사진 경로
+                document.getElementById('userEmail').innerText = "";
+                document.getElementById('profilePic').src = "/icon/userpink.png"; // 비회원 기본 사진 경로
             }
 
             // 페이지 로드 시 로그인 상태 확인
