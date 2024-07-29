@@ -48,12 +48,15 @@ nunjucks.configure("views", {
 
 
 
+/////////// 여기서부터 api 엔드포인트 전까지 login/ logout 테스트
+
 
 // API 엔드포인트
 //app.get('/recommend', (req, res) => {
    // const recommendations = recommendRestaurants(userPreferences);
    // res.json(recommendations);
 //});
+
 
 
 // 서버 시작
