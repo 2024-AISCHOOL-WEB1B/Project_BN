@@ -6,8 +6,15 @@ const conn = require("../config/db")
 router.post("/register",(req,res)=>{
     let {id,pw,nick,email} = req.body;
     let sql = "insert into member values (?,?,?,?)"
+    let = [
+        id,
+        pw,
+        nick,
+        email
+    ]
     conn.query(spl,[id,pw,nick,email],(err,rows)=>{
         console.log("DB insert:",row);
+        
         if(rows){
             res.redirect("/")
         }else{
