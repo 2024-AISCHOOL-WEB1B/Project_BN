@@ -43,8 +43,10 @@
                 <div class="profile-section">
                     <img class="profile-pic" src="/icon/usergray.png" alt="Profile">
                     <div class="profile-info">
-                        <b class="profile-name">소크라테스</b>
-                        <b class="profile-email">sokra1234@gmail.com</b>
+                        {% if nick %}
+                        <b class="profile-name">{{nick}}님</b>
+                        {% endif %}
+                        <b class="profile-email">123@gmail.net</b>
                     </div>
                     <div class="stats-item">
                         <img class="favorite-icon" src="/icon/favorite.png" alt="Favorite">
