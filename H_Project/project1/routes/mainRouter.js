@@ -20,6 +20,11 @@ router.get("/login", (req,res)=>{
     res.render("login")
 })
 
+// 사용자가 로그아웃을 요청했을 때
+router.get("/logout",(req,res)=>{
+    res.render("logout")
+})
+
 // 마이페이지 이동
 router.get("/mypage", (req,res)=>{
     res.render("mypage")

@@ -28,6 +28,10 @@ router.post("/register", (req, res) => {
 router.post("/login", (req, res) => {
     let { id, pw } = req.body;
     let sql = "select * from member_tbl where id = ? and pw = ?"
+    let = [
+        id,
+        pw
+    ]
     conn.query(sql, [id, pw], (err, rows) => {
         if (rows.length > 0) {
             console.log("로그인성공");
@@ -44,6 +48,11 @@ router.post("/login", (req, res) => {
 router.post("/updateRegister", (req, res) => {
     let { pw, nick } = req.body;
     let sql = "updateRogister member_tbl set nick =? where pw=?"
+    let = [
+        pw,
+        nick
+    ]
+
     conn.query(sql, [pw,nick], (err, rows) => {
         if (rows.affectedRows > 0) {
             console.log("변경성공");
