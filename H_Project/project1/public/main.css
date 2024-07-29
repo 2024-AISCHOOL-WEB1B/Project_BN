@@ -280,16 +280,18 @@ body {
 .topArrow {
     cursor: pointer;
     position: absolute;
-    top: -40px; /* 초기 위치 조정 */
+    top: -30px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) rotate(180deg); /* 회전 유지 */
+    transform-origin: center; /* 회전 기준점을 중심으로 설정 */
     z-index: 1001;
-    transition: top 0.5s ease;
+    transition: transform 0.5s ease; /* 회전 애니메이션 추가 */
 }
 
 .topArrow img {
-    width: 40px; /* 이미지 크기 조정 */
+    width: 35px; /* 이미지 크기 설정 */
     height: auto;
+    
 }
 
 /* 오버레이 보이기 */

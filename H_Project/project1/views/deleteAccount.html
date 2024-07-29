@@ -12,7 +12,7 @@
     <div class="container">
         <header class="header">
             <img class="logo" alt="로고" src="/icon/BNlogo.png">
-            <img class="header-image" alt="상단 배너" src="/">
+            <img class="header-image" alt="상단 배너" src="/icon/topgarender.png">
         </header>
         
         <!-- 네비게이션 바 -->
@@ -20,6 +20,7 @@
             <a href="#" class="nav-item" onclick="handleHomeButtonClick()">HOME</a>
             <a href="#" class="nav-item" onclick="handleMyButtonClick()">MY</a>
             <a href="#" class="nav-item" onclick="handleLoginButtonClick()">LOGIN</a>
+            <a href="favorite" class="nav-item" onclick="handleFavoriteButtonClick()">FAVORITE</a>
         </nav>
         
         <!-- 유저 정보 영역 -->
@@ -68,14 +69,14 @@
             function displayUserInfo(userId, userNickname) {
                 document.getElementById('userId').innerText = userNickname + " 님";
                 document.getElementById('userEmail').innerText = userId;
-                document.getElementById('profilePic').src = "/H_Project/project1/public/icon/유저사진핑크.png"; // 프로필 사진 경로
+                document.getElementById('profilePic').src = "/icon/userpink.png"; // 프로필 사진 경로
             }
         
             // 비회원 정보 표시
             function displayGuestInfo() {
                 document.getElementById('userId').innerText = "비회원 님";
-                document.getElementById('userEmail').innerText = "이메일@mail.com";
-                document.getElementById('profilePic').src = "/H_Project/project1/public/icon/유저사진핑크.png"; // 비회원 기본 사진 경로
+                document.getElementById('userEmail').innerText = "";
+                document.getElementById('profilePic').src = "/icon/userpink.png"; // 비회원 기본 사진 경로
             }
         
             // 페이지 로드 시 로그인 상태 확인

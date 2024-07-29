@@ -426,6 +426,18 @@
                 searchResultItems.style.transform = 'translateX(' + (-slideIndex * 100) + '%)';
             }
         });
+        // 돌아가는 버튼
+        document.querySelector('.topArrow').addEventListener('click', function() {
+            // 현재 회전 상태 확인
+            const isRotated = this.style.transform.includes('rotate(180deg)');
+        
+            // 회전 상태에 따라 새로운 회전 값 설정
+            if (isRotated) {
+                this.style.transform = 'translateX(-50%) rotate(0deg)';
+            } else {
+                this.style.transform = 'translateX(-50%) rotate(180deg)';
+            }
+        });
     </script>
 </body>
 
