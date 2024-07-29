@@ -119,7 +119,7 @@ body {
 
 .nav-item:hover {
     /* background-color: #ff7f00; */
-    color:#ff8c00;
+    color:#d5d5d5;
 }
 
 .main {
@@ -144,7 +144,7 @@ body {
 }
 
 #map {
-    width: 70%;
+    width: 80%;
     height: 100%;
 }
 
@@ -291,7 +291,7 @@ body {
 .topArrow img {
     width: 35px; /* 이미지 크기 설정 */
     height: auto;
-    
+    padding-top: 20px;
 }
 
 /* 오버레이 보이기 */
