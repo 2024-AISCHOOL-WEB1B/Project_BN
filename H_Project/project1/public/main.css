@@ -228,7 +228,7 @@ body {
 .filter-options input,
 .filter-options select {
     flex: 1;
-    max-width: 150px;
+    max-width: 220px;
 }
 
 /* 검색 버튼 스타일 */
