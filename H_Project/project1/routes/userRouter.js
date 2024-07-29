@@ -3,8 +3,8 @@ const router = express.Router();
 const conn = require("../config/db")
 
 // 1. 회원가입 로직  
-router.post("/register",(req,res)=>{
-    let {id,pw,nick,email} = req.body;
+router.post("/register", (req, res) => {
+    let { id, pw, nick, email } = req.body;
     let sql = "insert into member_tbl values (?,?,?,?)"
     let = [
         id,
@@ -12,28 +12,28 @@ router.post("/register",(req,res)=>{
         nick,
         email
     ]
-    conn.query(sql,[id,pw,nick,email],(err,rows)=>{
-        console.log("DB insert:",rows);
-        
-        if(rows){
+    conn.query(sql, [id, pw, nick, email], (err, rows) => {
+        console.log("DB insert:", rows);
+
+        if (rows) {
             console.log("회원가입 성공");
             res.redirect("/")
-        }else{
+        } else {
             res.send("<script>alert('회원가입 실패')</script>")
         }
     })
 })
 
 // 2. 로그인 로직
-router.post("/login",(req,res)=>{
-    let {id,pw} = req.body;
+router.post("/login", (req, res) => {
+    let { id, pw } = req.body;
     let sql = "select * from member_tbl where id = ? and pw = ?"
-    conn.query(sql,[id,pw],(err,rows)=>{
-        if(rows.length > 0){
+    conn.query(sql, [id, pw], (err, rows) => {
+        if (rows.length > 0) {
             console.log("로그인성공");
             req.session.nick = rows[0].nick;
             res.redirect("/")
-        }else{
+        } else {
             console.log("로그인 실패");
             res.send("<script>alert('로그인 실패')</script>")
         }
@@ -41,14 +41,14 @@ router.post("/login",(req,res)=>{
 })
 
 // 3.회원수정 로직 - 수정 
-router.post("/updateRegister",(req,res)=>{
-    let {id,pw,nick} = req.body;
+router.post("/updateRegister", (req, res) => {
+    let { id, pw, nick } = req.body;
     let sql = "updateRogister member_tbl set nick =? where pw=?"
-    conn.query(sql,[nick,pw],(err,rows)=>{
-        if(rows.affectedRows > 0){
+    conn.query(sql, [nick, pw], (err, rows) => {
+        if (rows.affectedRows > 0) {
             console.log("변경성공");
             res.redirect("/")
-        }else{
+        } else {
             console.log("변경 실패");
             res.send("<script>alert('로그인 실패')</script>")
         }
@@ -56,7 +56,7 @@ router.post("/updateRegister",(req,res)=>{
 })
 
 // 4. 로그아웃
-router.get("/logout",(req,res)=>{
+router.get("/logout", (req, res) => {
     req.session.destroy();
     res.redirect("/")
 })
