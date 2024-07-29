@@ -76,7 +76,6 @@ body {
     top: 0;
     left: 0;
     z-index: 1000; /* 헤더가 다른 요소들 위에 있도록 설정 */
-  
     background-repeat: no-repeat;
 }
 
@@ -87,21 +86,25 @@ body {
     top: 10px; /* 상단에서의 간격 설정 */
     right: 25px; /* 오른쪽에서의 간격 설정 */
     z-index: 1001; /* 헤더 이미지 위에 보이도록 설정 */
+    
 }
 
 .nav-item {
-    width: 100px;
+    width: 120px;
     height: 45px;
     color: var(--color-white);
     text-decoration: none;
     font-weight: bold;
     font-family: var(--font-cafe24-Ssurround-otf);
+    font-size: 33px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-darkorange);
+    /* background-color: var(--color-darkorange); */
     border-radius: 30px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-text-stroke: 2px black; /* 외곽선 두께와 색상 */
+ 
 }
 
 .logo {
@@ -115,8 +118,8 @@ body {
 }
 
 .nav-item:hover {
-    background-color: #ff7f00;
-    color: var(--color-white);
+    /* background-color: #ff7f00; */
+    color:#ff8c00;
 }
 
 .main {
