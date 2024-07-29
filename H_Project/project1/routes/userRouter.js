@@ -4,9 +4,9 @@ const conn = require("../config/db")
 
 // 1. 회원가입 로직  
 router.post("/register",(req,res)=>{
-    let {id,pw,nick} = req.body;
-    let sql = "insert into member values (?,?,?)"
-    conn.query(spl,[id,pw,nick],(err,rows)=>{
+    let {id,pw,nick,email} = req.body;
+    let sql = "insert into member values (?,?,?,?)"
+    conn.query(spl,[id,pw,nick,email],(err,rows)=>{
         console.log("DB insert:",row);
         if(rows){
             res.redirect("/")
