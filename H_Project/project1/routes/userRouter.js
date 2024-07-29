@@ -12,7 +12,7 @@ router.post("/register",(req,res)=>{
         nick,
         email
     ]
-    conn.query(spl,[id,pw,nick,email],(err,rows)=>{
+    conn.query(sql,[id,pw,nick,email],(err,rows)=>{
         console.log("DB insert:",rows);
         
         if(rows){
