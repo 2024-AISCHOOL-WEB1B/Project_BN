@@ -5,7 +5,7 @@ const conn = require("../config/db")
 // 1. 회원가입 로직  
 router.post("/register",(req,res)=>{
     let {id,pw,nick,email} = req.body;
-    let sql = "insert into member values (?,?,?,?)"
+    let sql = "insert into member_tbl values (?,?,?,?)"
     let = [
         id,
         pw,
