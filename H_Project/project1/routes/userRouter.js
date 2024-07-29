@@ -19,7 +19,7 @@ router.post("/register",(req,res)=>{
             console.log("회원가입 성공");
             res.redirect("/")
         }else{
-            res.send("alert('회원가입실패')")
+            res.send("<script>alert('회원가입 실패')</script>")
         }
     })
 })
@@ -27,14 +27,15 @@ router.post("/register",(req,res)=>{
 // 2. 로그인 로직
 router.post("/login",(req,res)=>{
     let {id,pw} = req.body;
-    let sql = "select * from member where id = ? and pw = ?"
+    let sql = "select * from member_tbl where id = ? and pw = ?"
     conn.query(sql,[id,pw],(err,rows)=>{
         if(rows.length > 0){
             console.log("로그인성공");
-            req.session.nick = row[0].nick
+            req.session.nick = rows[0].nick;
             res.redirect("/")
         }else{
             console.log("로그인 실패");
+            res.send("<script>alert('로그인 실패')</script>")
         }
     })
 })
@@ -42,13 +43,14 @@ router.post("/login",(req,res)=>{
 // 3.회원수정 로직 - 수정 
 router.post("/updateRegister",(req,res)=>{
     let {id,pw,nick} = req.body;
-    let sql = "updateRogister member set nick =? where pw=?"
+    let sql = "updateRogister member_tbl set nick =? where pw=?"
     conn.query(sql,[nick,pw],(err,rows)=>{
         if(rows.affectedRows > 0){
             console.log("변경성공");
             res.redirect("/")
         }else{
             console.log("변경 실패");
+            res.send("<script>alert('로그인 실패')</script>")
         }
     })
 })
