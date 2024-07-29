@@ -342,6 +342,16 @@
         document.querySelector('.topArrow').addEventListener('click', function () {
             var mapApi = document.querySelector('.mapApi');
             mapApi.classList.toggle('showOverlay');
+
+            // 현재 회전 상태 확인
+            const isRotated = this.style.transform.includes('rotate(180deg)');
+
+            // 회전 상태에 따라 새로운 회전 값 설정
+            if (isRotated) {
+                this.style.transform = 'translateX(-50%) rotate(0deg)';
+            } else {
+                this.style.transform = 'translateX(-50%) rotate(180deg)';
+            }
         });
 
         // 검색 버튼 클릭 시 기존 화이트 박스를 숨기고 검색 결과 박스를 표시
@@ -381,24 +391,25 @@
 
                 // 아이템을 검색 결과 컨테이너에 추가
                 searchResultsContainer.appendChild(resultItem);
+
+                // 검색 결과 아이템 클릭 이벤트 수정
+                resultItem.addEventListener('click', function () {
+                    // 검색 결과 박스 숨기기
+                    document.getElementById('search-results').classList.remove('show');
+                    // 상세 보기 박스 표시
+                    document.getElementById('detail-view').classList.add('show');
+                    // 상세 보기 내용 설정
+                    var detailViewLeft = document.getElementById('detail-view-left');
+                    var detailViewRight = document.getElementById('detail-view-right');
+                    detailViewLeft.innerHTML = '<h2>' + result.title + '</h2><img src="' + result.imgSrc + '" alt="' + result.title + '">';
+                    detailViewRight.innerHTML = '<p>여기에 상세 정보가 표시됩니다.</p>';
+                });
             });
 
-            // 검색 결과 아이템 클릭 이벤트 수정
-            resultItem.addEventListener('click', function () {
-                // 검색 결과 박스 숨기기
-                document.getElementById('search-results').classList.remove('show');
-                // 상세 보기 박스 표시
-                document.getElementById('detail-view').classList.add('show');
-                // 상세 보기 내용 설정
-                var detailViewLeft = document.getElementById('detail-view-left');
-                var detailViewRight = document.getElementById('detail-view-right');
-                detailViewLeft.innerHTML = '<h2>' + result.name + '</h2><img src="' + result.imgSrc + '" alt="' + result.name + '">';
-                detailViewRight.innerHTML = '<p>여기에 상세 정보가 표시됩니다.</p>';
-                // 뒤로 버튼에 이벤트 리스너 추가
-                document.getElementById('detail-back-btn').addEventListener('click', function () {
-                    document.getElementById('detail-view').classList.remove('show');
-                    document.getElementById('search-results').classList.add('show');
-                });
+            // 뒤로 버튼에 이벤트 리스너 추가
+            document.getElementById('detail-back-btn').addEventListener('click', function () {
+                document.getElementById('detail-view').classList.remove('show');
+                document.getElementById('search-results').classList.add('show');
             });
         });
 
@@ -428,6 +439,7 @@
                 searchResultItems.style.transform = 'translateX(' + (-slideIndex * 100) + '%)';
             }
         });
+
         // 돌아가는 버튼
         document.querySelector('.topArrow').addEventListener('click', function () {
             // 현재 회전 상태 확인
