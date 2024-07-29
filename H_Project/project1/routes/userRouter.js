@@ -52,6 +52,7 @@ router.post("/updateRegister", (req, res) => {
         pw,
         nick
     ]
+
     conn.query(sql, [pw,nick], (err, rows) => {
         if (rows.affectedRows > 0) {
             console.log("변경성공");
@@ -63,7 +64,31 @@ router.post("/updateRegister", (req, res) => {
     })
 })
 
-// 4. 로그아웃
+// 4. 회원정보 삭제
+router.post("/deleteAccount",(req,res)=>{
+    console.log(req.body);
+    let {id,pw,nick,email} = req.body;
+
+    let sql = "delete from member where id = ? and pw = ?";
+    conn.query(sql,[id,pw,nick,email],(err,rows) =>{
+        console.log("DB삭제 확인 : ", rows);
+
+
+        if (rows.affectedRows > 0) {
+            console.log("정보 삭제 성공!");
+            res.redirect("/");
+
+        }else{
+            console.log("변경 없음!");
+
+
+        }
+
+
+    })
+})
+
+// 5. 로그아웃
 router.get("/logout", (req, res) => {
     req.session.destroy();
     res.redirect("/")
