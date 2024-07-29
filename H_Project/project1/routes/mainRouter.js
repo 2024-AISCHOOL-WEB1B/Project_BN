@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const conn = require("../project1/config/db");
+
 
 router.get("/", (req,res)=> {
     if(req.session.nick){
@@ -45,6 +45,8 @@ router.get("/wishList", (req,res)=>{
 })
 
 // 검색을 누르면 추천 페이지(비동기) - 서버 연결
+
+
 
 
 
