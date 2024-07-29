@@ -96,8 +96,8 @@ body {
     flex-direction: column;
     align-items: flex-start;
     /* gap: 30px; */
-    padding-top: 140px;/*7.29 */
-    padding-left: 79px;
+    padding-top: 140px;
+    padding-left: 50px;
     padding-bottom: 50px;
     z-index: 1001;
     border-radius: 100px;
@@ -110,10 +110,10 @@ body {
 }
 
 .nav-item {
-    justify-content: center; /* 가로 중앙 정렬 */
-    align-items: left; /* 세로 중앙 정렬 */
+    justify-content:left; /* 텍스트 가로 중앙 정렬 */
+    align-items: center; /* 동그란 버튼 내에서 세로 중앙 정렬 */
     display: flex;
-    width: 100px;
+    width: auto;
     height: 45px;
     color: #ffffff;
     font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
@@ -126,7 +126,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 100px;
     padding: 10px 10px;
-    margin-bottom: 20px; /*버튼 사이 간격 조절 7.29*/
+    margin-bottom: 20px; /*버튼 사이 간격 조절*/
     text-align: center; /* 텍스트 가운데 정렬 */
 }
 
