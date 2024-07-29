@@ -45,10 +45,7 @@ router.post("/login", (req, res) => {
 router.post("/updateRegister", (req, res) => {
     let { pw, nick } = req.body;
     let sql = "updateRogister member_tbl set nick =? where pw=?"
-    let = [
-        pw,
-        nick
-    ]
+    let = [ pw,  nick ]
 
     conn.query(sql, [pw,nick], (err, rows) => {
         if (rows.affectedRows > 0) {
