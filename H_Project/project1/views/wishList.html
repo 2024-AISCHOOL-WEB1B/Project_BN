@@ -128,18 +128,26 @@
                 displayGuestInfo();
             }
         }
-    
+        
+        var userNickname = "{{nick}}";
+        var userEmail = "{{email}}";
+        
+        // 페이지 로드 시 로그인한 유저 정보 표시
+        window.onload = function() {
+            displayUserInfo(userEmail, userNickname);
+        };
+
         // 로그인한 유저 정보 표시
         function displayUserInfo(userId, userNickname) {
             document.getElementById('userId').innerText = userNickname + " 님";
-            document.getElementById('userEmail').innerText = userId;
+            document.getElementById('userEmail').innerText = userEmail;
             document.getElementById('profilePic').src = "/icon/userpink.png"; // 프로필 사진 경로
         }
     
         // 비회원 정보 표시
         function displayGuestInfo() {
-            document.getElementById('userId').innerText = "비회원 님";
-            document.getElementById('userEmail').innerText = "";
+            document.getElementById('userId').innerText = userNickname + "님";
+            document.getElementById('userEmail').innerText = userEmail;
             document.getElementById('profilePic').src = "/icon/userpink.png"; // 비회원 기본 사진 경로
         }
     
