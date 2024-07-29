@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const conn = require("../project1/config/db");
 
 router.get("/", (req,res)=> {
     if(req.session.nick){
