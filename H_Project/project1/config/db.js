@@ -1,5 +1,5 @@
 // DB 연동 파일
-const mysql = require("mysql")
+const mysql = require("mysql2")
 
 const conn = mysql.createConnection({
      host : project-db-stu3.smhrd.com,
