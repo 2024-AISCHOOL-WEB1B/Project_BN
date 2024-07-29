@@ -56,11 +56,11 @@
                     <button id="search-btn" type="submit">검색</button>
                 </div>
             </div>
-    <!-- 필터 화살표 -->
-    <div class="topArrow">
-        <img src="icon/nyang.png" alt="화살표 이미지">
-    </div>
-    </div>
+            <!-- 필터 화살표 -->
+            <div class="topArrow">
+                <img src="icon/nyang.png" alt="화살표 이미지">
+            </div>
+        </div>
 
         <!-- 검색 결과 박스 -->
         <div class="search-results" id="search-results">
@@ -89,6 +89,7 @@
 
     </main>
 
+
     <!-- 카카오 지도 API 스크립트 -->
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f1b6faff923157823405998eae959e57"></script>
@@ -96,12 +97,157 @@
         // 지도 초기화
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
-                center: new kakao.maps.LatLng(35.145539781099, 126.9226640409), // 중심좌표
-                level: 4 // 확대 레벨
+                center: new kakao.maps.LatLng(35.1504688, 126.9251658), // 중심좌표
+                level: 3 // 확대 레벨
             };
 
         var map = new kakao.maps.Map(mapContainer, mapOption);
+        // 
+        // 마커를 표시할 위치와 title 객체 배열입니다 
+        var positions = [
+            {
+                title: '구미구미',
+                latlng: new kakao.maps.LatLng(35.1494983, 126.9251125),
+                imgSrc: 'https://via.placeholder.com/73', // 이미지 URL
+                address: '광주광역시 동구 동명동 123-45'
+            },
+            {
+                title: '규슈',
+                latlng: new kakao.maps.LatLng(35.1518367, 126.9258446),
+                imgSrc: 'https://via.placeholder.com/73', // 이미지 URL
+                address: '광주광역시 동구 동명동 123-44'
+            },
+            {
+                title: '달곰식당',
+                latlng: new kakao.maps.LatLng(35.1483995, 126.9262866)
+            },
+            {
+                title: '돈부리바쇼 유메노덴',
+                latlng: new kakao.maps.LatLng(35.1504688, 126.9251658)
+            },
+            {
+                title: '동백카츠 동명점',
+                latlng: new kakao.maps.LatLng(35.1489187, 126.9253691)
+            },
+            {
+                title: '멘지 광주동명점',
+                latlng: new kakao.maps.LatLng(35.1490480, 126.9269365)
+            },
+            {
+                title: '돈부리바쇼 유메노덴',
+                latlng: new kakao.maps.LatLng(35.1504688, 126.9251658)
+            },
+            {
+                title: '목하식당',
+                latlng: new kakao.maps.LatLng(35.1516038, 126.9230852)
+            },
+            {
+                title: '미노라멘 ',
+                latlng: new kakao.maps.LatLng(35.1524255, 126.9256818)
+            },
+            {
+                title: '소보쿠',
+                latlng: new kakao.maps.LatLng(35.1471545, 126.9272677)
+            },
+            {
+                title: '스시야스라기',
+                latlng: new kakao.maps.LatLng(35.1513995, 126.9219458)
+            },
+            {
+                title: '연어쁘다 광주본점',
+                latlng: new kakao.maps.LatLng(35.1493025, 126.9269376)
+            },
+            {
+                title: '윤끼',
+                latlng: new kakao.maps.LatLng(35.1495830, 126.9257127)
+            },
+            {
+                title: '이츠모 동명본점',
+                latlng: new kakao.maps.LatLng(35.1517023, 126.9254839)
+            },
+            {
+                title: '지은초밥',
+                latlng: new kakao.maps.LatLng(35.1473677, 126.9268307)
+            },
+            {
+                title: '천지라멘',
+                latlng: new kakao.maps.LatLng(35.1517023, 126.9254839)
+            },
+            {
+                title: '츠바메',
+                latlng: new kakao.maps.LatLng(35.1497862, 126.9259279)
+            },
+            {
+                title: '캬베츠',
+                latlng: new kakao.maps.LatLng(35.1520514, 126.9243047)
+            },
+            {
+                title: '토메이스시',
+                latlng: new kakao.maps.LatLng(35.1491790, 126.9262406)
+            },
+            {
+                title: '포카포카',
+                latlng: new kakao.maps.LatLng(35.1515969, 126.9223925)
+            }
+        ];
 
+        var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+        for (var i = 0; i < positions.length; i++) {
+            var imageSize = new kakao.maps.Size(24, 35);
+            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: positions[i].latlng,
+                title: positions[i].title,
+                image: markerImage
+            });
+
+            var content = '<div class="wrap">' +
+                '    <div class="info">' +
+                '        <div class="title">' + positions[i].title +
+                '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' +
+                '        </div>' +
+                '        <div class="body">' +
+                '            <div class="img">' +
+                '                <img src="' + positions[i].imgSrc + '" width="73" height="70">' +
+                '           </div>' +
+                '            <div class="desc">' +
+                '                <div class="ellipsis">' + positions[i].address + '</div>' +
+                '            </div>' +
+                '        </div>' +
+                '    </div>' +
+                '</div>';
+
+            // 커스텀 오버레이를 생성합니다
+            var overlay = new kakao.maps.CustomOverlay({
+                content: content,
+                position: marker.getPosition(),
+                map: map
+            });
+
+            overlay.setMap(null); // 초기에는 오버레이를 숨깁니다
+
+            // 마커에 클릭 이벤트를 등록합니다
+            (function (marker, overlay) {
+                kakao.maps.event.addListener(marker, 'click', function () {
+                    overlay.setMap(map);
+                });
+
+                // 닫기 버튼 클릭 이벤트
+                overlay.a.onclick = function () {
+                    overlay.setMap(null);
+                };
+            })(marker, overlay);
+        }
+
+        // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
+        function closeOverlay() {
+            var overlays = document.getElementsByClassName('wrap');
+            for (var i = 0; i < overlays.length; i++) {
+                overlays[i].parentNode.style.display = 'none';
+            }
+        }
         // 필터 화살표 클릭 시 오버레이 토글
         document.querySelector('.topArrow').addEventListener('click', function () {
             var mapApi = document.querySelector('.mapApi');
