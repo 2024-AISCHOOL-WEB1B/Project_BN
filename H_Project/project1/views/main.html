@@ -20,7 +20,10 @@
             <a href="/" class="nav-item">HOME</a>
             <a href="mypage" class="nav-item">MY</a>
             <a href="login" class="nav-item">LOGIN</a>
-            
+            {% if nick %}
+            <h1>{{nick}}환영합니다</h1>
+            <a href="/user/logout">로그아웃</a>
+            {% endif %}
         </nav>
     </header>
 
