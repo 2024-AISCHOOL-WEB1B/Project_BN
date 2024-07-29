@@ -13,7 +13,7 @@ router.post("/register",(req,res)=>{
         email
     ]
     conn.query(spl,[id,pw,nick,email],(err,rows)=>{
-        console.log("DB insert:",row);
+        console.log("DB insert:",rows);
         
         if(rows){
             console.log("회원가입 성공");
