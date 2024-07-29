@@ -33,14 +33,14 @@ router.get("/updateRegister", (req,res)=>{
 })
 
 // 사용자가 회원탈퇴를 요청했을 때
-router.get("delete_user", (req,res)=>{
-    res.render("delete_user")
+router.get("/deleteAccount", (req,res)=>{
+    res.render("deleteAccount")
 })
 
 
 // 가게 누르면 상세 페이지로(비동기)
-router.get("/sangse", (req,res)=>{
-    res.render("sangse")
+router.get("/wishList", (req,res)=>{
+    res.render("wishList")
 })
 
 // 검색을 누르면 추천 페이지(비동기) - 서버 연결
