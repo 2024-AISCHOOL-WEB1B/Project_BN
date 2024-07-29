@@ -28,10 +28,7 @@ router.post("/register", (req, res) => {
 router.post("/login", (req, res) => {
     let { id, pw } = req.body;
     let sql = "select * from member_tbl where id = ? and pw = ?"
-    let = [
-        id,
-        pw
-    ]
+    let = [ id, pw ]
     conn.query(sql, [id, pw], (err, rows) => {
         if (rows.length > 0) {
             console.log("로그인성공");
