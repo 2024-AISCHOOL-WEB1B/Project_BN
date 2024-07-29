@@ -43,7 +43,7 @@ router.post("/login", (req, res) => {
 
 // 3.회원수정 로직 - 수정 
 router.post("/updateRegister", (req, res) => {
-    let { pw, nick } = req.body;
+    let { pw,nick } = req.body;
     let sql = "updateRogister member_tbl set nick =? where pw=?"
     let = [ pw,  nick ]
 
