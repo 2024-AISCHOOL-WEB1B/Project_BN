@@ -32,8 +32,6 @@
         <div id="whiteBox">
             <div class="filter-container">
                 <div class="filter-options">
-                    <!-- 인원수 입력 -->
-                    <input type="number" id="people" name="people" placeholder="인원수 입력" min="1">
                     <!-- 가격 입력 -->
                     <select id="money" name="money">
                         <option value="" disabled selected>예산</option>
@@ -327,7 +325,7 @@
                 overlay.setMap(null);
             };
         })(marker, overlay);
-        }
+        
 
         // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
         function closeOverlay() {
