@@ -16,6 +16,7 @@ router.post("/register",(req,res)=>{
         console.log("DB insert:",row);
         
         if(rows){
+            console.log("회원가입 성공");
             res.redirect("/")
         }else{
             res.send("alert('회원가입실패')")
