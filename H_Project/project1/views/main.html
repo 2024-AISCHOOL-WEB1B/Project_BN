@@ -408,7 +408,18 @@
                     var detailViewLeft = document.getElementById('detail-view-left');
                     var detailViewRight = document.getElementById('detail-view-right');
                     detailViewLeft.innerHTML = '<h2>' + result.title + '</h2><img src="' + result.imgSrc + '" alt="' + result.title + '">';
-                    detailViewRight.innerHTML = '<p>여기에 상세 정보가 표시됩니다.</p>';
+                    // AJAX 요청을 통해 상세 정보 가져오기
+                    $.ajax({
+                        url: '/getRestaurantDetails',
+                        type: 'GET',
+                        data: { rest_list_name: result.title },
+                        success: function (data) {
+                            detailViewRight.innerHTML = '<p>가격: ' + data.rest_list_price + '</p><p>음식 분류: ' + data.rest_food_name + '</p>';
+                        },
+                        error: function () {
+                            detailViewRight.innerHTML = '<p>상세 정보를 가져오는 데 실패했습니다.</p>';
+                        }
+                    });
                 });
             });
 
