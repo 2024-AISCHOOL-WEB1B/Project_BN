@@ -18,8 +18,12 @@
             <nav class="nav" aria-label="Main Navigation">
                 <a href="/" class="nav-item" onclick="handleHomeButtonClick()">HOME</a>
                 <a href="mypage" class="nav-item" onclick="handleMyButtonClick()">MY</a>
-                <a href="login" class="nav-item" onclick="handleLoginButtonClick()">LOGIN</a>
-                <a href="wishList" class="nav-item" onclick="handleFavoriteButtonClick()">FAVORITE</a>
+                {% if nick %}
+                    <a href="/user/logout" class="nav-item">LOGOUT</a>
+                {% else %}
+                    <a href="login" class="nav-item">LOGIN</a>
+                {% endif %}
+                <a href="favorite" class="nav-item" onclick="handleFavoriteButtonClick()">FAVORITE</a>
             </nav>
 
             <!-- 유저 정보 영역 -->
