@@ -97,6 +97,9 @@
     <!-- 카카오 지도 API 스크립트 -->
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f1b6faff923157823405998eae959e57"></script>
+
+    <!-- jQuery 라이브러리를 CDN을 통해 포함 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         // 지도 초기화
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
@@ -340,6 +343,7 @@
                 overlays[i].parentNode.style.display = 'none';
             }
         }
+        
         // 필터 화살표 클릭 시 오버레이 토글
         document.querySelector('.topArrow').addEventListener('click', function () {
             var mapApi = document.querySelector('.mapApi');
