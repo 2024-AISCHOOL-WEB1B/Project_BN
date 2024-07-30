@@ -53,7 +53,7 @@ router.get("/updateRegister", (req,res)=>{
 })
 
 // 사용자가 회원탈퇴를 요청했을 때
-router.get("/deleteAccount", (req,res)=>{
+router.get("/deleteAccount",(req,res)=>{
     res.render("deleteAccount")
 })
 

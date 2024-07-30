@@ -30,7 +30,7 @@ router.post("/login", (req, res) => {
     let sql = "select * from member_tbl where id = ? and pw = ?"
     let = [ id, pw ]
     conn.query(sql, [id, pw], (err, rows) => {
-        if (rows.length > 0) {
+        if(rows.length > 0) {
             console.log("로그인성공");
             req.session.nick = rows[0].nick;
             req.session.email = rows[0].email;
@@ -65,16 +65,14 @@ router.post("/deleteAccount",(req,res)=>{
     let {id,pw,nick,email} = req.body;
 
     let sql = "delete from member_tbl where id=? and pw=? and nick=? and email=?";
-    conn.query(sql,[id,pw,nick,email],(err,result) =>{
+    conn.query(sql,[id,pw,nick,email],(err,rows) =>{
         console.log("DB삭제 확인", rows);
-        if (result.affectedRows > 0) {
+        if (rows.affectedRows > 0) {
             console.log("정보 삭제 성공!");
             res.redirect("/");
 
         }else{
             console.log("변경 없음!");
-
-
         }
     })
 })

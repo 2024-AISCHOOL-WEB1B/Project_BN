@@ -366,16 +366,16 @@ body {
     
 }
 
-/* 검색 결과 박스의 스타일 */
+/* 검색 결과 박스 스타일 */
 .search-results {
-    position: relative; /* 자식 요소의 절대 위치 기준 */
+    position: relative;
     display: none; /* 기본적으로 표시되지 않음 */
     height: 400px;
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: fixed; /* 페이지 스크롤 시에도 고정 */
+    position: fixed;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -388,6 +388,28 @@ body {
 /* 검색 결과 박스가 보일 때 */
 .search-results.show {
     display: block;
+}
+
+/* "뒤로" 버튼 스타일 */
+.search-results button,
+.detail-view button {
+    padding: 12px 24px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff8c00;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* "뒤로" 버튼 호버 시 스타일 */
+.search-results button:hover,
+.detail-view button:hover {
+    background-color: #ff6600;
 }
 
 /* 버튼 스타일 */
