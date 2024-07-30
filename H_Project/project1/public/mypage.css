@@ -134,31 +134,6 @@ body {
     margin-bottom: 0; /* 마지막 아이템은 간격 제거 */
 }
 
-.nav-images {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    position: absolute;
-    top: 390px; /* 네비게이션 바 아래로 이미지 배치, 가랜더 위치조절 */
-    left: 0;
-    right: 0;
-    padding: 0 var(--padding-m);
-    padding-top: 100px;
-    box-sizing: border-box;
-    z-index: 1000;
-}
-
-.nav-image-left {
-    width: 280px;
-    height: auto;
-    padding-left: 30px;
-}
-
-.nav-image-right {
-    width: 280px;
-    height: auto;
-    padding-right: 30px;
-}
 
 .nav-item:hover {
     background-color: #FFC567;
@@ -359,4 +334,30 @@ p {
     width: 100%;
     box-sizing: border-box;
     margin-top: auto; /* 남은 공간을 밀어 올리도록 설정 */
+}
+
+.nav-images {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 390px; /* 네비게이션 바 아래로 이미지 배치, 가랜더 위치조절 */
+    left: 0;
+    right: 0;
+    padding: 0 var(--padding-m);
+    padding-top: 100px;
+    box-sizing: border-box;
+    z-index: 0; /* 다른 요소보다 아래에 위치 */
+}
+
+.nav-image-left {
+    width: 280px;
+    height: auto;
+    padding-left: 30px;
+}
+
+.nav-image-right {
+    width: 280px;
+    height: auto;
+    padding-right: 30px;
 }
