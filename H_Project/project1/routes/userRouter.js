@@ -64,14 +64,14 @@ router.post("/deleteAccount",(req,res)=>{
     console.log(req.body);
     let {id,pw,nick,email} = req.body;
 
-    let sql = "delete from member where id = ? and pw = ?";
-    conn.query(sql,[id,pw,nick,email],(err,rows) =>{
+    let sql = "delete from member where id = ? and pw = ? and nick=? and email=?";
+    conn.query(sql,[id, pw,nick ,email],(err,rows) =>{
         console.log("DB삭제 확인 : ", rows);
 
 
         if (rows.affectedRows > 0) {
             console.log("정보 삭제 성공!");
-            res.redirect("/");
+            res.redirect("deleteAccount");
 
         }else{
             console.log("변경 없음!");
