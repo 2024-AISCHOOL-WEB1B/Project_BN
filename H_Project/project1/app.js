@@ -9,7 +9,6 @@ const mainRouter = require("./routes/mainRouter");
 const userRouter = require("./routes/userRouter");
 const session = require("express-session");
 const fileStore = require('session-file-store')(session);
-const db = require("./config/db")
 
 
 // css 출력
