@@ -435,11 +435,12 @@ body {
     min-width: calc(33.3333% - 10px);
     margin: 5px;
     cursor: pointer;
+    height: 80%;
 }
 
 .search-result-item img {
     width: 90%;
-    height: 70%;
+    height: auto;
     border-radius: 10px;
 }
 
