@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const conn = require("../config/db");
 
 
 router.get("/", (req,res)=> {
@@ -81,6 +82,26 @@ router.get("/reviewpage", (req,res)=>{
         res.render("reviewpage")
     }
 })
+
+// REST API 엔드포인트
+router.get('/getRestaurantDetails', (req, res) => {
+    const restListName = req.query.rest_list_name;
+    if (!restListName) {
+        return res.status(400).json({ error: 'Restaurant name is required' });
+    }
+
+    const query = 'SELECT rest_list_price, rest_food_name FROM restaurant WHERE rest_list_name = ?';
+    conn.query(query, [restListName], (err, results) => {
+        console.log("음식db연결완료");
+        if (err) throw err;
+        if (results.length > 0) {
+            res.json(results[0]);
+        } else {
+            res.status(404).json({ error: 'Restaurant not found' });
+        }
+    });
+});
+
 
 // DB 메뉴 상세 정보 요청 처리
 // app.get('/getMenuDetail',(req, res)=>{
