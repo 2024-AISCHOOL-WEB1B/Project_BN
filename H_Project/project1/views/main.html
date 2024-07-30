@@ -414,7 +414,7 @@
                         type: 'GET',
                         data: { rest_list_name: result.title },
                         success: function (data) {
-                            detailViewRight.innerHTML = '<p>가격: ' + data.rest_list_price + '</p><p>음식 분류: ' + data.rest_food_name + '</p>';
+                            detailViewRight.innerHTML = '<p>음식 분류: ' + data.rest_food_name + '</p><p>가격: ' + data.rest_list_price + '</p>';
                         },
                         error: function () {
                             detailViewRight.innerHTML = '<p>상세 정보를 가져오는 데 실패했습니다.</p>';
