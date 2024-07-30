@@ -90,7 +90,7 @@ router.get('/getRestaurantDetails', (req, res) => {
         return res.status(400).json({ error: 'Restaurant name is required' });
     }
 
-    const query = 'SELECT rest_list_price, rest_food_name FROM restaurant WHERE rest_list_name = ?';
+    const query = 'SELECT rest_list_price, rest_food_name FROM rest_product_tbl WHERE rest_list_name = ?';
     conn.query(query, [restListName], (err, results) => {
         console.log("음식db연결완료");
         if (err) throw err;
