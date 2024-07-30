@@ -312,8 +312,8 @@ body {
 }
 
 .store-details img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: auto;
     border-radius: 10px;
     margin-bottom: 20px;
 }
