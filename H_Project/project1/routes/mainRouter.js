@@ -92,9 +92,12 @@ router.get('/getRestaurantDetails', (req, res) => {
     const query = 'SELECT rest_list_price, rest_food_name FROM rest_product_tbl WHERE rest_list_name = ?';
     conn.query(query, [restListName], (err, results) => {
         console.log("음식db연결완료");
-        if (err) throw err;
+        if (err) {
+            console.error('Database query error:', err);
+            return res.status(500).json({ error: 'Database query error' });
+        }
         if (results.length > 0) {
-            res.json(results[0]);
+            res.json(results); // 배열 전체를 반환
         } else {
             res.status(404).json({ error: 'Restaurant not found' });
         }
