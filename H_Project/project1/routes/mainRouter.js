@@ -71,11 +71,11 @@ router.get("/wishList", (req,res)=>{
 })
 
 // 메뉴 상세 정보 요청 처리
-app.get('/getMenuDetail', (req, res) => {
+app.get('/getMenuDetail', (req, res)=>{
     const itemId = req.query.id;
 
     const query = 'SELECT * FROM rest_product_tbl WHERE id = ?';
-    db.query(query, [itemId], (err, result) => {
+    db.query(query,[itemId],(err, result)=>{
         if (err) throw err;
         if (result.length > 0) {
             const menuDetail = {
