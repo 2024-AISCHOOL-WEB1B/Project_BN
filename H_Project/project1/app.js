@@ -40,10 +40,6 @@ nunjucks.configure("views", {
     watch : true
 });
 
-// json 삭제 요청 본문을 처리 등록
-app.use(express.json());
-
-
 
 // API 엔드포인트
 //app.get('/recommend', (req, res) => {
