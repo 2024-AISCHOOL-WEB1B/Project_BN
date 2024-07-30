@@ -11,6 +11,7 @@ const session = require("express-session");
 const fileStore = require('session-file-store')(session);
 
 
+
 // css 출력
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -24,7 +25,6 @@ app.use(session({
     resave : false,
     secret : "secret",
     store : new fileStore(),
-    path : './sessions',
     saveUninitialized : false
 }))
 
