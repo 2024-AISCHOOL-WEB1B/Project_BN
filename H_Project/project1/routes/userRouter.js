@@ -66,7 +66,7 @@ router.post("/deleteAccount",(req,res)=>{
 
     let sql = "delete from member where id = ? and pw = ? and nick=? and email=?";
     conn.query(sql,[id, pw,nick ,email],(err,rows) =>{
-        console.log("DB삭제 확인 : ", rows);
+        console.log("DB삭제 확인", rows);
 
 
         if (rows.affectedRows > 0) {
@@ -78,8 +78,6 @@ router.post("/deleteAccount",(req,res)=>{
 
 
         }
-
-
     })
 })
 
