@@ -100,11 +100,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: var(--color-darkorange); */
     border-radius: 30px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    -webkit-text-stroke: 2px black; /* 외곽선 두께와 색상 */
- 
+    -webkit-text-stroke: 2px black;
 }
 
 .logo {
@@ -186,7 +184,8 @@ body {
 .info .title {
     padding: 5px 0 0 10px;
     height: 30px;
-    background: #eee;
+    background: #FFC567;
+    color: black;
     border-bottom: 1px solid #ddd;
     font-size: 18px;
     font-weight: bold;
