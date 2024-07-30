@@ -16,10 +16,10 @@ router.post("/ownerRegister", (req,res)=>{
     conn.query(sql, [owner_id, owner_pw, store_name, business_registration_num, email],(err, rows)=>{
         console.log("DB insert:", rows);
 
-        if (rows) {
+        if(rows){
             console.log("점주 회원가입 성공");
             res.redirect("/ownerpage")
-        } else {
+        }else{
             res.send("<script>alert('회원가입 실패')</script>")
         }
     })
