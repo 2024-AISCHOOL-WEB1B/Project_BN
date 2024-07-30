@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const conn = require("../config/db");
 
 router.get("/", (req,res)=> {
     if(req.session.nick){
@@ -70,25 +70,36 @@ router.get("/wishList", (req,res)=>{
     } 
 })
 
-// DB 메뉴 상세 정보 요청 처리
-// app.get('/getMenuDetail',(req, res)=>{
-//     const itemId = req.query.id;
+// 리뷰 페이지 이동
+router.get("/reviewpage", (req,res)=>{
+    if(req.session.nick){
+        res.render("reviewpage", {
+            nick: req.session.nick,
+            email: req.session.email
+        });
+    } else {
+        res.render("reviewpage")
+    }
+})
 
-//     const query = 'SELECT * FROM rest_product_tbl WHERE id = ?';
-//     db.query(query,[itemId],(err, result)=>{
-//         if (err) throw err;
-//         if (result.length > 0) {
-//             const menuDetail = {
-//                 title: result[0].title,
-//                 imgSrc: result[0].imgSrc,
-//                 details: result[0].details
-//             };
-//             res.json(menuDetail);
-//         } else {
-//             res.status(404).json({ error: 'Menu item not found' });
-//          }
-//     });
-// });
+// REST API 엔드포인트
+router.get('/getRestaurantDetails', (req, res) => {
+    const restListName = req.query.rest_list_name;
+    if (!restListName) {
+        return res.status(400).json({ error: 'Restaurant name is required' });
+    }
+
+    const query = 'SELECT rest_list_price, rest_food_name FROM rest_product_tbl WHERE rest_list_name = ?';
+    conn.query(query, [restListName], (err, results) => {
+        console.log("음식db연결완료");
+        if (err) throw err;
+        if (results.length > 0) {
+            res.json(results[0]);
+        } else {
+            res.status(404).json({ error: 'Restaurant not found' });
+        }
+    });
+});
 
 
 

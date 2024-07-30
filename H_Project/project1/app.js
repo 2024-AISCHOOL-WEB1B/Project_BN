@@ -40,11 +40,6 @@ nunjucks.configure("views", {
 });
 
 
-// API 엔드포인트
-//app.get('/recommend', (req, res) => {
-   // const recommendations = recommendRestaurants(userPreferences);
-   // res.json(recommendations);
-//});
 
 
 app.listen(3000);
