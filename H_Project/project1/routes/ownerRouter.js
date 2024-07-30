@@ -5,7 +5,7 @@ const conn = require("../config/db")
 // 오너가 회원가입을 요청했을 때
 router.post("/ownerRegister", (req,res)=>{
     let { owner_id, owner_pw, store_name, business_registration_num, email } = req.body;
-    let sql = "insert into member_tbl values (?,?,?,?,?)"
+    let sql = "insert into owners values (?,?,?,?,?)"
     let = [
         owner_id, 
         owner_pw, 
