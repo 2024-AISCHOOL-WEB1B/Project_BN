@@ -30,7 +30,7 @@ router.post("/login", (req, res) => {
     let sql = "select * from member_tbl where id = ? and pw = ?"
     let = [ id, pw ]
     conn.query(sql, [id, pw], (err, rows) => {
-        if (rows.length > 0) {
+        if(rows.length > 0) {
             console.log("로그인성공");
             req.session.nick = rows[0].nick;
             req.session.email = rows[0].email;
