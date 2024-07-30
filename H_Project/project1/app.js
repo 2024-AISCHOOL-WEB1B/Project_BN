@@ -7,6 +7,7 @@ const path = require("path")
 const bp = require("body-parser");
 const mainRouter = require("./routes/mainRouter");
 const userRouter = require("./routes/userRouter");
+const ownerRouter = require("./routes/ownerRouter");
 const session = require("express-session");
 const fileStore = require('session-file-store')(session);
 
@@ -31,6 +32,7 @@ app.use(session({
 // 라우터 등록
 app.use("/", mainRouter);
 app.use("/user", userRouter);
+app.use("/owner",ownerRouter);
 
 // 넌적스 셋팅
 app.set("view engine", "html")
