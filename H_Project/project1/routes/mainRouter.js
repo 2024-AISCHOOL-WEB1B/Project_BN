@@ -70,6 +70,18 @@ router.get("/wishList", (req,res)=>{
     } 
 })
 
+// 리뷰 페이지 이동
+router.get("/reviewpage", (req,res)=>{
+    if(req.session.nick){
+        res.render("reviewpage", {
+            nick: req.session.nick,
+            email: req.session.email
+        });
+    } else {
+        res.render("reviewpage")
+    }
+})
+
 // DB 메뉴 상세 정보 요청 처리
 // app.get('/getMenuDetail',(req, res)=>{
 //     const itemId = req.query.id;
