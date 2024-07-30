@@ -279,18 +279,17 @@ body {
 .topArrow {
     cursor: pointer;
     position: absolute;
-    top: -30px;
+    top: -30px; /* 화살표의 기본 위치 */
     left: 50%;
-    transform: translateX(-50%) rotate(180deg); /* 회전 유지 */
+    transform: translateX(-50%) rotate(180deg); /* 기본 상태에서 회전된 상태 */
     transform-origin: center; /* 회전 기준점을 중심으로 설정 */
     z-index: 1001;
-    transition: transform 0.5s ease; /* 회전 애니메이션 추가 */
+    transition: transform 0.5s ease, top 0.5s ease; /* 회전 및 위치 애니메이션 추가 */
 }
 
 .topArrow img {
     width: 35px; /* 이미지 크기 설정 */
     height: auto;
-    padding-top: 20px;
 }
 
 /* 오버레이 보이기 */
@@ -298,10 +297,19 @@ body {
     bottom: 0;
 }
 
-/* 화살표 위를 가리키도록 회전 */
+/* 오버레이 보이기 - 화살표가 위로 향하도록 */
 .showOverlay .topArrow {
-    top: -20px; /* 보이는 상태일 때의 위치 조정 */
+    top: -70px; /* 위치 조정 */
+    transform: translateX(-50%) rotate(0deg); /* 위로 회전 */
+    transition: transform 0.5s ease, top 0.5s ease; /* 애니메이션 적용 */
 }
+/* 화살표 위를 가리키도록 회전 및 위치 조정 */
+.showOverlay .topArrow {
+    top: -50px; /* 화살표가 더 위로 올라가도록 조정 */
+    transform: rotate(0deg); /* 0도 회전 (위쪽) */
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out; /* 회전 및 위치 애니메이션 */
+}
+
 /* 필터 컨테이너 스타일 */
 .filter-container {
     display: flex;
@@ -309,6 +317,7 @@ body {
     align-items: center;
     width: 100%;
     gap: 10px;
+    
 }
 
 /* 필터 옵션 스타일 */
@@ -320,6 +329,7 @@ body {
     /* 수평 중앙 정렬 */
     width: 100%;
     max-width: 600px;
+
 }
 
 /* 필터 항목 스타일 */
@@ -335,31 +345,38 @@ body {
 /* 필터 항목 넓이 조정 (옵션) */
 .filter-options input,
 .filter-options select {
+    padding-bottom: 10px;
     flex: 1;
     max-width: 220px;
+    
 }
 
 /* 검색 버튼 스타일 */
 .filter-options button {
-    background-color: #ff6600;
-    color: #fff;
+    font-family: var(--font-cafe24-Ssurround-otf);
+    background-color: #ff8c00;
+    width: 75px;
+    color: #ffffff;
     border: none;
     cursor: pointer;
+    border-radius: 30px; /* 둥근 모서리 설정 */
 }
 
 .filter-options button:hover {
-    background-color: #e65c00;
+    background-color:#ff6600;
+    
 }
 
-/* 검색 결과 박스 스타일 */
+/* 검색 결과 박스의 스타일 */
 .search-results {
-    display: none;
+    position: relative; /* 자식 요소의 절대 위치 기준 */
+    display: none; /* 기본적으로 표시되지 않음 */
     height: 400px;
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: fixed;
+    position: fixed; /* 페이지 스크롤 시에도 고정 */
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -369,21 +386,30 @@ body {
     z-index: 1000;
 }
 
+/* 검색 결과 박스가 보일 때 */
 .search-results.show {
     display: block;
 }
 
+/* 버튼 스타일 */
 .search-results button {
-    padding: 8px 16px;
+    position: absolute; /* 부모 요소 기준 절대 위치 */
+    bottom: 20px; /* 하단에서 20px 위 */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px; /* 버튼 크기 확대 */
+    font-size: 15px; /* 텍스트 크기 확대 */
     border: none;
     border-radius: 5px;
-    background-color: #ff6600;
+    background-color: #ff8c00; /* 버튼 배경색 */
     color: #fff;
-    cursor: pointer;
+    cursor: pointer; /* 마우스 커서 포인터 */
+    font-family: var(--font-cafe24-Ssurround-otf);
 }
 
+/* 버튼 호버 시 스타일 */
 .search-results button:hover {
-    background-color: #e65c00;
+    background-color: #ff6600;
 }
 
 /* 검색 결과 슬라이드 스타일 */
@@ -419,7 +445,7 @@ body {
 
 .search-result-item p {
     margin: 10px 0 0 0;
-    font-size: 14px;
+    font-size: 2ㅔpx;
     text-align: center;
 }
 
