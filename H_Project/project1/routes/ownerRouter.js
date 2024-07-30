@@ -26,6 +26,9 @@ router.post("/ownerRegister", (req,res)=>{
 })
 
 
+
+
+
 // 오너가 로그인을 요청했을 때
 router.get("/login", (req,res)=>{
     res.render("login")
