@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>점주페이지</title>
+    <link rel="stylesheet" href="/ownerpage.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ONE+Mobile+OTF:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <img class="logo" alt="로고" src="/icon/BNlogo.png">
+            <img class="header-image" alt="상단 배너" src="icon/topgarender.png">
+
+            <!-- 네비게이션 바 -->
+            <nav class="nav" aria-label="Main Navigation">
+                <a href="/" class="nav-item" onclick="handleHomeButtonClick()">HOME</a>
+                <a href="mypage" class="nav-item" onclick="handleMyButtonClick()">MY</a>
+                <a href="login" class="nav-item" onclick="handleLoginButtonClick()">LOGIN</a>
+                <a href="wishList" class="nav-item" onclick="handleFavoriteButtonClick()">FAVORITE</a>
+            </nav>
+
+            <!-- 유저 정보 영역 -->
+            <div class="user-info" id="userInfo">
+                <img class="profileUser" src="/icon/userpink.png" alt="프로필 사진" id="profilePic">
+                <div class="user-details">
+                    <span id="userId">비회원 님</span>
+                    <span id="userEmail"></span>
+                </div>
+            </div>
+
+            <!-- 네비게이션 이미지 좌우가랜더-->
+            <div class="nav-images">
+                <img src="/icon/dividergrender.png" alt="Left Image" class="nav-image-left">
+                <img src="/icon/dividergrender.png" alt="Right Image" class="nav-image-right">
+            </div>
+
+        </header>
+        <main class="main">
+            <!-- 데이터가 들어갈 3개의 공간 -->
+            <section class="sentiment-analysis box">
+                <h2>전체 감정 분석 결과</h2>
+                <p id="positivePercentage">긍정 %: 여기에 긍정 비율이 표시됩니다.</p>
+                <p id="negativePercentage">부정 %: 여기에 부정 비율이 표시됩니다.</p>
+            </section>
+            <section class="user-reviews">
+                <h2>사용자 리뷰</h2>
+                <div id="reviewsList">
+                    <!-- 사용자 리뷰와 감정 분석 결과를 동적으로 삽입할 부분 -->
+                </div>
+            </section>
+            <section class="word-analysis box">
+                <h2>단어 중요도 및 빈도수</h2>
+                <div id="wordFrequency">여기에 단어 중요도와 빈도수가 표시됩니다.</div>
+            </section>
+        </main>
+    </div>
+    <script>
+        // 로그인 여부를 확인하여 user-info 표시 내용을 결정
+        function checkLoginStatus() {
+            var isLoggedIn = false; // 이 값은 실제 로그인 상태에 따라 변경되어야 합니다.
+
+            if (isLoggedIn) {
+                displayUserInfo("user@example.com", "닉네임");
+            } else {
+                displayGuestInfo();
+            }
+        }
+
+        var userNickname = "{{nick}}";
+        var userEmail = "{{email}}";
+
+        // 페이지 로드 시 로그인한 유저 정보 표시
+        window.onload = function () {
+            displayUserInfo(userEmail, userNickname);
+            loadData(); // 데이터를 로드하는 함수 호출
+        };
+
+        // 로그인한 유저 정보 표시
+        function displayUserInfo(userId, userNickname) {
+            document.getElementById('userId').innerText = userNickname + "님";
+            document.getElementById('userEmail').innerText = userId;
+            document.getElementById('profilePic').src = "/icon/userpink.png"; // 프로필 사진 경로
+        }
+
+        // 비회원 정보 표시
+        function displayGuestInfo() {
+            document.getElementById('userId').innerText = userNickname + "님";
+            document.getElementById('userEmail').innerText = userEmail;
+            document.getElementById('profilePic').src = "/icon/userpink.png"; // 비회원 기본 사진 경로
+        }
+
+        // 페이지 로드 시 로그인 상태 확인
+        window.onload = checkLoginStatus;
+
+        // 데이터 로드 함수
+        async function loadData() { // 비동기 함수 선언 (데이터를 비동기적으로 로드하기 위해)
+            try {
+                // 데이터 요청 (서버 URL을 여기에 삽입)
+                const response = await fetch('/api/getData'); // 서버 API 경로로 GET 요청을 보내고 응답을 기다림
+                const data = await response.json(); // 응답을 JSON 형식으로 변환 (서버에서 받은 데이터가 JSON 형식이라고 가정)
+
+                // 데이터가 없거나 오류가 발생한 경우
+                if (!response.ok) { // 서버 응답이 성공적이지 않은 경우 (HTTP 상태 코드가 200~299가 아닐 때)
+                    throw new Error('Network response was not ok.'); // 오류를 발생시킴 (서버 응답이 실패했음을 나타냄)
+                }
+
+                // 감정 분석 결과 삽입
+                document.getElementById('positivePercentage').innerText = `긍정 %: ${data.sentimentAnalysis.positive}%`; // 긍정 비율을 HTML 요소에 표시
+                document.getElementById('negativePercentage').innerText = `부정 %: ${data.sentimentAnalysis.negative}%`; // 부정 비율을 HTML 요소에 표시
+
+                // 사용자 리뷰 및 감정 분석 결과 삽입
+                const reviewsHtml = data.userReviews.map(review => `
+                    <div class="review">
+                        <p class="review-text">${review.text}</p> <!-- 리뷰 텍스트를 HTML로 변환하여 삽입 -->
+                        <p class="review-sentiment">긍정 %: ${review.sentiment.positive}%</p> <!-- 리뷰 긍정 비율을 HTML로 변환하여 삽입 -->
+                        <p class="review-sentiment">부정 %: ${review.sentiment.negative}%</p> <!-- 리뷰 부정 비율을 HTML로 변환하여 삽입 -->
+                    </div>
+                `).join(''); // 각 리뷰 객체를 HTML 문자열로 변환 후 문자열을 결합
+                document.getElementById('reviewsList').innerHTML = reviewsHtml; // 생성된 리뷰 HTML 문자열을 리뷰 목록 요소에 삽입
+
+                // 단어 빈도수 분석 결과 삽입
+                const wordFrequencyHtml = data.wordAnalysis.map(item => `
+                    <p>${item.word}: ${item.frequency}</p> <!-- 단어와 빈도수를 HTML로 변환하여 삽입 -->
+                `).join(''); // 각 단어 빈도수 객체를 HTML 문자열로 변환 후 문자열을 결합
+                document.getElementById('wordFrequency').innerHTML = wordFrequencyHtml; // 생성된 단어 빈도수 HTML 문자열을 단어 분석 요소에 삽입
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error); // 오류 발생 시 콘솔에 오류 메시지 출력
+            }
+        }
+    </script>
+    <footer class="footer">
+        <p>@ 2024 Black Nuguri</p>
+    </footer>
+</body>
+
+</html>

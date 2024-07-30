@@ -407,7 +407,7 @@
                     // 상세 보기 내용 설정
                     var detailViewLeft = document.getElementById('detail-view-left');
                     var detailViewRight = document.getElementById('detail-view-right');
-                    detailViewLeft.innerHTML = '<h2>' + result.title + '</h2><img src="' + result.imgSrc + '" alt="' + result.title + '">';
+                    detailViewLeft.innerHTML = '<h3>' + result.title + '</h3><img src="' + result.imgSrc + '" alt="' + result.title + '">';
                     // AJAX 요청을 통해 상세 정보 가져오기
                     $.ajax({
                         url: '/getRestaurantDetails',
