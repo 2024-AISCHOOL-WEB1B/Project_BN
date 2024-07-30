@@ -20,13 +20,13 @@
             <a href="/" class="nav-item">HOME</a>
             <a href="mypage" class="nav-item">MY</a>
             {% if nick %}
-                <a href="/user/logout" class="nav-item">LOGOUT</a>
+            <a href="/user/logout" class="nav-item">LOGOUT</a>
             {% else %}
-                <a href="login" class="nav-item">LOGIN</a>
+            <a href="login" class="nav-item">LOGIN</a>
             {% endif %}
         </nav>
-        
-        
+
+
     </header>
 
     <!-- 메인 콘텐츠 -->
@@ -106,7 +106,7 @@
             mapOption = {
                 center: new kakao.maps.LatLng(35.1504688, 126.9251658), // 중심좌표
 
-                level: 4 // 확대 레벨
+                level: 3 // 확대 레벨
             };
 
         var map = new kakao.maps.Map(mapContainer, mapOption);
@@ -343,7 +343,7 @@
                 overlays[i].parentNode.style.display = 'none';
             }
         }
-        
+
         // 필터 화살표 클릭 시 오버레이 토글
         document.querySelector('.topArrow').addEventListener('click', function () {
             var mapApi = document.querySelector('.mapApi');
@@ -414,7 +414,16 @@
                         type: 'GET',
                         data: { rest_list_name: result.title },
                         success: function (data) {
-                            detailViewRight.innerHTML = '<p>음식 분류: ' + data.rest_food_name + '</p><p>가격: ' + data.rest_list_price + '</p>';
+                            // 상세 보기 오른쪽에 메뉴와 가격을 동적으로 생성
+                            var menuHtml = '<h4>메뉴 및 가격</h4>';
+                            if (Array.isArray(data) && data.length > 0) {
+                                data.forEach(function (menu) {
+                                    menuHtml += '<p>' + menu.rest_food_name + ': ' + menu.rest_list_price + '</p>';
+                                });
+                            } else {
+                                menuHtml += '<p>메뉴 정보가 없습니다.</p>';
+                            }
+                            detailViewRight.innerHTML = menuHtml;
                         },
                         error: function () {
                             detailViewRight.innerHTML = '<p>상세 정보를 가져오는 데 실패했습니다.</p>';
