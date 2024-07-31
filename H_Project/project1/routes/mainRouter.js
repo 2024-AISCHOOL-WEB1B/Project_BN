@@ -53,15 +53,18 @@ router.get("/updateRegister", (req,res)=>{
 })
 
 // 회원탈퇴 페이지 이동
-router.get("/cancelMember",(req,res)=>{
-    if(req.session.nick){
-        res.render("cancelMember", {
+router.get("/cancelMember", (req, res) => {
+    if (req.session.nick) {
+        res.render("cancelMember",{
             nick: req.session.nick,
+            email: req.session.email
         });
     } else {
-        res.render("cancelMember")
+        res.render("cancelMember");
     }
-})
+    console.log("회원탈퇴페이지 이동");
+});
+
 
 
 // 찜 목록 이동

@@ -50,7 +50,7 @@
             <!-- 회원 탈퇴 폼 시작 -->
             <div class="signup-container">
                 <!-- 일반 유저 폼 -->
-                <form id="general" class="signup-form" action="/user/delete" method="post" onsubmit="return confirmDelete();">
+                <form id="general" class="signup-form" action="/user/cancelMember" method="post" onsubmit="return confirmDelete();">
                     <div class="form-group">
                         <label for="name">아이디</label>
                         <input type="text" id="name" name="id" required>
@@ -106,7 +106,7 @@
             function confirmDelete() {
                 if (confirm("정말로 탈퇴하시겠습니까? 이 작업은 되돌릴 수 없습니다.")) {
                     // 수정된 부분: 'deleteAccount.html' 페이지로 이동
-                    window.location.href = "/deleteAccount.html";
+                    // window.location.href = "/deleteAccount.html";
                     return true;
                 } else {
                     return false;
