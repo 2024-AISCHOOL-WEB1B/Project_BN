@@ -20,8 +20,8 @@
             <nav class="nav" aria-label="Main Navigation">
                 <a href="/" class="nav-item" onclick="handleHomeButtonClick()">HOME</a>
                 <a href="mypage" class="nav-item" onclick="handleMyButtonClick()">MY</a>
-                {% if nick %}
-                    <a href="/user/logout" class="nav-item">LOGOUT</a>
+                {% if store_name %}
+                    <a href="/owner/logout" class="nav-item">LOGOUT</a>
                 {% else %}
                     <a href="login" class="nav-item">LOGIN</a>
                 {% endif %}
