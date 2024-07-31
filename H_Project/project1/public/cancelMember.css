@@ -92,7 +92,7 @@ body {
     padding-top: 140px;
     padding-left: 50px;
     padding-bottom: 50px;
-    /* z-index: 1001; */
+    z-index:100;
     border-radius: 100px;
 }
 
