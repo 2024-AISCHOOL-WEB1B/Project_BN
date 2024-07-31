@@ -28,8 +28,13 @@
             <div class="user-info" id="userInfo">
                 <img class="profileUser" src="/icon/userpink.png" alt="프로필 사진" id="profilePic">
                 <div class="user-details">
-                    <span id="userId">비회원 님</span>
+                    {% if store_name %}
+                    <span id="userId">{{store_name}}</span>
+                    <span id="userEmail">{{email}}</span>
+                    {% else %}
+                    <span id="userId">비회원</span>
                     <span id="userEmail"></span>
+                    {% endif %}
                 </div>
             </div>
 
@@ -60,38 +65,30 @@
         </main>
     </div>
     <script>
-        // 로그인 여부를 확인하여 user-info 표시 내용을 결정
-        function checkLoginStatus() {
-            var isLoggedIn = false; // 이 값은 실제 로그인 상태에 따라 변경되어야 합니다.
+        window.onload = function () {
+            checkLoginStatus();
+            loadData();
+        };
 
-            if (isLoggedIn) {
-                displayUserInfo("user@example.com", "닉네임");
+        function checkLoginStatus() {
+            var store_name = "{{ store_name }}";
+            var ownerEmail = "{{ email }}";
+
+            if (store_name && ownerEmail) {
+                displayUserInfo(ownerEmail, store_name);
             } else {
                 displayGuestInfo();
             }
         }
 
-        var userNickname = "{{nick}}";
-        var userEmail = "{{email}}";
-
-        // 페이지 로드 시 로그인한 유저 정보 표시
-        window.onload = function () {
-            displayUserInfo(userEmail, userNickname);
-            loadData(); // 데이터를 로드하는 함수 호출
-        };
-
-        // 로그인한 유저 정보 표시
-        function displayUserInfo(userId, userNickname) {
-            document.getElementById('userId').innerText = userNickname + "님";
-            document.getElementById('userEmail').innerText = userId;
-            document.getElementById('profilePic').src = "/icon/userpink.png"; // 프로필 사진 경로
+        function displayUserInfo(ownerEmail, store_name) {
+            document.getElementById('userId').innerText = store_name;
+            document.getElementById('userEmail').innerText = ownerEmail;
         }
 
-        // 비회원 정보 표시
         function displayGuestInfo() {
-            document.getElementById('userId').innerText = userNickname + "님";
-            document.getElementById('userEmail').innerText = userEmail;
-            document.getElementById('profilePic').src = "/icon/userpink.png"; // 비회원 기본 사진 경로
+            document.getElementById('userId').innerText = "비회원";
+            document.getElementById('userEmail').innerText = "";
         }
 
         // 페이지 로드 시 로그인 상태 확인
