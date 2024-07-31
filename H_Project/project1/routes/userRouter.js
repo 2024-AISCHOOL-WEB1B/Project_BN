@@ -40,7 +40,7 @@ router.post("/login", (req, res) => {
             res.redirect("/")
         } else {
             console.log("로그인 실패");
-            res.send("<script>alert('로그인 실패')</script>")
+            res.send("<script>alert('로그인 실패'); location.href='/login';</script>");
         }
     })
 })
