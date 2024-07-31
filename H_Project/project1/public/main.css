@@ -393,17 +393,14 @@ body {
 /* "뒤로" 버튼 스타일 */
 .search-results button,
 .detail-view button {
-    padding: 12px 24px;
     font-size: 15px;
     border: none;
     border-radius: 5px;
     background-color: #ff8c00;
     color: #fff;
     cursor: pointer;
-    position: absolute;
     bottom: 20px;
     left: 50%;
-    transform: translateX(-50%);
 }
 
 /* "뒤로" 버튼 호버 시 스타일 */
@@ -412,21 +409,7 @@ body {
     background-color: #ff6600;
 }
 
-/* 버튼 스타일 */
-.search-results button {
-    position: absolute; /* 부모 요소 기준 절대 위치 */
-    bottom: 20px; /* 하단에서 20px 위 */
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 12px 24px; /* 버튼 크기 확대 */
-    font-size: 15px; /* 텍스트 크기 확대 */
-    border: none;
-    border-radius: 5px;
-    background-color: #ff8c00; /* 버튼 배경색 */
-    color: #fff;
-    cursor: pointer; /* 마우스 커서 포인터 */
-    font-family: var(--font-cafe24-Ssurround-otf);
-}
+
 
 /* 버튼 호버 시 스타일 */
 .search-results button:hover {
@@ -462,8 +445,8 @@ body {
 }
 
 .search-result-item img {
-    width: 100%; /* 컨테이너에 맞춰서 이미지 크기 조정 */
-    height: 90%; /* 고정된 높이 설정 */
+    width: 90%; /* 컨테이너에 맞춰서 이미지 크기 조정 */
+    height: 80%; /* 고정된 높이 설정 */
     object-fit: cover; /* 이미지 비율 유지 및 컨테이너에 맞게 잘림 */
     border-radius: 10px;
 }

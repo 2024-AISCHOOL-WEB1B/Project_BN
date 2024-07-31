@@ -387,8 +387,20 @@
                 name.textContent = result.title;
                 resultItem.appendChild(name);
 
+                // 찜 버튼 생성 및 추가
+                var likeButton = document.createElement('button');
+                likeButton.classList.add('like-button');
+                likeButton.textContent = '찜하기';
+                resultItem.appendChild(likeButton);
+
                 // 아이템을 검색 결과 컨테이너에 추가
                 searchResultsContainer.appendChild(resultItem);
+
+                // 찜 버튼 클릭 이벤트 리스너 추가
+                likeButton.addEventListener('click', function (e) {
+                    e.stopPropagation(); // 클릭 이벤트가 부모로 전달되지 않도록 방지
+                    alert(result.title + '을(를) 찜했습니다!');
+                });
 
                 // 검색 결과 아이템 클릭 이벤트 수정
                 resultItem.addEventListener('click', function () {
