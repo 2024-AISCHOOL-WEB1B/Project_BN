@@ -17,7 +17,7 @@ router.post("/register", (req, res) => {
 
         if (rows) {
             console.log("회원가입 성공");
-            res.redirect("/")
+            res.render("succesRegister")
         } else {
             
            // 로그인 실패
