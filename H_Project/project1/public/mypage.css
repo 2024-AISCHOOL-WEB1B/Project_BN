@@ -339,6 +339,7 @@ p {
     z-index: 1001;
 }
 
+/* 가랜더가 가리는 문제 때문에 css 가장 아래에 */
 .nav-images {
     display: flex;
     justify-content: space-between;
@@ -350,7 +351,7 @@ p {
     padding: 0 var(--padding-m);
     padding-top: 100px;
     box-sizing: border-box;
-    z-index: 0;
+    z-index: 1;
 }
 
 .nav-image-left {

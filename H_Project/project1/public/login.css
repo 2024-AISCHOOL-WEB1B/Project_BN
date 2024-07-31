@@ -345,11 +345,17 @@ p {
     padding: 0 var(--padding-m);
     padding-top: 100px;
     box-sizing: border-box;
-
+    z-index: 1;
 }
 
-.nav-image-left, .nav-image-right {
+.nav-image-left {
     width: 280px;
     height: auto;
-    padding: 0 30px;
+    padding-left: 30px;
+}
+
+.nav-image-right {
+    width: 280px;
+    height: auto;
+    padding-right: 30px;
 }
