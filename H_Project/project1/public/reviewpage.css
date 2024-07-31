@@ -226,18 +226,19 @@ body {
     display: flex;
     justify-content: center; /* 가운데 정렬 */
     width: 100%; /* 부모 컨테이너가 전체 너비를 차지하게 함 */
-    padding-top: 30px; /* 리뷰 작성 공간과 버튼 사이 여백 */
+    padding-top: 20px; /* 리뷰 작성 공간과 버튼 사이 여백 */
 }
 
 .submit-button {
-    width: 170px; /* 버튼 너비 설정 */
+    width: 150px; /* 버튼 너비 설정 */
     height: 60px; /* 버튼 높이 설정 */
     padding: var(--padding-m); /* 버튼 안쪽 여백 */
     border: none;
-    border-radius: 20px; /* 버튼 모서리 둥글게 */
-    background-color: var(--color-darkorange); /* 버튼 배경색 */
+    border-radius: 30px; /* 버튼 모서리 둥글게 */
+    background-color: #FFC567; /* 버튼 배경색 */
     color: var(--color-white); /* 버튼 텍스트 색상 */
     font-size: var(--font-size-m); /* 버튼 텍스트 크기 */
+    font-family: var(--font-cafe24-Ssurround-otf);
     cursor: pointer;
     transition: background-color 0.3s ease; /* 배경색 변화 애니메이션 */
     text-align: center; /* 버튼 텍스트 중앙 정렬 */

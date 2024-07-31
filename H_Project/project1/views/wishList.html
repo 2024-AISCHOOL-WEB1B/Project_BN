@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width">
     <link rel="stylesheet" href="/wishList.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ONE+Mobile+OTF:wght@400;700&display=swap" />
     <title>찜 목록</title>
 </head>
 <body>
@@ -43,80 +41,60 @@
         </div>
         
         <main class="main">
-            <!-- 찜목록 h1, 냥발 아이콘 -->
+            <!-- 찜목록 헤더 -->
             <div class="wishlist-header">
                 <img class="wishlist-icon" src="/icon/nyang.png" alt="찜 아이콘">
                 <h1>찜 목록</h1>
             </div>
-
-            <div class="content">
-                <div class="wishlist">
-                    <!-- 가게1 -->
-                    <div class="store-item" onclick="showStoreDetails('store1')">
-                        <img src="/icon/foodtest.jpg" alt="가게 사진">
-                        <div>
-                            <h2>일식음식점</h2>
-                            <p>돈코츠라멘</p>
-                        </div>
-                        <div class="button-container">
-                            <button class="remove-button">
-                                <img src="/icon/removeX.png" alt="삭제">
-                            </button>
-                            <button class="heart-button" onclick="toggleFavorite(this)">
-                                <img src="/icon/favorite.png" alt="찜">
-                            </button>
-                        </div>
+        
+            <!-- 찜목록 리스트 -->
+            <div class="wishlist">
+                <div class="wishlist-item">
+                    <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240613_281%2F1718264221302C8Ixk_JPEG%2FIMG_6311.jpeg" alt="가게 1" class="store-image">
+                    <div class="store-info">
+                        <h2>연어쁘다</h2>
+                        <p>
+                            <img src="/icon/smile.png" alt="긍정 아이콘" class="icon"> 긍정8.50%
+                        </p>
+                        <p>
+                            <img src="/icon/angry.png" alt="긍정 아이콘" class="icon"> 부정91.50%
+                        </p>
                     </div>
-                    <!-- 가게2 -->
-                    <div class="store-item" onclick="showStoreDetails('store2')">
-                        <img src="/icon/foodtest.jpg" alt="가게 사진">
-                        <div>
-                            <h2>일식음식점</h2>
-                            <p>돈코츠라멘</p>
-                        </div>
-                        <div class="button-container">
-                            <button class="remove-button">
-                                <img src="/icon/removeX.png" alt="삭제">
-                            </button>
-                            <button class="heart-button" onclick="toggleFavorite(this)">
-                                <img src="/icon/favorite.png" alt="찜">
-                            </button>
-                        </div>
-                    </div>
-                    <!-- 가게3 -->
-                    <div class="store-item" onclick="showStoreDetails('store3')">
-                        <img src="/icon/foodtest.jpg" alt="가게 사진">
-                        <div>
-                            <h2>일식음식점</h2>
-                            <p>돈코츠라멘</p>
-                        </div>
-                        <div class="button-container">
-                            <button class="remove-button">
-                                <img src="/icon/removeX.png" alt="삭제">
-                            </button>
-                            <button class="heart-button" onclick="toggleFavorite(this)">
-                                <img src="/icon/favorite.png" alt="찜">
-                            </button>
-                        </div>
-                    </div>
-
+                    <!-- 삭제 버튼 이미지 추가 -->
+                    <img src="/icon/remove.png" alt="삭제 버튼" class="remove-item-btn">
                 </div>
-
-                <!-- 가게 상세 정보 섹션 -->
-                <div class="store-details" id="store-details">
-                    <img id="store-image" src="/icon/foodtest.png" alt="찜한가게">
-                    <h2 id="store-name"></h2>
-                    <p id="store-menu">등심카츠<br>13,900원</p> <!-- 스타일 문제가 있는 부분 -->
-                    <div id="review-section">
-                        <img id="smile-review" src="/icon/smile.png" alt="긍정적인 리뷰">
-                        <span id="smile-percentage"></span>
-                        <img id="angry-review" src="/icon/angry.png" alt="부정적인 리뷰">
-                        <span id="angry-percentage"></span>
+                <div class="wishlist-item">
+                    <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20231220_216%2F1703038115075JdNro_JPEG%2FP20231219_142554809_43B555CB-E54D-497C-9704-BB80BEA31EF7.jpg" alt="가게 2" class="store-image">
+                    <div class="store-info">
+                        <h2>목하식당</h2>
+                        <p>
+                            <img src="/icon/smile.png" alt="긍정 아이콘" class="icon"> 긍정10.17%
+                        </p>
+                        <p>
+                            <img src="/icon/angry.png" alt="긍정 아이콘" class="icon"> 부정89.83%
+                        </p>
                     </div>
+                    <!-- 삭제 버튼 이미지 추가 -->
+                    <img src="/icon/remove.png" alt="삭제 버튼" class="remove-item-btn">
+                </div>
+                <div class="wishlist-item">
+                    <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230522_298%2F16847231183684qLYR_JPEG%2FA813AA58-55AF-4D7D-833C-32E8E32B24EC.jpeg" alt="가게 3" class="store-image">
+                    <div class="store-info">
+                        <h2>이츠모</h2>
+                        <p>
+                            <img src="/icon/smile.png" alt="긍정 아이콘" class="icon"> 긍정23.28%
+                        </p>
+                        <p>
+                            <img src="/icon/angry.png" alt="긍정 아이콘" class="icon"> 부정76.72%
+                        </p>
+                    </div>
+                    <!-- 삭제 버튼 이미지 추가 -->
+                    <img src="/icon/remove.png" alt="삭제 버튼" class="remove-item-btn">
                 </div>
             </div>
         </main>
-    </div>
+        
+    </div> <!-- class container-->
 
     <footer class="footer">
         <p>@ 2024 Black Nuguri</p>
@@ -125,15 +103,17 @@
     <script>
         // 로그인 여부를 확인하여 user-info 표시 내용을 결정
         function checkLoginStatus() {
+            // 실제 로그인 구현에서는 서버에서 로그인 여부를 확인하는 API를 호출하거나,
+            // 로컬 스토리지/쿠키 등을 검사하여 로그인 상태를 확인합니다.
             var isLoggedIn = false; // 이 값은 실제 로그인 상태에 따라 변경되어야 합니다.
-    
+
             if (isLoggedIn) {
                 displayUserInfo("user@example.com", "닉네임");
             } else {
                 displayGuestInfo();
             }
         }
-        
+
         var userNickname = "{{nick}}";
         var userEmail = "{{email}}";
         
@@ -144,112 +124,20 @@
 
         // 로그인한 유저 정보 표시
         function displayUserInfo(userId, userNickname) {
-            document.getElementById('userId').innerText = userNickname + " 님";
-            document.getElementById('userEmail').innerText = userEmail;
+            document.getElementById('userId').innerText = userNickname + "님";
+            document.getElementById('userEmail').innerText = userId;
             document.getElementById('profilePic').src = "/icon/userpink.png"; // 프로필 사진 경로
         }
-    
+        
         // 비회원 정보 표시
         function displayGuestInfo() {
             document.getElementById('userId').innerText = userNickname + "님";
             document.getElementById('userEmail').innerText = userEmail;
             document.getElementById('profilePic').src = "/icon/userpink.png"; // 비회원 기본 사진 경로
         }
-    
+
         // 페이지 로드 시 로그인 상태 확인
         window.onload = checkLoginStatus;
-    
-        // 즐겨찾기 토글
-        function toggleFavorite(button) {
-            var img = button.querySelector('img');
-            var isFavorited = img.getAttribute('data-favorited') === 'true';
-    
-            if (isFavorited) {
-                img.src = '/icon/favorite.png'; // 비활성화된 찜 아이콘
-                img.setAttribute('data-favorited', 'false');
-            } else {
-                img.src = '/icon/favorite.png'; // 활성화된 찜 아이콘
-                img.setAttribute('data-favorited', 'true');
-            }
-        }
-    
-        // 각 가게의 정보를 저장하는 객체
-        var storeInfo = {
-            store1: {
-                imageSrc: "/icon/foodtest.jpg",
-                name: "동백카츠 동명점",
-                menu: "등심카츠\n13,900원",
-                smilePercentage: "80%",
-                angryPercentage: "20%"
-            },
-            store2: {
-                imageSrc: "/icon/sample_store2.png",
-                name: "일식집",
-                menu: "우동\n8,000원",
-                smilePercentage: "70%",
-                angryPercentage: "30%"
-            },
-            store3: {
-                imageSrc: "/icon/foodtest.png",
-                name: "스시야",
-                menu: "스시세트\n15,000원",
-                smilePercentage: "90%",
-                angryPercentage: "10%"
-            }
-        };
-    
-        // 기본 상태 설정: 기본 이미지 및 텍스트
-        var defaultImageSrc = "/icon/nugul1.png";
-        var defaultName = "가게를 선택해주세요";
-        var defaultMenu = "";
-    
-        // store-details 초기화 함수
-        function resetStoreDetails() {
-            document.getElementById('store-image').src = defaultImageSrc;
-            document.getElementById('store-name').innerText = defaultName;
-            document.getElementById('store-menu').innerText = defaultMenu;
-            document.getElementById('smile-percentage').innerText = "";
-            document.getElementById('angry-percentage').innerText = "";
-            document.getElementById('review-section').style.display = 'none'; // 리뷰 섹션 숨기기
-        }
-    
-        // store-details 업데이트 함수
-        function updateStoreDetails(storeId) {
-            var store = storeInfo[storeId];
-            if (store) {
-                document.getElementById('store-image').src = store.imageSrc;
-                document.getElementById('store-name').innerText = store.name;
-                document.getElementById('store-menu').innerText = store.menu; // 메뉴 정보 업데이트
-                document.getElementById('smile-percentage').innerText = store.smilePercentage;
-                document.getElementById('angry-percentage').innerText = store.angryPercentage;
-                document.getElementById('review-section').style.display = 'flex'; // 리뷰 섹션 보이기
-            }
-        }
-    
-        // heart-button 클릭 시 store-details 업데이트
-        var heartButtons = document.querySelectorAll('.heart-button');
-        heartButtons.forEach(function (button, index) {
-            button.addEventListener('click', function (event) {
-                event.stopPropagation(); // 부모 요소의 클릭 이벤트 방지
-                var storeId = 'store' + (index + 1);
-                updateStoreDetails(storeId); // 해당 가게 정보 업데이트
-            });
-        });
-    
-        // store-item 클릭 시 store-details 초기화
-        function showStoreDetails(storeId) {
-            var store = storeInfo[storeId];
-            if (store) {
-                updateStoreDetails(storeId); // 선택된 가게 정보 업데이트
-            } else {
-                resetStoreDetails(); // 초기화된 상태로 설정
-            }
-        }
-    
-        // 페이지 로드 시 기본 이미지와 텍스트 설정
-        resetStoreDetails(); // 초기 상태 설정
     </script>
-    
-    
 </body>
 </html>

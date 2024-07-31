@@ -287,6 +287,7 @@ body {
     
 }
 
+
 .action-button {
     padding: var(--padding-xs) var(--padding-l);
     width: 250px;
@@ -298,18 +299,33 @@ body {
     cursor: pointer;
     align-items: center;
     gap: var(--gap-xs);
+    transition: background-color 0.3s ease, color 0.3s ease; /* 애니메이션 추가 */
 }
 
 .action-button-outline {
     background-color: var(--color-white);
     color: #ff8c00;
-    border: 1.5px solid #ff8c00;
+    border: 1.5px solid #FFC567;
 }
 
 .action-button-black {
-    background-color: #ff8c00;
+    background-color:#ff8c00;
     color: var(--color-white);
 }
+
+/* hover 시 색상 변경 */
+.action-button-outline:hover {
+    background-color:#FFC567; /* 배경색 변경 */
+    color: var(--color-white); /* 텍스트 색상 변경 */
+}
+
+.action-button-black:hover {
+    background-color:#FFC567; /* 배경색 변경 */
+    color:#ffffff; /* 텍스트 색상 유지 */
+    border: 1.5px solid #FFC567;
+}
+
+
 
 .background-container {
     position: relative;
@@ -339,6 +355,7 @@ p {
     z-index: 1001;
 }
 
+/* 가랜더가 가리는 문제 때문에 css 가장 아래에 */
 .nav-images {
     display: flex;
     justify-content: space-between;
@@ -350,7 +367,7 @@ p {
     padding: 0 var(--padding-m);
     padding-top: 100px;
     box-sizing: border-box;
-    z-index: 0;
+    z-index: 1;
 }
 
 .nav-image-left {
