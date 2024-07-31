@@ -344,6 +344,16 @@
 
         // 검색 버튼 클릭 시 기존 화이트 박스를 숨기고 검색 결과 박스를 표시
         document.getElementById('search-btn').addEventListener('click', function () {
+            var selectedCategory = document.getElementById('food').value;
+            if (!selectedCategory) {
+                alert('음식 분류를 선택해주세요.');
+                return;
+            }
+
+            if (selectedCategory !== 'japanese') {
+                alert('차후 업데이트 예정입니다.');
+                return;
+            }
             // 화이트 오버레이 숨김
             document.getElementById('whiteBox').style.display = 'none';
             // 검색 결과 표시
