@@ -17,9 +17,13 @@
         
         <!-- 네비게이션 바 -->
         <nav class="nav" aria-label="Main Navigation">
-            <a href="#" class="nav-item" onclick="handleHomeButtonClick()">HOME</a>
-            <a href="#" class="nav-item" onclick="handleMyButtonClick()">MY</a>
-            <a href="#" class="nav-item" onclick="handleLoginButtonClick()">LOGIN</a>
+            <a href="/" class="nav-item" onclick="handleHomeButtonClick()">HOME</a>
+            <a href="mypage" class="nav-item" onclick="handleMyButtonClick()">MY</a>
+            {% if nick %}
+                <a href="/user/logout" class="nav-item">LOGOUT</a>
+            {% else %}
+                <a href="login" class="nav-item">LOGIN</a>
+            {% endif %}
             <a href="favorite" class="nav-item" onclick="handleFavoriteButtonClick()">FAVORITE</a>
         </nav>
         
@@ -40,7 +44,7 @@
         
         <main class="main">
             <div class="image-container">
-                <img src="/icon/nugul1.png" alt="프로필 사진" class="top-image">
+                <img src="/icon/nugul5.png" alt="프로필 사진" class="top-image">
                 <div class="text-box">
                     <h1>회원가입 성공 !</h1>
                     <p>블랙너구리가 된 것을 환영합니다 !</p>
