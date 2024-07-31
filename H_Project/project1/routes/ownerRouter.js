@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const conn = require("../config/db")
+const conn = require("../config/db");
 
 // 오너가 회원가입을 요청했을 때
 router.post("/register", (req,res)=>{
