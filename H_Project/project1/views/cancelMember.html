@@ -102,9 +102,15 @@
             // 페이지 로드 시 로그인 상태 확인
             window.onload = checkLoginStatus;
 
-            // 탈퇴 확인 대화상자 표시
+            // 탈퇴 확인 대화상자 표시 후 페이지 이동
             function confirmDelete() {
-                return confirm("정말로 탈퇴하시겠습니까? 이 작업은 되돌릴 수 없습니다.");
+                if (confirm("정말로 탈퇴하시겠습니까? 이 작업은 되돌릴 수 없습니다.")) {
+                    // 수정된 부분: 'deleteAccount.html' 페이지로 이동
+                    window.location.href = "/deleteAccount.html";
+                    return true;
+                } else {
+                    return false;
+                }
             }
         </script>
 
