@@ -19,7 +19,10 @@ router.post("/register", (req, res) => {
             console.log("회원가입 성공");
             res.redirect("/")
         } else {
-            res.send("<script>alert('회원가입 실패')</script>")
+            
+           // 로그인 실패
+           console.log('로그인 실패: 사용자 정보 불일치');
+           res.send("<script>alert('로그인 실패'); location.href='/login';</script>");
         }
     })
 })
