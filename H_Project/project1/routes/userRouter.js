@@ -78,7 +78,8 @@ router.post("/cancelMember", (req, res) => {
         console.log("DB삭제 확인", rows);
         if (rows.affectedRows > 0) {
             console.log("정보 삭제 성공!");
-            res.redirect("/");
+            req.session.destroy();
+            res.render("deleteAccount");
         } else {
             console.log("변경 없음!");
             res.send("<script>alert('회원정보가 없습니다.'); location.href='/cancelMember';</script>");
