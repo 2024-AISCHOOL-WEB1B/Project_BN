@@ -62,23 +62,30 @@ router.post("/updateRegister", (req, res) => {
     })
 })
 
-// 4. 회원정보 삭제
-router.post("/cancelMember",(req,res)=>{
-    console.log(req.body);
-    let {id,pw,nick,email} = req.body;
 
-    let sql = "delete from member_tbl where id=? and pw=? and nick=? and email=?";
-    conn.query(sql,[id,pw,nick,email],(err,rows) =>{
+// 4. 회원정보 삭제
+router.post("/cancelMember", (req, res) => {
+    console.log(req.body);
+    let { id, pw, nick, email } = req.body;
+    let sql = "DELETE FROM member_tbl WHERE id=? AND pw=? AND nick=? AND email=?";
+    
+    conn.query(sql, [id, pw, nick, email], (err, rows) => {
+        if (err) {
+            console.error('DB 삭제 에러:', err);
+            res.status(500).send('서버 에러');
+            return;
+        }
         console.log("DB삭제 확인", rows);
         if (rows.affectedRows > 0) {
             console.log("정보 삭제 성공!");
             res.redirect("/");
-
-        }else{
+        } else {
             console.log("변경 없음!");
+            res.send("<script>alert('회원정보가 없습니다.'); location.href='/cancelMember';</script>");
         }
-    })
-})
+    });
+});
+
 
 // 5. 로그아웃
 router.get("/logout", (req, res) => {
