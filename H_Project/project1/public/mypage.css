@@ -190,6 +190,7 @@ body {
     box-sizing: border-box;
     width: 50%;
     padding-top: 200px;
+    
 }
 
 .image-container img {
@@ -197,7 +198,7 @@ body {
     height: auto;
     max-width: 100%;
     height: auto;
-} /* 유저정보창 위에 이미지 css */
+} 
 
 .profile-card {
     overflow: hidden;
@@ -214,6 +215,7 @@ body {
     gap: var(--gap-l);
     z-index: 1;
     position: relative;
+    z-index: 1001;
 }
 
 .profile-section {
@@ -221,6 +223,7 @@ body {
     width: 100%;
     align-items: center;
     gap: var(--gap-m);
+    z-index: 1001;
 }
 
 .profile-pic {
@@ -281,6 +284,7 @@ body {
     justify-content:center;
     gap: 50px;
     width:100%;
+    
 }
 
 .action-button {
