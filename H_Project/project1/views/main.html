@@ -16,18 +16,18 @@
         <img class="logo" src="icon/BNlogo.png" alt="Logo">
         <img class="header-image" alt="상단 배너" src="/icon/topgarender.png">
 
-        <nav class="nav">
-            <a href="/" class="nav-item">HOME</a>
-            <a href="mypage" class="nav-item">MY</a>
-            {% if nick %}
-            <a href="/user/logout" class="nav-item">LOGOUT</a>
-            {% else %}
-            <a href="login" class="nav-item">LOGIN</a>
-            {% endif %}
-        </nav>
-
-
     </header>
+
+    <nav class="nav">
+        <a href="/" class="nav-item">HOME</a>
+        <a href="mypage" class="nav-item">MY</a>
+        {% if nick %}
+        <a href="/user/logout" class="nav-item">LOGOUT</a>
+        {% else %}
+        <a href="login" class="nav-item">LOGIN</a>
+        {% endif %}
+    </nav>
+
 
     <!-- 메인 콘텐츠 -->
     <main class="mapApi">
