@@ -23,10 +23,10 @@ router.post("/send", async (req, res) => {
         // Flask 서버에 리뷰 내용 보내는 부분
         const response = await axios.post('http://127.0.0.1:5000/analysis', { reviewText: reviewText });
     
-        const score = response.data.pos_score;
-        const result = response.data.neg_score;
-        console.log("긍정:", pos_score);
-        console.log("부정 결과:", neg_score);
+        const pos_score = response.data.pos_score;
+        const neg_score = response.data.neg_score;
+        console.log("긍정 :", pos_score,"%");
+        console.log("부정 :", neg_score,"%");
 
         // 데이터베이스에 저장
         // const sql = "INSERT INTO reviews (storeName, reviewText, sentimentScore) VALUES (?, ?, ?)";

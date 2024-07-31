@@ -14,13 +14,17 @@
     <div class="container">
         <header class="header">
             <img class="logo" alt="로고" src="/icon/BNlogo.png">
-            <img class="header-image" alt="상단 배너" src="icon/topgarender.png">
+            <img class="header-image" alt="상단 배너" src="/icon/topgarender.png">
 
             <!-- 네비게이션 바 -->
             <nav class="nav" aria-label="Main Navigation">
                 <a href="/" class="nav-item" onclick="handleHomeButtonClick()">HOME</a>
                 <a href="mypage" class="nav-item" onclick="handleMyButtonClick()">MY</a>
-                <a href="login" class="nav-item" onclick="handleLoginButtonClick()">LOGIN</a>
+                {% if nick %}
+                    <a href="/user/logout" class="nav-item">LOGOUT</a>
+                {% else %}
+                    <a href="login" class="nav-item">LOGIN</a>
+                {% endif %}
                 <a href="wishList" class="nav-item" onclick="handleFavoriteButtonClick()">FAVORITE</a>
             </nav>
 
@@ -65,6 +69,23 @@
         </main>
     </div>
     <script>
+        // 로그인 여부를 확인하여 user-info 표시 내용을 결정
+        function checkLoginStatus() {
+            // 실제 로그인 구현에서는 서버에서 로그인 여부를 확인하는 API를 호출하거나,
+            // 로컬 스토리지/쿠키 등을 검사하여 로그인 상태를 확인합니다.
+            var isLoggedIn = false; // 이 값은 실제 로그인 상태에 따라 변경되어야 합니다.
+
+            if (isLoggedIn) {
+                displayUserInfo("user@example.com", "닉네임");
+            } else {
+                displayGuestInfo();
+            }
+        }
+
+        var userNickname = "{{nick}}";
+        var userEmail = "{{email}}";
+
+        //
         window.onload = function () {
             checkLoginStatus();
             loadData();
