@@ -47,7 +47,7 @@
                     <img class="profile-pic" src="/icon/usergray.png" alt="Profile">
                     <div class="profile-info">
                         <b class="profile-name">{{nick}}</b>
-                        <b class="profile-email">sokra1234@gmail.com</b>
+                        
                     </div>
                 </div>
                 <form class="profile-form">
@@ -108,14 +108,9 @@
             alert("정보가 수정되었습니다.");
         }
 
-        // 회원탈퇴 버튼 클릭 시 호출되는 함수 수정
+        // 회원탈퇴 버튼 클릭 시 cancelMember.html 페이지로 이동
         function confirmDelete() {
-            if (confirm("정말 회원탈퇴 하시겠습니까?")) {
-                alert("회원탈퇴가 완료되었습니다.");
-                window.location.href = "/deleteAccount"; // 회원탈퇴 후 이동할 페이지로 리다이렉트
-            } else {
-                alert("회원탈퇴가 취소되었습니다.");
-            }
+            window.location.href = "/cancelMember.html"; // ㄱ 회원탈퇴 페이지로 이동
         }
     </script>
     <footer class="footer">

@@ -35,7 +35,10 @@ router.post("/login", (req,res)=>{
             console.log("점주 로그인 성공");
             req.session.store_name = rows[0].store_name;
             req.session.email = rows[0].email;
-            res.render("ownerpage")
+            res.render("ownerpage", {
+                store_name: req.session.store_name,
+                email: req.session.email
+            })
         } else {
             console.log("점주 로그인 실패")
             res.send("<script>alert('로그인 실패')</script>")

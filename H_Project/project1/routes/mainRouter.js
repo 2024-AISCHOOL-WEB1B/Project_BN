@@ -52,9 +52,15 @@ router.get("/updateRegister", (req,res)=>{
     console.log("정보수정페이지 이동")
 })
 
-// 사용자가 회원탈퇴를 요청했을 때
+// 회원탈퇴 페이지 이동
 router.get("/cancelMember",(req,res)=>{
-    res.render("cancelMember")
+    if(req.session.nick){
+        res.render("cancelMember", {
+            nick: req.session.nick,
+        });
+    } else {
+        res.render("cancelMember")
+    }
 })
 
 
