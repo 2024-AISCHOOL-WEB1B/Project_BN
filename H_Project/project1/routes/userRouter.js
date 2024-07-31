@@ -63,7 +63,7 @@ router.post("/updateRegister", (req, res) => {
 })
 
 // 4. 회원정보 삭제
-router.post("/deleteAccount",(req,res)=>{
+router.post("/cancelMember",(req,res)=>{
     console.log(req.body);
     let {id,pw,nick,email} = req.body;
 
