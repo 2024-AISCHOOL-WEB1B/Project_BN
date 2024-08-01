@@ -23,8 +23,10 @@
     --font-size-m: 18px;
     --font-size-l: 24px;
     --font-size-xl: 32px;
-    --font-family: 'Cafe24Ssurround', sans-serif; /* 수정: 웹 폰트로 변경 */
-    --font-cafe24-Ssurround-otf: 'Cafe24Ssurround', sans-serif; /* 수정: 변수명 변경 */
+    --font-family: 'Cafe24Ssurround', sans-serif;
+    /* 수정: 웹 폰트로 변경 */
+    --font-cafe24-Ssurround-otf: 'Cafe24Ssurround', sans-serif;
+    /* 수정: 변수명 변경 */
     --font-inter: 'Inter', sans-serif;
 }
 
@@ -36,14 +38,16 @@
     font-style: normal;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
 }
 
 body {
-    font-family: var(--font-family); /* 수정: 웹 폰트로 변경 */
+    font-family: var(--font-family);
+    /* 수정: 웹 폰트로 변경 */
     background-color: var(--color-white);
     display: flex;
     flex-direction: column;
@@ -56,17 +60,22 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: var(--padding-xl); /* 상단에 여백 추가 */
+    padding-top: var(--padding-xl);
+    /* 상단에 여백 추가 */
     box-sizing: border-box;
-    min-height: 100vh; /* 전체 화면 높이를 채우도록 설정 */
+    min-height: 100vh;
+    /* 전체 화면 높이를 채우도록 설정 */
 }
 
 .header {
     width: 100%;
     height: 100px;
-    background-size: cover; /* 배경 이미지가 헤더를 덮도록 설정 */
-    background-position: center; /* 이미지의 위치를 중앙으로 설정 */
-    position: relative; /* 자식 요소의 위치를 기준으로 설정 */
+    background-size: cover;
+    /* 배경 이미지가 헤더를 덮도록 설정 */
+    background-position: center;
+    /* 이미지의 위치를 중앙으로 설정 */
+    position: relative;
+    /* 자식 요소의 위치를 기준으로 설정 */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,17 +84,22 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; /* 헤더가 다른 요소들 위에 있도록 설정 */
+    z-index: 1000;
+    /* 헤더가 다른 요소들 위에 있도록 설정 */
 }
 
 .logo {
-    position: absolute; /* 절대 위치로 설정하여 상단가랜더 이미지 위에 위치하도록 설정 */
-    top: 10px; /* 화면 위에서부터 10px 아래에 위치 */
-    left: 25px; /* 화면 왼쪽에서부터 10px 오른쪽에 위치 */
+    position: absolute;
+    /* 절대 위치로 설정하여 상단가랜더 이미지 위에 위치하도록 설정 */
+    top: 10px;
+    /* 화면 위에서부터 10px 아래에 위치 */
+    left: 25px;
+    /* 화면 왼쪽에서부터 10px 오른쪽에 위치 */
     padding: 5px;
     height: 55px;
     object-fit: cover;
-    z-index: 1001; /* 다른 요소보다 위에 표시되도록 설정 */
+    z-index: 1001;
+    /* 다른 요소보다 위에 표시되도록 설정 */
 }
 
 .nav {
@@ -110,13 +124,16 @@ body {
 }
 
 .nav-item {
-    justify-content:left; /* 텍스트 가로 중앙 정렬 */
-    align-items: center; /* 동그란 버튼 내에서 세로 중앙 정렬 */
+    justify-content: left;
+    /* 텍스트 가로 중앙 정렬 */
+    align-items: center;
+    /* 동그란 버튼 내에서 세로 중앙 정렬 */
     display: flex;
     width: auto;
     height: 45px;
     color: #ffffff;
-    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
+    font-family: var(--font-cafe24-Ssurround-otf);
+    /* 수정: 변수명 변경 */
     font-size: 28px;
     -webkit-text-stroke: 2px #696969;
     text-decoration: none;
@@ -126,39 +143,18 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 100px;
     padding: 10px 10px;
-    margin-bottom: 20px; /*버튼 사이 간격 조절*/
-    text-align: center; /* 텍스트 가운데 정렬 */
+    margin-bottom: 20px;
+    /*버튼 사이 간격 조절*/
+    text-align: center;
+    /* 텍스트 가운데 정렬 */
 }
 
 .nav-item:last-child {
-    margin-bottom: 0; /* 마지막 아이템은 간격 제거 */
+    margin-bottom: 0;
+    /* 마지막 아이템은 간격 제거 */
 }
 
-.nav-images {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    position: absolute;
-    top: 390px; /* 네비게이션 바 아래로 이미지 배치, 가랜더 위치조절 */
-    left: 0;
-    right: 0;
-    padding: 0 var(--padding-m);
-    padding-top: 100px;
-    box-sizing: border-box;
-    z-index: 1000;
-}
 
-.nav-image-left {
-    width: 280px;
-    height: auto;
-    padding-left: 30px;
-}
-
-.nav-image-right {
-    width: 280px;
-    height: auto;
-    padding-right: 30px;
-}
 
 .nav-item:hover {
     background-color: #FFC567;
@@ -167,8 +163,10 @@ body {
 
 .user-info {
     position: fixed;
-    top: 150px; /* 위에서 약간 떨어지도록 조정 */
-    right: 60px; /* 오른쪽에서 약간 떨어지도록 조정 */
+    top: 150px;
+    /* 위에서 약간 떨어지도록 조정 */
+    right: 60px;
+    /* 오른쪽에서 약간 떨어지도록 조정 */
     width: 250px;
     height: 70px;
     display: flex;
@@ -191,7 +189,8 @@ body {
 }
 
 .main {
-    flex: 1; /* 남은 공간을 채우도록 설정 */
+    flex: 1;
+    /* 남은 공간을 채우도록 설정 */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -199,7 +198,8 @@ body {
     border-radius: var(--br-xl);
     box-sizing: border-box;
     width: 50%;
-    padding-top:150px;
+    padding-top: 150px;
+    max-width: 1200px;
 }
 
 .profile-pic {
@@ -233,16 +233,8 @@ p {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;
-    font-family: var(--font-cafe24-Ssurround-otf); /* 수정: 변수명 변경 */
-}
-
-.footer {
-    text-align: center;
-    background-color: #FFC567;
-    color: white;
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: auto; /* 남은 공간을 밀어 올리도록 설정 */
+    font-family: var(--font-cafe24-Ssurround-otf);
+    /* 수정: 변수명 변경 */
 }
 
 .box {
@@ -263,4 +255,70 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     word-wrap: break-word;
     width: 70%;
+}
+
+/* 사용자 리뷰 섹션 스타일 */
+.user-reviews {
+    width: 70%;
+    text-align: center;    
+}
+
+#reviewsList {
+    max-height: 300px;
+    /* 리뷰 리스트의 최대 높이 설정 */
+    overflow-y: auto;
+    /* 세로 스크롤 허용 */
+    padding-right: 10px;
+    /* 스크롤바 공간을 위해 약간의 오른쪽 패딩 추가 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 자식 요소들(섹션들)을 가운데 정렬 */
+}
+
+/* 단어 중요도 및 빈도수 섹션 스타일 */
+.word-analysis {
+    width: 70%;
+}
+
+/* 반응형을 위한 추가 스타일 */
+@media (max-width: 768px) {
+    .main {
+        padding: 10px;
+    }
+
+    #reviewsList {
+        max-height: 200px;
+        /* 작은 화면에서는 리스트의 높이를 줄임 */
+    }
+}
+
+/* 사용자 리뷰 섹션 스타일 */
+#review box {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.word-analysis {
+    text-align: center; /* h2 및 다른 컨텐츠를 가운데 정렬 */
+}
+
+#wordFrequency {
+    white-space: pre; /* 공백과 줄바꿈을 유지 */
+    text-align: center; /* 텍스트를 가운데 정렬 */
+    font-family: var(--font-cafe24-Ssurround-otf); /* 지정된 폰트 적용 */
+    font-size: 16px; /* 텍스트 크기 조정 */
+    line-height: 1.5; /* 줄 간격 설정 */
+    display: inline-block; /* 텍스트를 정확히 가운데에 오도록 함 */
+    padding-right: 100px;
+}
+
+.sentiment-analysis {
+    text-align: center; /* h2 및 p 요소를 가운데 정렬 */
+    font-family: var(--font-cafe24-Ssurround-otf); /* 폰트 적용 (원하는 폰트로 설정) */
+    font-size: 18px; /* 폰트 크기 조정 (필요에 따라 수정) */
+    line-height: 1.4; /* 줄 간격 설정 */
+    margin: 0 auto; /* 섹션을 페이지 중앙에 위치 */
 }

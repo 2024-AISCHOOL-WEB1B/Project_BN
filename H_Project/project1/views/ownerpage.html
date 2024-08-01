@@ -53,18 +53,46 @@
             <!-- 데이터가 들어갈 3개의 공간 -->
             <section class="sentiment-analysis box">
                 <h2>전체 감정 분석 결과</h2>
-                <p id="positivePercentage">긍정 %: 여기에 긍정 비율이 표시됩니다.</p>
-                <p id="negativePercentage">부정 %: 여기에 부정 비율이 표시됩니다.</p>
+                <p id="positivePercentage">긍정 : 83.5 %</p>
+                <p id="negativePercentage">부정 : 16.5 %</p>
             </section>
             <section class="user-reviews">
                 <h2>사용자 리뷰</h2>
                 <div id="reviewsList">
                     <!-- 사용자 리뷰와 감정 분석 결과를 동적으로 삽입할 부분 -->
+                     <section class="review box">
+                        <p>10분 대기후 입장했어요 너무너무 기대되는 맛집!!입니다~~ 친절하시구 좋아요!!</p>
+                        <p>긍정 99.97 / 부정 0.03</p>
+                     </section>
+                     <section class="review box">
+                        <p>와 연어볼 너무 맛있어요...진짜 환상 ㅎㅎ 어쩜 이렇게 맛있게 잘 만드시나요 쉐프님 !! 너무너무 잘먹었습니다</p>
+                        <p>긍정 99.92 / 부정 0.08</p>
+                     </section>
+                     <section class="review box">
+                        <p>연어초밥의 밥이 너무 질었어요. ㅠㅠㅠㅠㅠ</p>
+                        <p>긍정 50.61 / 부정 49.39</p>
+                     </section>
                 </div>
             </section>
             <section class="word-analysis box">
                 <h2>단어 중요도 및 빈도수</h2>
-                <div id="wordFrequency">여기에 단어 중요도와 빈도수가 표시됩니다.</div>
+                <pre id="wordFrequency">
+                    광주       0.264722
+                    머리       0.188395
+                    깔끔해요     0.188395
+                    검색       0.188395
+                    해지       0.188395
+                    흡족       0.188395
+                    찾아갔는데    0.188395
+                    싫어서      0.188395
+                    뻔한       0.188395
+                    감사했어요    0.188395
+                    미쳤습니다    0.188395
+                    코스       0.176257
+                    먹은게      0.176257
+                    있으면      0.176257
+                    왔습니다     0.167645
+                </pre>
             </section>
         </main>
     </div>
@@ -151,9 +179,6 @@
             }
         }
     </script>
-    <footer class="footer">
-        <p>@ 2024 Black Nuguri</p>
-    </footer>
 </body>
 
 </html>
