@@ -62,21 +62,19 @@ body {
 
 .header {
     width: 100%;
-    height: 100px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
+    height: 80px; /* 헤더 높이를 80px로 설정 */
+    background-color: #ff8c00; /* 원하는 배경색으로 설정 */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* 내부 요소를 수직 가운데 정렬 */
+    justify-content: space-between; /* 좌우 끝 요소를 공간을 두고 배치 */
     padding: 0 var(--padding-s);
     box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000; /* 헤더가 다른 요소들 위에 있도록 설정 */
-    background-repeat: no-repeat;
 }
+
 
 .nav {
     display: flex;
@@ -91,6 +89,7 @@ body {
 .nav-item {
     width: 120px;
     height: 45px;
+    margin-top: 8px;
     color: var(--color-white);
     text-decoration: none;
     font-weight: bold;
